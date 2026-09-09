@@ -129,4 +129,6 @@ Each entry: class → what it is → key children/modifiers. Live examples with 
 
 ## Theming
 
+Dark is the default. For light mode put `data-theme="light"` (or class `light`) on the `.ui` element; every token flips, no other changes needed. The example pages carry a sun/moon button (`data-theme-toggle`) that stores the choice in `localStorage.uiuiTheme`.
+
 Tokens are CSS variables on `.ui` (`--ui-bg`, `--ui-surface`, `--ui-accent`, …). shadcn-style aliases (`--background`, `--primary`, `--border`, …) are also exposed; `registry/uiui-theme.json` carries the same palette for shadcn projects.

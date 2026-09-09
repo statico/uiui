@@ -6,7 +6,7 @@
 <title>Clients · uiui example</title>
 <link rel="stylesheet" href="../../src/uiui.css">
 </head>
-<body class="ui">
+<body class="ui"><script>try{document.body.dataset.theme=localStorage.uiuiTheme||""}catch(e){}</script>
 <div class="ui-app">
   <header class="ui-topbar">
     <div class="ui-topbar-tab is-active"><span class="ui-dot"></span> Home Office <svg class="ui-icon sm"><use href="../vendor/lucide-sprite.svg#chevron-down"/></svg></div>
@@ -16,6 +16,7 @@
       <button class="ui-btn icon"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#search"/></svg></button>
       <button class="ui-btn icon"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#bell"/></svg></button>
       <button class="ui-btn icon"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#circle-help"/></svg></button>
+      <button class="ui-btn icon" data-theme-toggle title="Toggle light / dark"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#sun-moon"/></svg></button>
       <span class="ui-avatar round">JT</span>
     </div>
   </header>
@@ -139,5 +140,6 @@ document.getElementById('rows').innerHTML = rows.map(r => {
 }).join('');
 document.getElementById('count').textContent = `1-${rows.length} of ${rows.length}`;
 </script>
+<script>document.querySelectorAll("[data-theme-toggle]").forEach(b=>b.onclick=()=>{const t=document.body.dataset.theme==="light"?"":"light";document.body.dataset.theme=t;try{localStorage.uiuiTheme=t}catch(e){}});</script>
 </body>
 </html>

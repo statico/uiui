@@ -5,7 +5,10 @@
   "title": "uiui",
   "description": "Dense dark ops-console palette",
   "cssVars": {
-    "theme": { "font-sans": "Inter, system-ui, sans-serif", "radius": "4px" },
+    "theme": {
+      "font-sans": "Inter, system-ui, sans-serif",
+      "radius": "4px"
+    },
     "dark": {
       "background": "#131416",
       "foreground": "#dee0e3",
@@ -41,25 +44,30 @@
       "sidebar-ring": "#4797ff"
     },
     "light": {
-      "background": "#131416",
-      "foreground": "#dee0e3",
-      "card": "#1c1e21",
-      "card-foreground": "#dee0e3",
-      "popover": "#282b2f",
-      "popover-foreground": "#f9fafa",
-      "primary": "#4797ff",
-      "primary-foreground": "#f9fafa",
-      "secondary": "#282b2f",
-      "secondary-foreground": "#dee0e3",
-      "muted": "#25272a",
-      "muted-foreground": "#929497",
-      "accent": "#18212e",
-      "accent-foreground": "#4797ff",
-      "destructive": "#ee6368",
-      "destructive-foreground": "#f9fafa",
-      "border": "#232526",
-      "input": "#25272a",
-      "ring": "#4797ff"
+      "background": "#f4f5f7",
+      "foreground": "#212327",
+      "card": "#ffffff",
+      "card-foreground": "#212327",
+      "popover": "#ffffff",
+      "popover-foreground": "#0d0f12",
+      "primary": "#006fff",
+      "primary-foreground": "#ffffff",
+      "secondary": "#e9ebee",
+      "secondary-foreground": "#212327",
+      "muted": "#e9ebee",
+      "muted-foreground": "#6b7280",
+      "accent": "#e5efff",
+      "accent-foreground": "#006fff",
+      "destructive": "#dc3e45",
+      "destructive-foreground": "#ffffff",
+      "border": "#e3e5e9",
+      "input": "#cbd0d6",
+      "ring": "#006fff",
+      "chart-1": "#006fff",
+      "chart-2": "#2fa351",
+      "chart-3": "#c9a800",
+      "chart-4": "#d9810c",
+      "chart-5": "#8e56c2"
     }
   }
 }

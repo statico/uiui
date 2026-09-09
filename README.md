@@ -3,7 +3,7 @@
 A dense, dark, operations-console UI kit in plain HTML and one CSS file, inspired by the Unifi console.
 Like [smui.statico.io](https://smui.statico.io) or shadcn, but for network-console style interfaces: a style guide, a widget catalogue and full example pages that agents (and people) can copy from.
 
-- `src/uiui.css` — the whole library. Tokens, shell, widgets. No build step, no JS.
+- `src/uiui.css` — the whole library. Tokens, shell, widgets, dark and light themes. No build step, no JS.
 - `docs/index.html` — style guide with every widget and copyable HTML.
 - `docs/examples/` — dashboard, clients, settings, policies, radios pages.
 - `skill.md` — instructions for agents: widget list, recipes, composition rules.
@@ -13,7 +13,7 @@ Like [smui.statico.io](https://smui.statico.io) or shadcn, but for network-conso
 
 ```html
 <link rel="stylesheet" href="uiui.css">
-<body class="ui">
+<body class="ui">                 <!-- or class="ui light" / data-theme="light" -->
   <button class="ui-btn primary">Apply changes</button>
 </body>
 ```

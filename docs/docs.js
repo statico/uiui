@@ -18,3 +18,11 @@ document.querySelectorAll('.ui-slider input[type=range]').forEach(r => {
   const paint = () => r.style.setProperty('--ui-fill', ((r.value - r.min) / (r.max - r.min) * 100) + '%');
   r.addEventListener('input', paint); paint();
 });
+// theme toggle: persisted in localStorage, applied to <body class="ui">
+(() => {
+  const apply = t => { document.body.dataset.theme = t; document.querySelectorAll('[data-theme-set]').forEach(b => b.classList.toggle('is-active', b.dataset.themeSet === t)); try { localStorage.uiuiTheme = t; } catch (e) {} };
+  let t = ''; try { t = localStorage.uiuiTheme || ''; } catch (e) {}
+  apply(t);
+  document.querySelectorAll('[data-theme-set]').forEach(b => b.addEventListener('click', () => apply(b.dataset.themeSet)));
+  document.querySelectorAll('[data-theme-toggle]').forEach(b => b.addEventListener('click', () => apply(document.body.dataset.theme === 'light' ? '' : 'light')));
+})();
