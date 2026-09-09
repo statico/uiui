@@ -26,3 +26,49 @@ document.querySelectorAll('.ui-slider input[type=range]').forEach(r => {
   document.querySelectorAll('[data-theme-set]').forEach(b => b.addEventListener('click', () => apply(b.dataset.themeSet)));
   document.querySelectorAll('[data-theme-toggle]').forEach(b => b.addEventListener('click', () => apply(document.body.dataset.theme === 'light' ? '' : 'light')));
 })();
+// home demo: slowly scrolling charts + stats that tick once a second (docs only, not part of the library)
+(() => {
+  const $ = k => document.querySelector(`.dc-hero [data-live="${k}"]`);
+  if (!$('chart')) return;
+  const rnd = (a, b) => a + Math.random() * (b - a);
+  const walk = (v, lo, hi, step) => Math.min(hi, Math.max(lo, v + rnd(-step, step)));
+  // charts: fixed-step series that slide left; a new sample is appended every `period` ms
+  const series = (svg, sel, x0, step, w, base, floor) => {
+    const paths = sel.map(s => svg.querySelector(s));
+    const d = paths[0].getAttribute('d').match(/[\d.]+ [\d.]+/g).map(p => +p.split(' ')[1]); d.push(d[d.length - 1]);
+    return { paths, d, x0, step, w, base, floor, lo: Math.min(...d), hi: Math.max(...d) };
+  };
+  const draw = (s, t) => {
+    const pts = s.d.map((y, i) => `${(s.x0 + (i - t) * s.step).toFixed(1)} ${y}`);
+    const line = 'M ' + pts[0] + ' L ' + pts.slice(1).join(' ');
+    s.paths.forEach((p, i) => p.setAttribute('d', i === 0 && s.floor != null ? `${line} V ${s.floor} H ${s.x0 - s.step} Z` : line));
+  };
+  const chart = $('chart').querySelector('svg');
+  const S = [series(chart, ['.area.cyan', '.line.cyan'], 21, 25.25, 330, 128, 128), series(chart, ['.line.purple'], 21, 25.25, 330, 128, null),
+             series($('spark'), ['path.fill', 'path.stroke'], 0, 20, 300, 34, 34)];
+  // keep the clip: the path starts one step left of the axis and is masked by the card overflow
+  S.forEach(s => s.paths.forEach(p => p.style.clipPath = `inset(0 0 0 ${s.x0}px)`)); $('spark').style.overflow = 'hidden';
+  const period = 4000, reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let t0 = performance.now();
+  const frame = now => {
+    let t = (now - t0) / period;
+    if (t >= 1) { t0 = now; t = 0; S.forEach(s => { s.d.shift(); s.d.push(walk(s.d[s.d.length - 1], s.lo, s.hi, (s.hi - s.lo) / 3)); }); }
+    S.forEach(s => draw(s, reduce ? 0 : t));
+    if (!reduce) requestAnimationFrame(frame); else setTimeout(() => frame(performance.now()), period);
+  };
+  requestAnimationFrame(frame);
+  // stats: tick once a second
+  const st = { down: 940, up: 38, ms1: 11, ms2: 24, ms3: 19, wifi: 96, tx: 2402, rx: 1729, dl: 6.4, ul: 812, retry: 6, air: 18 };
+  const fmt = (k, v) => { $(k).textContent = v; };
+  setInterval(() => {
+    st.down = walk(st.down, 700, 990, 40); st.up = walk(st.up, 20, 48, 3);
+    st.ms1 = walk(st.ms1, 8, 16, 2); st.ms2 = walk(st.ms2, 18, 32, 3); st.ms3 = walk(st.ms3, 14, 26, 2);
+    st.wifi = walk(st.wifi, 93, 98, 1); st.tx = walk(st.tx, 1729, 2402, 200); st.rx = walk(st.rx, 1200, 2402, 200);
+    st.dl += rnd(0.001, 0.01); st.ul += rnd(0.05, 0.5); st.retry = walk(st.retry, 2, 12, 1); st.air = walk(st.air, 12, 30, 2);
+    fmt('down', Math.round(st.down) + ' Mbps'); fmt('up', Math.round(st.up) + ' Mbps');
+    ['ms1', 'ms2', 'ms3'].forEach(k => fmt(k, Math.round(st[k]))); fmt('wifi', Math.round(st.wifi) + '%');
+    fmt('txrx', `${Math.round(st.tx)} / ${Math.round(st.rx)} Mbps`); fmt('dlb', st.dl.toFixed(2) + ' GB'); fmt('ulb', Math.round(st.ul) + ' MB');
+    fmt('retry', Math.round(st.retry) + '%'); $('retrybar').style.width = Math.round(st.retry * 4) + '%';
+    fmt('air', Math.round(st.air) + '%'); $('airbar').style.width = Math.round(st.air) + '%';
+  }, 1000);
+})();
