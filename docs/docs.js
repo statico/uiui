@@ -33,10 +33,12 @@ document.querySelectorAll('.ui-slider input[type=range]').forEach(r => {
   const rnd = (a, b) => a + Math.random() * (b - a);
   const walk = (v, lo, hi, step) => Math.min(hi, Math.max(lo, v + rnd(-step, step)));
   // charts: fixed-step series that slide left; a new sample is appended every `period` ms
-  const series = (svg, sel, x0, step, w, base, floor) => {
+  const series = (svg, sel, x0, w, n, floor) => {
     const paths = sel.map(s => svg.querySelector(s));
-    const d = paths[0].getAttribute('d').match(/[\d.]+ [\d.]+/g).map(p => +p.split(' ')[1]); d.push(d[d.length - 1]);
-    return { paths, d, x0, step, w, base, floor, lo: Math.min(...d), hi: Math.max(...d) };
+    const src = paths[0].getAttribute('d').match(/[\d.]+ [\d.]+/g).map(p => +p.split(' ')[1]);
+    // resample the hand-drawn path to n points so the scroll is smooth instead of a 25px stutter
+    const d = Array.from({ length: n + 1 }, (_, i) => { const f = i / n * (src.length - 1), j = Math.min(src.length - 2, Math.floor(f)); return src[j] + (src[j + 1] - src[j]) * (f - j); });
+    return { paths, d, x0, step: (w - x0) / (n - 1), floor, lo: Math.min(...src), hi: Math.max(...src) };
   };
   const draw = (s, t) => {
     const pts = s.d.map((y, i) => `${(s.x0 + (i - t) * s.step).toFixed(1)} ${y}`);
@@ -44,15 +46,15 @@ document.querySelectorAll('.ui-slider input[type=range]').forEach(r => {
     s.paths.forEach((p, i) => p.setAttribute('d', i === 0 && s.floor != null ? `${line} V ${s.floor} H ${s.x0 - s.step} Z` : line));
   };
   const chart = $('chart').querySelector('svg');
-  const S = [series(chart, ['.area.cyan', '.line.cyan'], 21, 25.25, 330, 128, 128), series(chart, ['.line.purple'], 21, 25.25, 330, 128, null),
-             series($('spark'), ['path.fill', 'path.stroke'], 0, 20, 300, 34, 34)];
+  const S = [series(chart, ['.area.cyan', '.line.cyan'], 21, 330, 60, 128), series(chart, ['.line.purple'], 21, 330, 60, null),
+             series($('spark'), ['path.fill', 'path.stroke'], 0, 300, 45, 34)];
   // keep the clip: the path starts one step left of the axis and is masked by the card overflow
   S.forEach(s => s.paths.forEach(p => p.style.clipPath = `inset(0 0 0 ${s.x0}px)`)); $('spark').style.overflow = 'hidden';
-  const period = 4000, reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const period = 700, reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   let t0 = performance.now();
   const frame = now => {
     let t = (now - t0) / period;
-    if (t >= 1) { t0 = now; t = 0; S.forEach(s => { s.d.shift(); s.d.push(walk(s.d[s.d.length - 1], s.lo, s.hi, (s.hi - s.lo) / 3)); }); }
+    if (t >= 1) { t0 = now; t = 0; S.forEach(s => { s.d.shift(); s.d.push(walk(s.d[s.d.length - 1] + (s.lo + s.hi - 2 * s.d[s.d.length - 1]) * .04, s.lo, s.hi, (s.hi - s.lo) / 9)); }); }
     S.forEach(s => draw(s, reduce ? 0 : t));
     if (!reduce) requestAnimationFrame(frame); else setTimeout(() => frame(performance.now()), period);
   };
