@@ -1,0 +1,623 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>uiui — dark console design system</title>
+<link rel="stylesheet" href="../src/uiui.css">
+<link rel="stylesheet" href="docs.css">
+</head>
+<body class="ui">
+<div class="dc">
+<nav class="dc-nav">
+  <h1>uiui</h1>
+  <div class="tag">dark console design system · v0.1</div>
+  <a href="#start">Getting started</a>
+  <a href="#examples">Example pages</a>
+  <div class="grp">Foundations</div>
+  <a href="#color">Color</a>
+  <a href="#type">Typography</a>
+  <a href="#icons">Icons</a>
+  <a href="#shell">App shell</a>
+  <div class="grp">Controls</div>
+  <a href="#buttons">Buttons &amp; links</a>
+  <a href="#inputs">Inputs</a>
+  <a href="#choice">Checkbox · Radio · Switch</a>
+  <a href="#segmented">Segmented &amp; chips</a>
+  <a href="#slider">Sliders</a>
+  <a href="#form-rows">Form rows</a>
+  <div class="grp">Display</div>
+  <a href="#badges">Badges · Dots · Meters</a>
+  <a href="#table">Data table</a>
+  <a href="#filters">Filter sidebar</a>
+  <a href="#cards">Cards &amp; key-values</a>
+  <a href="#drawer">Detail drawer</a>
+  <a href="#tiles">Icon tiles</a>
+  <a href="#ports">Port grid</a>
+  <a href="#matrix">Zone matrix</a>
+  <a href="#charts">Charts &amp; bars</a>
+  <a href="#timeline">Timeline</a>
+  <a href="#diagram">Diagram nodes</a>
+  <div class="grp">Navigation &amp; feedback</div>
+  <a href="#settings-nav">Settings nav</a>
+  <a href="#options">Option cards</a>
+  <a href="#notices">Notices · Tooltips · Toast</a>
+  <a href="#modal">Modal</a>
+  <div class="grp">Guidance</div>
+  <a href="#principles">Principles</a>
+  <a href="#agents">For agents</a>
+</nav>
+<main class="dc-main">
+
+<h2 id="start">Getting started</h2>
+<p>uiui is a plain-CSS design system for dense, dark operations consoles: network dashboards, device managers, admin panels, anything with many rows and a handful of colored numbers. One stylesheet, no build step, every class prefixed <code>ui-</code>.</p>
+<div class="dc-ex"><div class="demo block"><pre class="ui-code">&lt;link rel="stylesheet" href="uiui.css"&gt;
+&lt;body class="ui"&gt; … &lt;/body&gt;
+
+&lt;!-- icons: lucide sprite, referenced by id --&gt;
+&lt;svg class="ui-icon"&gt;&lt;use href="lucide-sprite.svg#wifi"/&gt;&lt;/svg&gt;</pre></div></div>
+<p class="ui-muted ui-sm">Using shadcn/ui or Tailwind instead? <code>uiui.css</code> also defines the shadcn variables (<code>--background</code>, <code>--primary</code>, …) and there is a theme in <code>registry/uiui-theme.json</code>. See <a href="../skill.md">skill.md</a> for the agent-facing summary.</p>
+
+<h2 id="examples">Example pages</h2>
+<p>Full screens assembled from the widgets below. Open one, then copy the shell and swap in your own data.</p>
+<div class="dc-cards">
+  <a href="examples/dashboard.html"><b>Dashboard</b><span>Summary cards, throughput chart, latency pills, top-clients tiles, device strip.</span></a>
+  <a href="examples/clients.html"><b>Clients table</b><span>Filter sidebar, sortable dense table, selected row, detail drawer with tabs.</span></a>
+  <a href="examples/settings.html"><b>Settings</b><span>Settings nav with tree, content cards, label-left forms, option cards with focus panel.</span></a>
+  <a href="examples/policies.html"><b>Zone matrix &amp; policies</b><span>Allow / block matrix, policy table, diagram nodes, timeline rail.</span></a>
+  <a href="examples/radios.html"><b>Radio analysis</b><span>Signal buckets, gradient scale, channel plan, airtime bars, spectrum chart.</span></a>
+</div>
+
+<h2 id="color">Color</h2>
+<p>Four graphite surfaces, one blue, and a small set of semantic colors. Blue is for interaction: links, selection, primary buttons, the active tab. Green means healthy, and nearly everything else is text-2 grey.</p>
+<div class="dc-ex"><div class="demo block"><div class="dc-swatches">
+  <div class="dc-sw"><i style="background:var(--ui-bg)"></i><div><b>--ui-bg</b><span>#131416 page, sidebars</span></div></div>
+  <div class="dc-sw"><i style="background:var(--ui-surface)"></i><div><b>--ui-surface</b><span>#1c1e21 cards, selects</span></div></div>
+  <div class="dc-sw"><i style="background:var(--ui-input)"></i><div><b>--ui-input</b><span>#25272a text inputs</span></div></div>
+  <div class="dc-sw"><i style="background:var(--ui-raised)"></i><div><b>--ui-raised</b><span>#282b2f top bar, chips, hover</span></div></div>
+  <div class="dc-sw"><i style="background:var(--ui-border)"></i><div><b>--ui-border</b><span>#232526 hairlines</span></div></div>
+  <div class="dc-sw"><i style="background:var(--ui-border-2)"></i><div><b>--ui-border-2</b><span>#34383d outlines</span></div></div>
+  <div class="dc-sw"><i style="background:var(--ui-selected)"></i><div><b>--ui-selected</b><span>#18212e selected row</span></div></div>
+  <div class="dc-sw"><i style="background:var(--ui-accent)"></i><div><b>--ui-accent</b><span>#4797ff links, primary, active</span></div></div>
+  <div class="dc-sw"><i style="background:var(--ui-accent-dim)"></i><div><b>--ui-accent-dim</b><span>#386197 solid segmented tab</span></div></div>
+  <div class="dc-sw"><i style="background:var(--ui-accent-deep)"></i><div><b>--ui-accent-deep</b><span>#05254d active rail, timeline</span></div></div>
+  <div class="dc-sw"><i style="background:var(--ui-text)"></i><div><b>--ui-text</b><span>#dee0e3 body</span></div></div>
+  <div class="dc-sw"><i style="background:var(--ui-text-2)"></i><div><b>--ui-text-2</b><span>#929497 secondary, values</span></div></div>
+  <div class="dc-sw"><i style="background:var(--ui-text-3)"></i><div><b>--ui-text-3</b><span>#6b6e72 placeholders, offline</span></div></div>
+  <div class="dc-sw"><i style="background:var(--ui-green)"></i><div><b>--ui-green</b><span>#37be60 healthy, GbE</span></div></div>
+  <div class="dc-sw"><i style="background:var(--ui-lime)"></i><div><b>--ui-lime</b><span>#b0d322 100 Mbps</span></div></div>
+  <div class="dc-sw"><i style="background:var(--ui-yellow)"></i><div><b>--ui-yellow</b><span>#dfc116 warning, threshold</span></div></div>
+  <div class="dc-sw"><i style="background:var(--ui-orange)"></i><div><b>--ui-orange</b><span>#e79613 fair, busy</span></div></div>
+  <div class="dc-sw"><i style="background:var(--ui-red)"></i><div><b>--ui-red</b><span>#ee6368 error, destructive</span></div></div>
+  <div class="dc-sw"><i style="background:var(--ui-purple)"></i><div><b>--ui-purple</b><span>#b47cde upload</span></div></div>
+  <div class="dc-sw"><i style="background:var(--ui-cyan)"></i><div><b>--ui-cyan</b><span>#5aa9c9 chart line, 10 GbE</span></div></div>
+  <div class="dc-sw"><i style="background:var(--ui-gray)"></i><div><b>--ui-gray</b><span>#50565e disconnected port, switch off</span></div></div>
+  <div class="dc-sw"><i style="background:var(--ui-allow)"></i><div><b>--ui-allow</b><span>#42674f matrix allow</span></div></div>
+  <div class="dc-sw"><i style="background:var(--ui-block)"></i><div><b>--ui-block</b><span>#755b5e matrix block</span></div></div>
+  <div class="dc-sw"><i style="background:var(--ui-return)"></i><div><b>--ui-return</b><span>#2a4c5b matrix allow-return</span></div></div>
+</div></div></div>
+<h3>Text color utilities</h3>
+<div class="dc-ex"><div class="demo">
+  <span>default</span> <span class="ui-muted">.ui-muted</span> <span class="ui-dim">.ui-dim</span> <span class="ui-bright">.ui-bright</span> <span class="ui-accent">.ui-accent</span> <span class="ui-green">.ui-green</span> <span class="ui-lime">.ui-lime</span> <span class="ui-yellow">.ui-yellow</span> <span class="ui-orange">.ui-orange</span> <span class="ui-red">.ui-red</span> <span class="ui-purple">.ui-purple</span>
+  <span class="ui-down">18.4 Mbps</span> <span class="ui-up">2.1 Mbps</span>
+</div></div>
+
+<h2 id="type">Typography</h2>
+<p>Inter (or the system sans), 13px body, 12px secondary, 11px bold section titles. Tabular figures and slashed zeros are on by default so columns of numbers line up and 0 never reads as O.</p>
+<div class="dc-ex"><div class="demo block"><div class="dc-type">
+  <span>16px · 600 · page title</span><div style="font-size:16px;font-weight:600" class="ui-bright">Network overview</div>
+  <span>14px · 600 · card title</span><div style="font-size:14px;font-weight:600" class="ui-bright">Connection details</div>
+  <span>13px · 400 · body / table</span><div>Kitchen Display connected to Loft Access Point on channel 44 at 780 Mbps</div>
+  <span>12px · 400 · secondary</span><div class="ui-sm ui-muted">Last seen 2 minutes ago · 192.168.1.42</div>
+  <span>11px · 700 · section label</span><div class="ui-xs" style="font-weight:700">CONNECTION TYPE</div>
+  <span>11px · 400 · helper</span><div class="ui-xs ui-dim">Leave blank to assign automatically.</div>
+  <span>tabular + slashed zero</span><div class="ui-num" style="font-size:20px">0 10 100 1000 · 00:00 · 192.168.0.100</div>
+  <span>mono</span><div class="ui-mono">3A:F1:9C:0B:7E:21</div>
+</div></div></div>
+
+<h2 id="icons">Icons</h2>
+<p>Icons are <a href="https://lucide.dev">lucide</a> (ISC license), vendored as one SVG sprite. Use 16px at 1.75 stroke in text, 20px at 1.5 stroke in the icon rail. Icons take <code>currentColor</code>, so color them with the text utilities.</p>
+<div class="dc-ex"><div class="demo">
+  <svg class="ui-icon"><use href="vendor/lucide-sprite.svg#wifi"/></svg>
+  <svg class="ui-icon lg"><use href="vendor/lucide-sprite.svg#wifi"/></svg>
+  <svg class="ui-icon xl"><use href="vendor/lucide-sprite.svg#wifi"/></svg>
+  <svg class="ui-icon ui-accent"><use href="vendor/lucide-sprite.svg#shield-check"/></svg>
+  <svg class="ui-icon ui-green"><use href="vendor/lucide-sprite.svg#circle-check"/></svg>
+  <svg class="ui-icon ui-red"><use href="vendor/lucide-sprite.svg#triangle-alert"/></svg>
+</div></div>
+<h3>Vocabulary used by the console metaphors</h3>
+<div class="dc-ex"><div class="demo block"><div class="dc-icons" id="iconlist"></div></div></div>
+
+<h2 id="shell">App shell</h2>
+<p>The frame every screen sits in: a raised top bar with tabs, a 48px icon rail, an optional filter sidebar, the main area, and an optional right-hand detail drawer. Grid areas handle it; drop the sidebar or drawer element and the grid collapses.</p>
+<div class="dc-ex"><div class="demo block" style="padding:0"><div class="ui-app" style="height:360px">
+  <header class="ui-topbar">
+    <div class="ui-topbar-tab is-active"><span class="ui-dot"></span> Home Office <svg class="ui-icon sm"><use href="vendor/lucide-sprite.svg#chevron-down"/></svg></div>
+    <div class="ui-topbar-tab"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#globe"/></svg> Network</div>
+    <div class="ui-brand">console</div>
+    <div class="ui-topbar-actions">
+      <button class="ui-btn icon"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#search"/></svg></button>
+      <button class="ui-btn icon"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#bell"/></svg></button>
+      <button class="ui-btn icon"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#settings"/></svg></button>
+      <span class="ui-avatar round">JT</span>
+    </div>
+  </header>
+  <nav class="ui-rail">
+    <button class="ui-rail-btn is-active" title="Dashboard"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#layout-dashboard"/></svg></button>
+    <button class="ui-rail-btn" title="Devices"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#router"/></svg></button>
+    <button class="ui-rail-btn" title="Clients"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#users"/></svg></button>
+    <button class="ui-rail-btn" title="Insights"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#activity"/></svg></button>
+    <button class="ui-rail-btn" title="Security"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#shield"/></svg></button>
+    <span class="ui-spacer"></span>
+    <button class="ui-rail-btn" title="Settings"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#settings"/></svg></button>
+  </nav>
+  <aside class="ui-sidebar" style="width:200px">
+    <div class="ui-sidebar-body"><div class="ui-filter-title">FILTERS</div><div class="ui-filter-list"><label class="ui-check"><input type="checkbox" checked> Online <span class="ui-count">12</span></label><label class="ui-check"><input type="checkbox"> Offline <span class="ui-count">3</span></label></div></div>
+    <div class="ui-sidebar-foot"><button class="ui-btn link">Clear Filters</button></div>
+  </aside>
+  <main class="ui-main ui-page"><div class="ui-empty"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#layout-dashboard"/></svg>Main content</div></main>
+  <aside class="ui-drawer" style="width:220px">
+    <div class="ui-drawer-head">Kitchen Display<button class="ui-btn icon"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#x"/></svg></button></div>
+    <div class="ui-drawer-body"><div class="ui-card"><div class="ui-kv tight"><div><span>IP</span><span>192.168.1.42</span></div><div><span>Uptime</span><span>3d 4h</span></div></div></div></div>
+  </aside>
+</div></div></div>
+<div class="dc-do">
+  <div><b>Do</b><ul><li>Keep the top bar at 48px and the rail at 48px wide.</li><li>Center a muted product name in the top bar.</li><li>One active rail icon, filled with the deep-blue halo.</li></ul></div>
+  <div><b>Don't</b><ul><li>Put text labels in the rail; use tooltips.</li><li>Stack two sidebars. Filters live left, details live right.</li><li>Use a drawer wider than 360px.</li></ul></div>
+</div>
+
+<h2 id="buttons">Buttons &amp; links</h2>
+<p>Primary blue for the one action that matters, raised grey for everything else. Destructive actions are red text links, never red fills. Actions in cards are plain links separated by a hairline.</p>
+<div class="dc-ex"><div class="demo">
+  <button class="ui-btn primary">Apply Changes</button>
+  <button class="ui-btn">Cancel</button>
+  <button class="ui-btn outline"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#gauge"/></svg> Run Speed Test</button>
+  <button class="ui-btn ghost">Customize</button>
+  <button class="ui-btn danger">Remove</button>
+  <button class="ui-btn icon"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#refresh-cw"/></svg></button>
+  <button class="ui-btn primary" disabled>Saving…</button>
+  <button class="ui-btn sm">Small</button>
+  <button class="ui-btn primary sm"><svg class="ui-icon sm"><use href="vendor/lucide-sprite.svg#plus"/></svg> Add</button>
+</div></div>
+<h3>Link rows</h3>
+<div class="dc-ex"><div class="demo col">
+  <div class="ui-links"><a href="#">Create New</a><a href="#">Manage</a></div>
+  <div class="ui-links"><a href="#">Add Client</a><a href="#" class="ui-muted">Customize Columns</a></div>
+  <div class="ui-links"><a href="#" class="ui-red">Reconnect</a><a href="#" class="ui-red">Block</a><a href="#" class="ui-red">Remove</a></div>
+</div></div>
+
+<h2 id="inputs">Inputs</h2>
+<p>Inputs sit on a slightly lighter surface than the page, with no visible border until focus. Labels are 11px grey above the control. Search boxes use the raised surface and a leading icon.</p>
+<div class="dc-ex"><div class="demo narrow">
+  <div class="ui-field"><label class="ui-label">Name</label><input class="ui-input" value="Loft Access Point"></div>
+  <div class="ui-field"><label class="ui-label">Password <i class="ui-info"></i></label><div class="ui-input-wrap"><input class="ui-input" type="password" value="hunter22222"><span class="ui-addon"><button class="ui-btn icon"><svg class="ui-icon sm"><use href="vendor/lucide-sprite.svg#eye"/></svg></button></span></div></div>
+  <div class="ui-field"><label class="ui-label">Search</label><div class="ui-input-wrap ui-search"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#search"/></svg><input class="ui-input" placeholder="Search"></div></div>
+  <div class="ui-field"><label class="ui-label">Zone</label><select class="ui-select"><option>Internal</option><option>External</option><option>Guest</option></select></div>
+  <div class="ui-field"><label class="ui-label">Lease time</label><div class="ui-stepper"><input type="number" value="86400"><span class="ui-unit">sec</span><span class="ui-arrows"><button><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#chevron-up"/></svg></button><button><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#chevron-down"/></svg></button></span></div></div>
+  <div class="ui-field"><label class="ui-label">Notes</label><textarea class="ui-textarea" placeholder="Optional"></textarea><span class="ui-help">Shown only to administrators.</span></div>
+  <div class="ui-field"><label class="ui-label">Gateway</label><input class="ui-input" value="192.168.1.1" disabled><span class="ui-help error">Managed by the DHCP server.</span></div>
+</div></div>
+
+<h2 id="choice">Checkbox · Radio · Switch</h2>
+<p>Checkboxes fill blue with a white tick. A count in parentheses after the label is the filter-sidebar convention. Switches are a 32×18 pill: blue on, gray off.</p>
+<div class="dc-ex"><div class="demo col">
+  <div class="ui-check-group">
+    <label class="ui-check"><input type="checkbox" checked> Wireless <span class="ui-count">21</span></label>
+    <label class="ui-check"><input type="checkbox"> Wired <span class="ui-count">14</span></label>
+    <label class="ui-check"><input type="checkbox" id="ind"> Mixed</label>
+    <label class="ui-check"><input type="checkbox" disabled> Disabled</label>
+  </div>
+  <div class="ui-radio-group">
+    <label class="ui-radio"><input type="radio" name="r" checked> Any</label>
+    <label class="ui-radio"><input type="radio" name="r"> 2.4 GHz <span class="ui-count">8</span></label>
+    <label class="ui-radio"><input type="radio" name="r"> 5 GHz <span class="ui-count">13</span></label>
+    <label class="ui-radio"><input type="radio" name="r" disabled> 6 GHz</label>
+  </div>
+  <div class="ui-row" style="gap:24px">
+    <label class="ui-switch"><input type="checkbox" checked> Enabled</label>
+    <label class="ui-switch"><input type="checkbox"> Disabled</label>
+    <label class="ui-switch"><input type="checkbox" disabled> Locked</label>
+  </div>
+  <label class="ui-switch between" style="width:280px"><span class="ui-switch-label">SHOW OFFLINE</span><input type="checkbox" checked></label>
+</div></div>
+
+<h2 id="segmented">Segmented controls &amp; chip groups</h2>
+<p>Segmented controls choose one of a few modes and never wrap. The default flavor shows the active tab as a raised pill with blue text. The <code>solid</code> flavor fills it with dim blue, used for time ranges. Chip groups are multi-select toggles with an outlined active state.</p>
+<div class="dc-ex"><div class="demo">
+  <div class="ui-seg"><button class="is-active">Auto</button><button>Manual</button></div>
+  <div class="ui-seg solid"><button>1h</button><button class="is-active">1D</button><button>1W</button><button>1M</button></div>
+  <div class="ui-seg"><button class="is-active">2.4 GHz</button><button>5 GHz</button><button>6 GHz</button></div>
+  <div class="ui-seg bare sm"><button class="is-active">Rate</button><button>Signal</button><button>Airtime</button></div>
+  <div class="ui-seg"><button class="is-active"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#table"/></svg></button><button><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#layout-grid"/></svg></button><button><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#waypoints"/></svg></button></div>
+</div></div>
+<div class="dc-ex"><div class="demo">
+  <div class="ui-chips"><button>20</button><button class="is-active">40</button><button class="is-active">80</button><button>160</button><button disabled>320</button></div>
+  <div class="ui-chips"><button class="is-active">Auto</button><button>High</button><button>Medium</button><button>Low</button></div>
+</div></div>
+<h3>Sidebar sub-tabs (icon only until selected)</h3>
+<div class="dc-ex"><div class="demo narrow">
+  <div class="ui-subtabs"><button class="is-active"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#sliders-horizontal"/></svg><span>Filters</span></button><button><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#columns-3"/></svg><span>Columns</span></button><button><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#history"/></svg><span>History</span></button></div>
+</div></div>
+
+<h2 id="slider">Sliders</h2>
+<p>A thin track with a white thumb, tick labels underneath. Range filters in the sidebar use two thumbs and show the selected span above.</p>
+<div class="dc-ex"><div class="demo narrow col">
+  <div class="ui-slider"><div class="ui-slider-head">-60 dBm</div><input type="range" min="-90" max="-30" value="-60"><div class="ui-ticks"><span>-90</span><span>-75</span><span>-60</span><span>-45</span><span>-30</span></div></div>
+  <div class="ui-slider"><div class="ui-slider-head">TX Power · 18 dBm</div><input type="range" min="0" max="26" value="18"><div class="ui-ticks marks"><span>Low</span><span>Medium</span><span>High</span></div></div>
+</div></div>
+
+<h2 id="form-rows">Form rows</h2>
+<p>Settings pages put the label on the left in a 240px column and the control on the right. Related controls nest in a stack under one label. Section titles in cards carry an icon on the left and a collapse chevron on the right.</p>
+<div class="dc-ex"><div class="demo block surface" style="max-width:720px">
+  <div class="ui-card-title"><h3><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#globe"/></svg> Internet</h3><svg class="ui-icon chev"><use href="vendor/lucide-sprite.svg#chevron-up"/></svg></div>
+  <div class="ui-form-row"><div class="ui-form-label">Name</div><div><input class="ui-input" value="Primary (WAN1)" style="max-width:320px"></div></div>
+  <div class="ui-form-row"><div class="ui-form-label">Connection <i class="ui-info"></i></div><div class="ui-sub"><div class="ui-seg"><button class="is-active">DHCP</button><button>PPPoE</button><button>Static</button></div><label class="ui-check"><input type="checkbox" checked> Use DNS from provider</label></div></div>
+  <div class="ui-form-row"><div class="ui-form-label">Speed</div><div class="ui-sub"><div class="ui-row"><div class="ui-stepper"><input type="number" value="1000"><span class="ui-unit">Mbps</span></div><span class="ui-muted ui-sm">download</span><div class="ui-stepper"><input type="number" value="40"><span class="ui-unit">Mbps</span></div><span class="ui-muted ui-sm">upload</span></div><span class="ui-help">Used to size smart queues.</span></div></div>
+  <div class="ui-form-row"><div class="ui-form-label">Advanced</div><div><div class="ui-seg"><button class="is-active">Auto</button><button>Manual</button></div></div></div>
+  <div class="ui-links"><a href="#">Create New</a><a href="#">Manage</a></div>
+</div></div>
+
+<h2 id="badges">Badges · Dots · Meters</h2>
+<p>Status is a 6px dot next to the name, never a colored row. Chips are grey by default; the blue chip marks "you" or an active filter. Risk and severity are three- or four-dash meters, colored by level.</p>
+<div class="dc-ex"><div class="demo">
+  <span class="ui-dot"></span> <span class="ui-dot yellow"></span> <span class="ui-dot red"></span> <span class="ui-dot off"></span> <span class="ui-dot blue lg"></span>
+  <span class="ui-chip">Home Office</span>
+  <span class="ui-chip">5 GHz</span>
+  <span class="ui-chip">+4</span>
+  <span class="ui-chip blue">you</span>
+  <span class="ui-chip green">Online</span>
+  <span class="ui-chip red">Blocked</span>
+  <span class="ui-chip yellow">Pending</span>
+  <span class="ui-chip outline">Guest <span class="ui-x">×</span></span>
+  <span class="ui-badge">Live</span>
+  <span class="ui-badge" style="background:var(--ui-green-text)">New</span>
+</div></div>
+<div class="dc-ex"><div class="demo">
+  <span class="ui-row ui-sm">Risk <span class="ui-meter" data-level="1"><i></i><i></i><i></i></span></span>
+  <span class="ui-row ui-sm">Risk <span class="ui-meter" data-level="2"><i></i><i></i><i></i></span></span>
+  <span class="ui-row ui-sm">Risk <span class="ui-meter" data-level="3"><i></i><i></i><i></i></span></span>
+  <span class="ui-row ui-sm">Severity <span class="ui-meter" data-level="4"><i></i><i></i><i></i><i></i></span></span>
+  <span class="ui-meter filter is-active" data-level="1"><i></i><i></i><i></i></span>
+  <span class="ui-meter filter" data-level="3"><i></i><i></i><i></i></span>
+  <span class="ui-avatar">KD</span>
+  <span class="ui-avatar" style="--ui-c:var(--ui-purple)">GC</span>
+  <span class="ui-avatar round" style="--ui-c:var(--ui-cyan)">LP</span>
+  <span class="ui-avatar lg" style="--ui-c:var(--ui-green-text)">HO</span>
+  <span class="ui-device"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#laptop"/></svg> Studio Laptop <span class="ui-suffix">(2)</span></span>
+</div></div>
+<h3>Count strips and pill stats</h3>
+<div class="dc-ex"><div class="demo col" style="max-width:420px">
+  <div class="ui-counts"><span><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#router"/></svg> 1</span><span><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#network"/></svg> 3</span><span><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#wifi"/></svg> 4</span><span><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#users"/></svg> 38</span></div>
+  <div class="ui-pills"><span class="ui-pill"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#globe"/></svg> 15 ms</span><span class="ui-pill"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#gamepad-2"/></svg> 29 ms</span><span class="ui-pill"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#video"/></svg> 7 ms</span></div>
+  <div class="ui-inline-stats"><div>Download<b>940 Mbps</b></div><div>Upload<b>38 Mbps</b></div><div>Latency<b>11 ms</b></div></div>
+</div></div>
+
+<h2 id="table">Data table</h2>
+<p>31px rows, 13px text, a hairline between rows and nothing else. Headers are bold white; the sorted column is blue with an arrow. Offline rows go text-3 grey. The selected row gets the navy fill and a 2px blue left edge. Numbers are right-aligned in tabular figures.</p>
+<div class="dc-ex"><div class="demo block" style="padding:0">
+  <div class="ui-table-wrap"><table class="ui-table">
+    <thead><tr>
+      <th class="w-check"><label class="ui-check"><input type="checkbox"></label></th>
+      <th class="w-dot"></th>
+      <th class="is-sorted sortable">Name <svg class="ui-icon"><use href="vendor/lucide-sprite.svg#arrow-up"/></svg></th>
+      <th class="sortable">IP Address <span class="ui-th-filter"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#list-filter"/></svg></span></th>
+      <th class="sortable">Connection</th>
+      <th class="sortable">Network</th>
+      <th class="sortable">Experience</th>
+      <th class="right sortable">Down</th>
+      <th class="right sortable">Up</th>
+      <th class="right sortable">Uptime</th>
+    </tr></thead>
+    <tbody>
+      <tr><td class="w-check"><label class="ui-check"><input type="checkbox"></label></td><td class="w-dot"><span class="ui-dot"></span></td><td><span class="ui-device"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#monitor"/></svg> Kitchen Display</span></td><td>192.168.1.42</td><td><a href="#">Loft AP</a> <span class="ui-muted">· 5 GHz</span></td><td>Default</td><td class="ui-green">Excellent</td><td class="right ui-down">18.4 Mbps</td><td class="right ui-up">2.1 Mbps</td><td class="right ui-muted">3d 4h</td></tr>
+      <tr class="is-selected"><td class="w-check"><label class="ui-check"><input type="checkbox" checked></label></td><td class="w-dot"><span class="ui-dot"></span></td><td><span class="ui-device"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#laptop"/></svg> Studio Laptop <span class="ui-chip blue" style="margin-left:6px">you</span></span></td><td>192.168.1.17</td><td><a href="#">Studio AP</a> <span class="ui-muted">· 6 GHz</span></td><td>Default</td><td class="ui-green">Excellent</td><td class="right ui-down">412 Mbps</td><td class="right ui-up">31.7 Mbps</td><td class="right ui-muted">12h 6m</td></tr>
+      <tr><td class="w-check"><label class="ui-check"><input type="checkbox"></label></td><td class="w-dot"><span class="ui-dot"></span></td><td><span class="ui-device"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#camera"/></svg> Garage Camera</span></td><td>192.168.0.103</td><td><a href="#">Garage Switch</a> <span class="ui-muted">· Port 4</span></td><td>Cameras</td><td class="ui-green">Excellent</td><td class="right ui-down">0 bps</td><td class="right ui-up">4.8 Mbps</td><td class="right ui-muted">21d 2h</td></tr>
+      <tr><td class="w-check"><label class="ui-check"><input type="checkbox"></label></td><td class="w-dot"><span class="ui-dot"></span></td><td><span class="ui-device"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#lightbulb"/></svg> Hallway Bulb</span></td><td>192.168.0.71</td><td><a href="#">Hall AP</a> <span class="ui-muted">· 2.4 GHz</span></td><td>IoT</td><td class="ui-orange">Fair</td><td class="right ui-down">0 bps</td><td class="right ui-up">0 bps</td><td class="right ui-muted">9d 11h</td></tr>
+      <tr><td class="w-check"><label class="ui-check"><input type="checkbox"></label></td><td class="w-dot"><span class="ui-dot"></span></td><td><span class="ui-device"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#printer"/></svg> Office Printer</span></td><td>192.168.1.90</td><td><a href="#">Core Switch</a> <span class="ui-muted">· Port 12</span></td><td>Default</td><td class="ui-yellow">Good</td><td class="right ui-down">2.2 kbps</td><td class="right ui-up">640 bps</td><td class="right ui-muted">40d 1h</td></tr>
+      <tr class="is-muted"><td class="w-check"><label class="ui-check"><input type="checkbox"></label></td><td class="w-dot"><span class="ui-dot off"></span></td><td><span class="ui-device"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#smartphone"/></svg> Guest Phone</span></td><td>192.168.1.208</td><td>—</td><td>Guest</td><td>—</td><td class="right">—</td><td class="right">—</td><td class="right">Offline</td></tr>
+    </tbody>
+  </table></div>
+  <div class="ui-pager" style="padding:12px 10px"><span>Rows per page</span><select class="ui-select"><option>50</option><option>100</option></select><span>1-6 of 6</span><span class="ui-pager-nav"><button disabled><svg class="ui-icon sm"><use href="vendor/lucide-sprite.svg#chevron-left"/></svg></button><button disabled><svg class="ui-icon sm"><use href="vendor/lucide-sprite.svg#chevron-right"/></svg></button></span></div>
+</div></div>
+<h3>Compact table inside a card, with tiny channel headers and heat cells</h3>
+<div class="dc-ex"><div class="demo block surface" style="padding:0">
+  <table class="ui-table compact card"><thead><tr><th>Access Point</th><th class="tiny">36</th><th class="tiny">40</th><th class="tiny">44</th><th class="tiny">48</th><th class="tiny">149</th><th class="tiny">153</th><th class="right">Clients</th></tr></thead>
+  <tbody><tr><td>Loft AP</td><td><span class="ui-heat hot"></span></td><td><span class="ui-heat"></span></td><td><span class="ui-heat"></span></td><td><span class="ui-heat"></span></td><td><span class="ui-heat"></span></td><td><span class="ui-heat"></span></td><td class="right">9</td></tr>
+  <tr><td>Studio AP</td><td><span class="ui-heat"></span></td><td><span class="ui-heat"></span></td><td><span class="ui-heat"></span></td><td><span class="ui-heat"></span></td><td><span class="ui-heat hot"></span></td><td><span class="ui-heat"></span></td><td class="right">6</td></tr></tbody></table>
+</div></div>
+
+<h2 id="filters">Filter sidebar</h2>
+<p>A 260px column of collapsible sections. Each title is 11px bold caps with a chevron; options are checkboxes with counts. Sliders filter ranges, switches flip view options, and the footer holds Clear Filters plus page actions.</p>
+<div class="dc-ex"><div class="demo block" style="padding:0;max-width:260px"><aside class="ui-sidebar" style="height:560px">
+  <div class="ui-sidebar-body">
+    <div class="ui-subtabs"><button class="is-active"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#sliders-horizontal"/></svg><span>Filters</span></button><button><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#columns-3"/></svg><span>Columns</span></button></div>
+    <div class="ui-input-wrap ui-search" style="margin-bottom:6px"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#search"/></svg><input class="ui-input" placeholder="Search"></div>
+    <div class="ui-filter"><div class="ui-filter-title">CONNECTION <svg class="ui-icon"><use href="vendor/lucide-sprite.svg#chevron-up"/></svg></div>
+      <div class="ui-filter-list"><label class="ui-check"><input type="checkbox" checked> Wireless <span class="ui-count">21</span></label><label class="ui-check"><input type="checkbox" checked> Wired <span class="ui-count">14</span></label><label class="ui-check"><input type="checkbox"> VPN <span class="ui-count">2</span></label></div></div>
+    <div class="ui-filter"><div class="ui-filter-title">NETWORK <svg class="ui-icon"><use href="vendor/lucide-sprite.svg#chevron-up"/></svg></div>
+      <div class="ui-selected"><span>3 selected</span><a href="#">Clear</a></div>
+      <div class="ui-filter-list"><label class="ui-check"><input type="checkbox" checked> Default <span class="ui-count">18</span></label><label class="ui-check"><input type="checkbox" checked> IoT <span class="ui-count">9</span></label><label class="ui-check"><input type="checkbox" checked> Cameras <span class="ui-count">4</span></label><label class="ui-check"><input type="checkbox"> Guest <span class="ui-count">6</span></label></div></div>
+    <div class="ui-filter"><div class="ui-filter-title">SIGNAL <svg class="ui-icon"><use href="vendor/lucide-sprite.svg#chevron-up"/></svg></div>
+      <div class="ui-slider"><div class="ui-slider-head">-90 to -30 dBm</div><input type="range" min="-90" max="-30" value="-30"><div class="ui-ticks"><span>-90</span><span>-60</span><span>-30</span></div></div></div>
+    <div class="ui-filter"><div class="ui-filter-title is-collapsed">DEVICE TYPE <svg class="ui-icon"><use href="vendor/lucide-sprite.svg#chevron-down"/></svg></div></div>
+    <div class="ui-filter"><label class="ui-switch"><span class="ui-switch-label">SHOW OFFLINE</span><input type="checkbox" checked></label><label class="ui-switch"><span class="ui-switch-label">GROUP BY NETWORK</span><input type="checkbox"></label></div>
+  </div>
+  <div class="ui-sidebar-foot"><button class="ui-btn link">Clear Filters</button><button class="ui-btn link muted">Customize Columns</button><button class="ui-btn link">Add Client</button></div>
+</aside></div></div>
+
+<h2 id="cards">Cards &amp; key-values</h2>
+<p>Cards are the surface color with 8px corners and no border. Inside a drawer they hold a title row and a key-value list: key on the left in body text, value on the right in text-2. Stat cards are the same list with an icon in the key.</p>
+<div class="dc-ex"><div class="demo" style="align-items:flex-start">
+  <div class="ui-card" style="width:300px">
+    <div class="ui-card-title"><h3>Overview</h3><svg class="ui-icon chev"><use href="vendor/lucide-sprite.svg#chevron-up"/></svg></div>
+    <div class="ui-kv"><div><span>Connected</span><span>Loft AP · 5 GHz</span></div><div><span>Channel</span><span>44 (80 MHz)</span></div><div><span>Signal</span><span class="ui-green">-52 dBm · Excellent</span></div><div><span>IP Address</span><span>192.168.1.42</span></div><div><span>MAC</span><span class="ui-mono">3A:F1:9C:0B:7E:21</span></div><div><span>Uptime</span><span>3d 4h 12m</span></div></div>
+  </div>
+  <div class="ui-card" style="width:300px">
+    <div class="ui-card-title"><h3>Devices</h3><a href="#" class="ui-sm">View All</a></div>
+    <div class="ui-stat"><span><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#router"/></svg> Gateway</span><span>1</span></div>
+    <div class="ui-stat"><span><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#network"/></svg> Switches</span><span>3</span></div>
+    <div class="ui-stat"><span><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#wifi"/></svg> Access Points</span><span>4</span></div>
+    <div class="ui-stat"><span><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#users"/></svg> Clients</span><span>38</span></div>
+  </div>
+  <div class="ui-card flat" style="width:300px">
+    <div class="ui-card-title"><h3>Threats</h3></div>
+    <div class="ui-empty"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#shield-check"/></svg>No threats detected in the last 24 hours.</div>
+  </div>
+  <div class="ui-card focus" style="width:300px">
+    <div class="ui-card-title"><h3>Speed Test</h3></div>
+    <div class="ui-inline-stats" style="margin-bottom:10px"><div>Download<b class="ui-down">940 Mbps</b></div><div>Upload<b class="ui-up">38 Mbps</b></div></div>
+    <button class="ui-btn outline block">Run Speed Test</button>
+  </div>
+</div></div>
+<h3>Device hero and link line</h3>
+<div class="dc-ex"><div class="demo col" style="max-width:340px">
+  <div class="ui-device-hero"><span class="ui-device-img"></span><div><b>Core Switch</b><span>24-port · 192.168.1.2</span></div></div>
+  <div class="ui-linkline"><svg class="ui-icon ui-muted"><use href="vendor/lucide-sprite.svg#globe"/></svg><div class="ui-bar"><i></i></div><svg class="ui-icon ui-muted"><use href="vendor/lucide-sprite.svg#router"/></svg><span class="ui-sm ui-muted">Fiber ISP</span><svg class="ui-icon sm ui-muted"><use href="vendor/lucide-sprite.svg#chevron-right"/></svg></div>
+</div></div>
+
+<h2 id="drawer">Detail drawer</h2>
+<p>A 360px right panel: centered title with a close button, a three-icon segmented control for Overview / Stats / Settings, then stacked cards. Destructive actions are red links at the bottom. Quick actions are small icon tiles.</p>
+<div class="dc-ex"><div class="demo block" style="padding:0;max-width:360px"><aside class="ui-drawer" style="height:640px">
+  <div class="ui-drawer-head"><button class="ui-btn icon left"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#chevron-left"/></svg></button>Kitchen Display<button class="ui-btn icon"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#x"/></svg></button></div>
+  <div class="ui-drawer-body">
+    <div class="ui-seg block"><button class="is-active"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#info"/></svg></button><button><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#activity"/></svg></button><button><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#settings"/></svg></button></div>
+    <div class="ui-card"><div class="ui-row" style="justify-content:space-between"><span class="ui-row"><span class="ui-dot"></span> Connected</span><span class="ui-muted ui-sm">3d 4h</span></div></div>
+    <div class="ui-card"><div class="ui-card-title"><h3>Connection</h3></div><div class="ui-kv tight"><div><span>Access Point</span><a href="#">Loft AP</a></div><div><span>Band</span><span>5 GHz · Ch 44</span></div><div><span>Signal</span><span class="ui-green">Excellent</span></div><div><span>TX / RX Rate</span><span>780 / 866 Mbps</span></div></div></div>
+    <div class="ui-card"><div class="ui-card-title"><h3>Quick Actions</h3></div><div class="ui-actions"><button class="ui-action"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#radio"/></svg>Ping</button><button class="ui-action"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#route"/></svg>Trace</button><button class="ui-action"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#ban"/></svg>Block App</button><button class="ui-action"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#zap"/></svg>Speed</button></div></div>
+    <div class="ui-card"><div class="ui-card-title"><h3>Traffic</h3><div class="ui-seg sm"><button class="is-active">1D</button><button>1W</button></div></div><svg class="ui-spark" viewBox="0 0 300 34" preserveAspectRatio="none"><path class="fill" d="M0 30 L20 26 40 28 60 18 80 22 100 12 120 16 140 8 160 14 180 6 200 12 220 10 240 16 260 9 280 14 300 12 V34 H0 Z"/><path class="stroke" d="M0 30 L20 26 40 28 60 18 80 22 100 12 120 16 140 8 160 14 180 6 200 12 220 10 240 16 260 9 280 14 300 12"/></svg><div class="ui-chart-foot"><span>00:00</span><span>12:00</span><span>now</span></div></div>
+    <div class="ui-links stack"><a href="#" class="ui-red">Reconnect</a><a href="#" class="ui-red">Block</a><a href="#" class="ui-red">Remove</a></div>
+  </div>
+</aside></div></div>
+
+<h2 id="tiles">Icon tiles</h2>
+<p>Rows of small outlined tiles with a count above and a label below. Used for Top Access Points, Top Clients and Top Apps. The selected tile gets a blue ring.</p>
+<div class="dc-ex"><div class="demo col">
+  <div><div class="ui-tiles-title">Top Access Points</div><div class="ui-tiles">
+    <div class="ui-tile is-active"><span class="ui-tile-box"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#wifi"/></svg><span class="ui-tile-count">14</span></span><span class="ui-tile-label">Loft AP</span></div>
+    <div class="ui-tile"><span class="ui-tile-box"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#wifi"/></svg><span class="ui-tile-count">9</span></span><span class="ui-tile-label">Studio AP</span></div>
+    <div class="ui-tile"><span class="ui-tile-box"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#wifi"/></svg><span class="ui-tile-count">6</span></span><span class="ui-tile-label">Hall AP</span></div>
+    <div class="ui-tile"><span class="ui-tile-box"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#wifi"/></svg><span class="ui-tile-count">2</span></span><span class="ui-tile-label">Garden AP</span></div>
+  </div></div>
+  <div><div class="ui-tiles-title">Top Apps</div><div class="ui-tiles">
+    <div class="ui-tile round"><span class="ui-tile-box"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#video"/></svg></span><span class="ui-tile-label">Streaming</span></div>
+    <div class="ui-tile round"><span class="ui-tile-box"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#cloud"/></svg></span><span class="ui-tile-label">Backup</span></div>
+    <div class="ui-tile round"><span class="ui-tile-box"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#gamepad-2"/></svg></span><span class="ui-tile-label">Gaming</span></div>
+    <div class="ui-tile round"><span class="ui-tile-box"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#message-square"/></svg></span><span class="ui-tile-label">Chat</span></div>
+  </div></div>
+</div></div>
+
+<h2 id="ports">Port grid</h2>
+<p>Two rows of 38px squares, numbered bottom-left, colored by negotiated speed. A lightning glyph marks PoE; a small icon in the corner marks uplink or error. Grey means nothing is plugged in.</p>
+<div class="dc-ex"><div class="demo col">
+  <div class="ui-ports">
+    <div class="ui-port gbe poe">1</div><div class="ui-port gbe">2</div>
+    <div class="ui-port gbe poe">3</div><div class="ui-port off">4</div>
+    <div class="ui-port fe">5</div><div class="ui-port gbe">6</div>
+    <div class="ui-port off">7</div><div class="ui-port off">8</div>
+    <div class="ui-port gbe poe">9</div><div class="ui-port gbe poe">10</div>
+    <div class="ui-port off">11</div><div class="ui-port gbe">12</div>
+    <div class="ui-port-gap"></div><div class="ui-port-gap"></div>
+    <div class="ui-port tengbe sfp"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#arrow-up"/></svg>13</div><div class="ui-port off sfp">14</div>
+  </div>
+  <div class="ui-legend"><span><i style="--ui-c:var(--ui-green)"></i> 1 GbE</span><span><i style="--ui-c:var(--ui-lime)"></i> 100 Mbps</span><span><i style="--ui-c:var(--ui-cyan)"></i> 10 GbE</span><span><i></i> Disconnected</span><span>⚡ PoE</span></div>
+  <div class="ui-row" style="gap:3px"><span class="ui-port sm gbe"></span><span class="ui-port sm gbe"></span><span class="ui-port sm off"></span><span class="ui-port sm fe"></span><span class="ui-port sm gbe"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#arrow-up"/></svg></span><span class="ui-muted ui-xs" style="margin-left:6px">mini variant for table cells</span></div>
+</div></div>
+
+<h2 id="matrix">Zone matrix</h2>
+<p>Source zones down the side, destination zones across the top. Each cell is a muted green (allow), maroon (block) or teal (allow return traffic) tile with a policy count in the corner. Click a cell to edit its policies.</p>
+<div class="dc-ex"><div class="demo block" style="max-width:640px"><div class="ui-matrix-wrap">
+  <div></div><div class="ui-matrix-dst">Destination</div>
+  <div class="ui-matrix-src">Source</div>
+  <table class="ui-matrix"><thead><tr><th></th><th>Internal</th><th>External</th><th>Guest</th><th>IoT</th><th>VPN</th></tr></thead>
+  <tbody>
+    <tr><th>Internal</th><td class="allow">Allow</td><td class="allow">Allow<span class="ui-n">2</span></td><td class="allow">Allow</td><td class="allow">Allow</td><td class="allow">Allow</td></tr>
+    <tr><th>External</th><td class="return">Return</td><td class="none"></td><td class="return">Return</td><td class="return">Return</td><td class="block">Block</td></tr>
+    <tr><th>Guest</th><td class="block">Block<span class="ui-n">1</span></td><td class="allow">Allow</td><td class="block">Block</td><td class="block">Block</td><td class="block">Block</td></tr>
+    <tr><th>IoT</th><td class="block is-active">Block<span class="ui-n">3</span></td><td class="allow">Allow</td><td class="block">Block</td><td class="allow">Allow</td><td class="block">Block</td></tr>
+    <tr><th>VPN</th><td class="allow">Allow</td><td class="allow">Allow</td><td class="block">Block</td><td class="allow">Allow</td><td class="allow">Allow</td></tr>
+  </tbody></table>
+</div></div></div>
+
+<h2 id="charts">Charts &amp; bars</h2>
+<p>Charts are inline SVG in a <code>.ui-chart</code> wrapper: dotted grid, 10px grey axis text, 1.5px lines. Download is cyan or blue, upload is purple, thresholds are dotted yellow. Bars are 6px tracks. Distribution buckets run red → orange → yellow → green.</p>
+<div class="dc-ex"><div class="demo block surface" style="max-width:720px">
+  <div class="ui-between" style="margin-bottom:8px"><div class="ui-chart-legend"><span><i style="--ui-c:var(--ui-cyan)"></i>Download</span><span><i style="--ui-c:var(--ui-purple)"></i>Upload</span><span><i class="dashed" style="--ui-c:var(--ui-yellow)"></i>Plan limit</span></div><div class="ui-seg solid sm"><button>1h</button><button class="is-active">1D</button><button>1W</button></div></div>
+  <div class="ui-chart"><svg viewBox="0 0 640 160">
+    <g class="grid"><line x1="40" y1="20" x2="640" y2="20"/><line x1="40" y1="60" x2="640" y2="60"/><line x1="40" y1="100" x2="640" y2="100"/><line x1="40" y1="140" x2="640" y2="140"/></g>
+    <g class="axis"><text x="0" y="24">900</text><text x="0" y="64">600</text><text x="0" y="104">300</text><text x="0" y="144">0</text><text x="40" y="158">00:00</text><text x="190" y="158">06:00</text><text x="340" y="158">12:00</text><text x="490" y="158">18:00</text><text x="612" y="158">now</text></g>
+    <line class="threshold" x1="40" y1="34" x2="640" y2="34"/>
+    <path class="line cyan" d="M40 120 L80 110 120 118 160 90 200 96 240 60 280 70 320 44 360 58 400 40 440 50 480 66 520 48 560 72 600 58 640 64"/>
+    <path class="line purple" d="M40 134 L80 132 120 130 160 128 200 131 240 126 280 129 320 122 360 127 400 120 440 124 480 128 520 121 560 126 600 123 640 125"/>
+  </svg></div>
+</div></div>
+<div class="dc-ex"><div class="demo" style="align-items:flex-start;gap:28px">
+  <div style="width:280px"><div class="ui-bar-head"><span>Airtime · 5 GHz</span><span>62%</span></div><div class="ui-bar thick"><i style="width:38%;--ui-c:var(--ui-accent)"></i><i style="width:24%;--ui-c:var(--ui-orange)"></i></div><div class="ui-legend"><span><i style="--ui-c:var(--ui-accent)"></i> Own traffic</span><span><i style="--ui-c:var(--ui-orange)"></i> Interference</span></div></div>
+  <div style="width:280px"><div class="ui-bar-head"><span>Storage</span><span>41 / 128 GB</span></div><div class="ui-bar"><i style="width:32%;--ui-c:var(--ui-green)"></i></div></div>
+  <div style="width:280px"><div class="ui-bar-head"><span>Connection health</span></div><div class="ui-bars"><div><span class="ui-bar-label">Association</span><span class="ui-bar-val">100%</span></div><div><span class="ui-bar-label">Authentication</span><span class="ui-bar-val">100%</span></div><div><span class="ui-bar-label">DHCP</span><span class="ui-bar-val">100%</span></div></div></div>
+</div></div>
+<h3>Signal buckets and gradient scale</h3>
+<div class="dc-ex"><div class="demo col" style="max-width:520px">
+  <div class="ui-buckets"><div class="red"><b>1</b>-90</div><div class="red"><b>0</b>-85</div><div class="orange"><b>2</b>-80</div><div class="orange"><b>3</b>-75</div><div class="yellow"><b>4</b>-70</div><div class="yellow"><b>6</b>-65</div><div class="green"><b>9</b>-60</div><div class="green"><b>8</b>-55</div><div class="green"><b>4</b>-50</div><div class="green"><b>1</b>-45</div><div class="green"><b>0</b>-40</div><div class="green"><b>0</b>-35</div></div>
+  <div class="ui-buckets muted"><div class="red"><b>0</b>35%+</div><div class="orange"><b>0</b>30%</div><div class="orange"><b>1</b>25%</div><div class="yellow"><b>2</b>20%</div><div class="yellow"><b>3</b>15%</div><div class="green"><b>7</b>10%</div><div class="green"><b>14</b>5%</div><div class="green"><b>11</b>0%</div></div>
+  <div class="ui-scale"><span class="ui-mark" style="left:62%"></span><span class="ui-mark" style="left:71%"></span><span class="ui-mark" style="left:84%"></span><div class="ui-ticks"><span>-90</span><span>-80</span><span>-70</span><span>-60</span><span>-50</span><span>-40</span><span>-30</span></div></div>
+</div></div>
+<h3>Channel plan</h3>
+<div class="dc-ex"><div class="demo block" style="max-width:520px"><div class="ui-channels">
+  <div class="ui-ch-row"><span class="ui-ch-label"></span><div class="ui-ch-head"><span>36</span><span>40</span><span>44</span><span>48</span><span>52</span><span>56</span><span>60</span><span>64</span><span>100</span><span>104</span><span>108</span><span>112</span><span>149</span><span>153</span><span>157</span><span>161</span></div></div>
+  <div class="ui-ch-row"><span class="ui-ch-label">20 MHz</span><span class="ui-ch use"></span><span class="ui-ch"></span><span class="ui-ch"></span><span class="ui-ch"></span><span class="ui-ch dfs"></span><span class="ui-ch dfs"></span><span class="ui-ch dfs"></span><span class="ui-ch dfs"></span><span class="ui-ch dfs"></span><span class="ui-ch dfs"></span><span class="ui-ch dfs"></span><span class="ui-ch dfs"></span><span class="ui-ch"></span><span class="ui-ch use"></span><span class="ui-ch"></span><span class="ui-ch"></span></div>
+  <div class="ui-ch-row"><span class="ui-ch-label">40 MHz</span><span class="ui-ch w2 use"></span><span class="ui-ch w2"></span><span class="ui-ch w2 dfs"></span><span class="ui-ch w2 dfs"></span><span class="ui-ch w2 dfs"></span><span class="ui-ch w2 dfs"></span><span class="ui-ch w2 use"></span><span class="ui-ch w2"></span></div>
+  <div class="ui-ch-row"><span class="ui-ch-label">80 MHz</span><span class="ui-ch w4 use"></span><span class="ui-ch w4 dfs"></span><span class="ui-ch w4 dfs"></span><span class="ui-ch w4 ex"></span></div>
+  <div class="ui-ch-row"><span class="ui-ch-label">160 MHz</span><span class="ui-ch w8 na"></span><span class="ui-ch w8 dfs"></span></div>
+</div><div class="ui-legend"><span><i style="--ui-c:var(--ui-green)"></i> In use</span><span><i></i> Available</span><span><i style="border:1px solid var(--ui-gray);background:none"></i> DFS</span><span><i style="--ui-c:#6b5a20"></i> Not allowed</span><span><i style="--ui-c:#7a3b3b"></i> Excluded</span></div></div></div>
+<h3>Spectrum bands</h3>
+<div class="dc-ex"><div class="demo block surface" style="max-width:720px"><div class="ui-chart"><svg viewBox="0 0 640 120">
+  <g class="grid"><line x1="30" y1="20" x2="640" y2="20"/><line x1="30" y1="60" x2="640" y2="60"/><line x1="30" y1="100" x2="640" y2="100"/></g>
+  <g class="axis"><text x="0" y="24">-30</text><text x="0" y="64">-60</text><text x="0" y="104">-90</text><text x="60" y="116">36</text><text x="180" y="116">52</text><text x="300" y="116">100</text><text x="420" y="116">132</text><text x="540" y="116">149</text></g>
+  <path class="band blue" d="M40 100 L52 44 108 44 120 100 Z"/><path class="band yellow" d="M130 100 L142 70 198 70 210 100 Z"/><path class="band green" d="M520 100 L532 52 600 52 612 100 Z"/><path class="band orange" d="M300 100 L306 84 340 84 346 100 Z"/>
+</svg></div></div></div>
+
+<h2 id="timeline">Timeline</h2>
+<p>A narrow vertical rail for scrubbing history. Ticks on the left, a navy band for the loaded window, and a blue LIVE marker at the top.</p>
+<div class="dc-ex"><div class="demo" style="align-items:stretch;height:300px;padding:0">
+  <div class="ui-timeline"><div class="ui-tl-head"><span>Time Machine</span><span class="ui-tl-zoom"><svg class="ui-icon sm"><use href="vendor/lucide-sprite.svg#minus"/></svg><span class="ui-bar"><i style="width:40%"></i></span><svg class="ui-icon sm"><use href="vendor/lucide-sprite.svg#plus"/></svg></span></div>
+    <div class="ui-tl-axis"><div class="ui-tl-live" style="top:0"><span class="ui-chip">LIVE</span></div><div class="ui-tl-tick" style="top:18%">14:00</div><div class="ui-tl-tick" style="top:36%">13:00</div><div class="ui-tl-tick" style="top:54%">12:00</div><div class="ui-tl-tick" style="top:72%">11:00</div><div class="ui-tl-tick" style="top:90%">10:00</div></div></div>
+  <div class="ui-page ui-muted ui-sm" style="flex:1">Event log for the selected window goes here.</div>
+</div></div>
+<h3>Event rows</h3>
+<div class="dc-ex"><div class="demo block" style="padding:0;max-width:720px"><table class="ui-table compact"><tbody>
+  <tr><td class="w-dot"><span class="ui-dot blue"></span></td><td class="ui-muted" style="width:90px">14:02:11</td><td><span class="ui-device"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#smartphone"/></svg> Guest Phone</span></td><td>connected to <a href="#">Hall AP</a> on 2.4 GHz</td></tr>
+  <tr><td class="w-dot"><span class="ui-dot yellow"></span></td><td class="ui-muted">13:48:30</td><td><span class="ui-device"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#wifi"/></svg> Loft AP</span></td><td>changed channel 44 → 149 (interference)</td></tr>
+  <tr><td class="w-dot"><span class="ui-dot red"></span></td><td class="ui-muted">13:11:07</td><td><span class="ui-device"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#shield"/></svg> Gateway</span></td><td>blocked outbound connection from 192.168.0.71 <span class="ui-meter" data-level="3"><i></i><i></i><i></i></span></td></tr>
+</tbody></table></div></div>
+
+<h2 id="diagram">Diagram nodes</h2>
+<p>Topology and policy diagrams use solid navy nodes for devices, dashed blue outlines for groups, and thin blue edges with a small label. Routing choices are shown as wide cards.</p>
+<div class="dc-ex"><div class="demo" style="padding-top:36px">
+  <div class="ui-diagram">
+    <div class="ui-node lg"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#globe"/></svg>Internet<span class="ui-node-sub">Fiber ISP</span></div>
+    <div class="ui-edge">WAN1</div>
+    <div class="ui-node lg"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#router"/></svg>Gateway<span class="ui-node-sub">192.168.1.1</span></div>
+    <div class="ui-edge dotted">10 GbE</div>
+    <div class="ui-group"><span class="ui-group-label"><svg class="ui-icon sm"><use href="vendor/lucide-sprite.svg#network"/></svg> Switches</span><div class="ui-node"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#network"/></svg>Core</div><div class="ui-node"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#network"/></svg>Garage</div></div>
+    <div class="ui-edge plain"></div>
+    <div class="ui-node dashed"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#plus"/></svg>Add device</div>
+  </div>
+</div></div>
+<div class="dc-ex"><div class="demo">
+  <div class="ui-route-card is-active"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#globe"/></svg><b>Direct</b><span>Traffic leaves via the primary link.</span><a href="#">Manage</a></div>
+  <div class="ui-route-card"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#lock"/></svg><b>Through VPN</b><span>Route selected clients through a tunnel.</span><a href="#">Set up</a></div>
+  <div class="ui-route-card"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#split"/></svg><b>Failover</b><span>Switch links when the primary drops.</span><a href="#">Set up</a></div>
+</div></div>
+
+<h2 id="settings-nav">Settings navigation</h2>
+<p>A 210px column: search on top, then icon rows for sub-sections, section labels, and a dotted connector between a parent and its child items. The active item is the raised surface with blue text.</p>
+<div class="dc-ex"><div class="demo" style="padding:0;align-items:stretch"><div class="ui-settings" style="width:100%;height:520px">
+  <div class="ui-settings-nav">
+    <div class="ui-search ui-input-wrap" style="padding:6px 8px 4px"><svg class="ui-icon" style="left:16px"><use href="vendor/lucide-sprite.svg#search"/></svg><input class="ui-input" placeholder="Search settings"></div>
+    <nav class="ui-nav">
+      <a class="ui-nav-item is-active" href="#"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#wifi"/></svg> WiFi</a>
+      <a class="ui-nav-item" href="#"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#network"/></svg> Networks</a>
+      <a class="ui-nav-item" href="#"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#globe"/></svg> Internet</a>
+      <a class="ui-nav-item" href="#"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#lock"/></svg> VPN</a>
+      <div class="ui-nav-label strong">Policy Engine</div>
+      <div class="ui-nav-icons"><button class="ui-btn icon is-active"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#shield"/></svg></button><button class="ui-btn icon"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#route"/></svg></button><button class="ui-btn icon"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#gauge"/></svg></button><button class="ui-btn icon"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#waypoints"/></svg></button></div>
+      <div class="ui-nav-sep"></div>
+      <div class="ui-nav-tree">
+        <a class="ui-nav-item" href="#"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#shield-check"/></svg> Security</a>
+        <a class="ui-nav-item" href="#" style="padding-left:38px">Threats</a>
+        <a class="ui-nav-item" href="#" style="padding-left:38px">Content Filter</a>
+      </div>
+      <div class="ui-nav-label">System</div>
+      <a class="ui-nav-item" href="#"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#settings"/></svg> General</a>
+      <a class="ui-nav-item" href="#"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#users"/></svg> Admins</a>
+    </nav>
+    <div class="ui-nav-foot"><span>Console 4.2.1</span><a href="#">Release notes</a></div>
+  </div>
+  <div class="ui-settings-body"><div class="ui-empty"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#wifi"/></svg>Settings content</div></div>
+</div></div></div>
+
+<h2 id="options">Option cards &amp; toggle rows</h2>
+<p>When a setting is one of a few big choices, list them as option cards in a surface column, and open the selected one in a panel with a blue outline. Feature toggles with descriptions are toggle rows.</p>
+<div class="dc-ex"><div class="demo block" style="max-width:820px"><div class="ui-options">
+  <div class="ui-option-list">
+    <div class="ui-option is-active"><h4>Server</h4><p>Let remote devices connect into this network.</p><div class="ui-flow"><span>Remote</span><i></i><span>Gateway</span><i></i><span>LAN</span></div></div>
+    <div class="ui-option"><h4>Client</h4><p>Route this network's traffic through a remote server.</p><div class="ui-flow"><span>LAN</span><i></i><span>Gateway</span><i></i><span>Remote</span></div></div>
+    <div class="ui-option"><h4>Site to Site</h4><p>Join two networks as if they were one.</p></div>
+  </div>
+  <div class="ui-focus-panel">
+    <div class="ui-card-title"><h3>Server</h3><label class="ui-switch"><input type="checkbox" checked></label></div>
+    <div class="ui-form-row"><div class="ui-form-label">Name</div><div><input class="ui-input" value="Home VPN" style="max-width:300px"></div></div>
+    <div class="ui-form-row"><div class="ui-form-label">Protocol</div><div><div class="ui-seg"><button class="is-active">WireGuard</button><button>OpenVPN</button><button>L2TP</button></div></div></div>
+    <div class="ui-form-row"><div class="ui-form-label">Port</div><div><div class="ui-stepper"><input type="number" value="51820"></div></div></div>
+    <div class="ui-form-row"><div class="ui-form-label">Clients</div><div class="ui-sub"><label class="ui-check"><input type="checkbox" checked> Studio Laptop</label><label class="ui-check"><input type="checkbox"> Guest Phone</label><div class="ui-links"><a href="#">Create New</a><a href="#">Manage</a></div></div></div>
+    <div class="ui-row" style="justify-content:flex-end;gap:8px;margin-top:8px"><button class="ui-btn">Cancel</button><button class="ui-btn primary">Apply Changes</button></div>
+  </div>
+</div></div></div>
+<div class="dc-ex"><div class="demo block surface" style="max-width:520px">
+  <div class="ui-toggle-row"><div class="ui-toggle-title">Smart queues</div><label class="ui-switch"><input type="checkbox" checked></label><div class="ui-toggle-desc">Prioritise interactive traffic when the link is saturated.</div></div>
+  <div class="ui-toggle-row"><div class="ui-toggle-title">Device fingerprinting</div><label class="ui-switch"><input type="checkbox" checked></label><div class="ui-toggle-desc">Identify device types from their traffic patterns.</div></div>
+  <div class="ui-toggle-row"><div class="ui-toggle-title">Ad blocking</div><label class="ui-switch"><input type="checkbox"></label><div class="ui-toggle-desc">Block known advertising domains at the DNS level.</div><div class="ui-toggle-extra"><div class="ui-chips"><button class="is-active">Default</button><button>IoT</button><button>Guest</button></div></div></div>
+</div></div>
+
+<h2 id="notices">Notices · Tooltips · Toast</h2>
+<p>Notices are quiet surface blocks with an icon, a bold first line, and an optional close. Tooltips are raised, shadowed, and may carry a title with a key-value list. Toasts confirm an action in the same words as the button that caused it.</p>
+<div class="dc-ex"><div class="demo col" style="max-width:520px">
+  <div class="ui-notice"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#info"/></svg><div><b>Changes take effect on next reconnect</b>Devices already connected keep their current settings until they roam or reconnect.</div><button class="ui-btn icon ui-close"><svg class="ui-icon sm"><use href="vendor/lucide-sprite.svg#x"/></svg></button></div>
+  <div class="ui-notice warn"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#triangle-alert"/></svg><div><b>160 MHz needs DFS channels</b>Radar detection may move this access point off its channel for up to a minute.</div></div>
+  <div class="ui-notice danger inline"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#circle-alert"/></svg><div><b>Link down.</b>WAN2 has been unreachable for 4 minutes.</div></div>
+  <div class="ui-hint"><i class="ui-info"></i> Leave empty to pick a channel automatically.</div>
+</div></div>
+<div class="dc-ex"><div class="demo" style="align-items:flex-start">
+  <div class="ui-tooltip">Reconnect this client</div>
+  <div class="ui-tooltip arrow-bottom"><b>Loft AP · 5 GHz</b><div class="ui-kv"><div><span>Clients</span><span>14</span></div><div><span>Channel</span><span>44 (80)</span></div><div><span>Utilization</span><span>38%</span></div></div></div>
+  <div class="ui-toast"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#circle-check"/></svg>Changes applied</div>
+  <div class="ui-toast error"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#circle-x"/></svg>Could not reach Garage Switch</div>
+</div></div>
+
+<h2 id="modal">Modal</h2>
+<p>A 400px raised dialog: title row with close, an optional search, content, and a footer with the secondary action on the left and Cancel + primary on the right.</p>
+<div class="dc-ex"><div class="demo" style="justify-content:center;background:var(--ui-overlay)">
+  <div class="ui-modal">
+    <div class="ui-modal-head">Choose an icon<button class="ui-btn icon"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#x"/></svg></button></div>
+    <div class="ui-modal-body">
+      <div class="ui-input-wrap"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#search"/></svg><input class="ui-input" placeholder="Search icons"></div>
+      <div class="ui-tiles">
+        <div class="ui-tile is-active"><span class="ui-tile-box"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#monitor"/></svg></span><span class="ui-tile-label">Display</span></div>
+        <div class="ui-tile"><span class="ui-tile-box"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#laptop"/></svg></span><span class="ui-tile-label">Laptop</span></div>
+        <div class="ui-tile"><span class="ui-tile-box"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#smartphone"/></svg></span><span class="ui-tile-label">Phone</span></div>
+        <div class="ui-tile"><span class="ui-tile-box"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#camera"/></svg></span><span class="ui-tile-label">Camera</span></div>
+        <div class="ui-tile"><span class="ui-tile-box"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#lightbulb"/></svg></span><span class="ui-tile-label">Bulb</span></div>
+        <div class="ui-tile"><span class="ui-tile-box"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#printer"/></svg></span><span class="ui-tile-label">Printer</span></div>
+        <div class="ui-tile"><span class="ui-tile-box"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#tv"/></svg></span><span class="ui-tile-label">TV</span></div>
+        <div class="ui-tile"><span class="ui-tile-box"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#watch"/></svg></span><span class="ui-tile-label">Watch</span></div>
+        <div class="ui-tile"><span class="ui-tile-box"><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#plug"/></svg></span><span class="ui-tile-label">Plug</span></div>
+      </div>
+    </div>
+    <div class="ui-modal-foot"><button class="ui-btn link muted">Restore Default</button><button class="ui-btn">Cancel</button><button class="ui-btn primary">Apply</button></div>
+  </div>
+</div></div>
+
+<h2 id="principles">Principles</h2>
+<p>What makes a screen feel like this system rather than a generic dark dashboard.</p>
+<div class="dc-do">
+  <div><b>Density is the point</b><ul><li>31px rows, 13px text, hairlines only. No zebra striping, no card per row.</li><li>Pack the sidebar with counts in parentheses; that is the scan aid.</li><li>Values are text-2 grey; only the exception gets a color.</li></ul></div>
+  <div><b>Blue means "you can act here"</b><ul><li>Links, active tabs, checked boxes, primary buttons, the selected row edge, the sorted header.</li><li>Never use blue as decoration or as a data color except for download.</li></ul></div>
+  <div><b>Status is small</b><ul><li>A 6px dot, a chip, or a colored word. Never a tinted row or a giant badge.</li><li>Green good, yellow ok, orange fair, red bad, grey offline.</li></ul></div>
+  <div><b>Three surfaces, nothing else</b><ul><li>Page, surface, raised. Depth comes from the step between them, not from shadows or borders.</li><li>Cards have no border. Inputs have no border until focused.</li></ul></div>
+  <div><b>Labels are quiet, numbers are tabular</b><ul><li>11px grey labels, 11px bold section titles, slashed zeros everywhere.</li><li>Right-align numeric columns and give them units.</li></ul></div>
+  <div><b>Destructive is a link</b><ul><li>Reconnect / Block / Remove are red text, stacked at the end of a drawer.</li><li>Confirm in a modal; never in a toast.</li></ul></div>
+</div>
+
+<h2 id="agents">For agents</h2>
+<p>If you are generating a page with this system, read <a href="../skill.md">skill.md</a>. The short version: wrap the page in <code>.ui</code>, compose from the classes above, use the lucide sprite for icons, invent device names and use 192.168.0.x / 192.168.1.x addresses, and pick one of the example pages as the starting shell.</p>
+
+</main>
+</div>
+<script src="docs.js"></script>
+<script>
+document.getElementById('ind').indeterminate = true;
+const names = 'layout-dashboard router network wifi users activity shield settings search bell globe lock key-round radio route waypoints gauge zap monitor laptop smartphone tablet camera printer tv watch lightbulb plug gamepad-2 video cloud database server hard-drive cpu cable ethernet-port map-pin history sliders-horizontal columns-3 table layout-grid list-filter arrow-up arrow-down arrow-left-right chevron-up chevron-down chevron-left chevron-right x check plus minus info circle-alert triangle-alert circle-check circle-x shield-check ban refresh-cw eye eye-off pencil trash-2 copy ellipsis external-link download upload split message-square'.split(' ');
+document.getElementById('iconlist').innerHTML = names.map(n => `<div><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#${n}"/></svg>${n}</div>`).join('');
+</script>
+</body>
+</html>
