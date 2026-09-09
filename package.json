@@ -1,7 +1,7 @@
 {
   "name": "uiui",
   "version": "0.1.0",
-  "description": "Dense dark console UI kit in plain HTML + CSS, inspired by the Unifi console",
+  "description": "Dense dark console UI kit in plain HTML + CSS, inspired by the Unifi console. Generated with Claude Code and Claude Fable 5.1",
   "license": "MIT",
   "main": "src/uiui.css",
   "style": "src/uiui.css",
