@@ -1,0 +1,10 @@
+{
+  "name": "uiui",
+  "version": "0.1.0",
+  "description": "Dense dark console UI kit in plain HTML + CSS, inspired by the Unifi console",
+  "license": "MIT",
+  "main": "src/uiui.css",
+  "style": "src/uiui.css",
+  "files": ["src/", "docs/", "registry/", "skill.md"],
+  "scripts": { "start": "python3 -m http.server 8765" }
+}
