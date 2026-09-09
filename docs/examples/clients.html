@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clients · uiui example</title>
+<link rel="stylesheet" href="../../src/uiui.css">
+</head>
+<body class="ui">
+<div class="ui-app">
+  <header class="ui-topbar">
+    <div class="ui-topbar-tab is-active"><span class="ui-dot"></span> Home Office <svg class="ui-icon sm"><use href="../vendor/lucide-sprite.svg#chevron-down"/></svg></div>
+    <div class="ui-topbar-tab"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#globe"/></svg> Network</div>
+    <div class="ui-brand">console</div>
+    <div class="ui-topbar-actions">
+      <button class="ui-btn icon"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#search"/></svg></button>
+      <button class="ui-btn icon"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#bell"/></svg></button>
+      <button class="ui-btn icon"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#circle-help"/></svg></button>
+      <span class="ui-avatar round">JT</span>
+    </div>
+  </header>
+  <nav class="ui-rail">
+    <a class="ui-rail-btn" href="dashboard.html" title="Dashboard"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#layout-dashboard"/></svg></a>
+    <a class="ui-rail-btn" href="policies.html" title="Policies"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#shield"/></svg></a>
+    <a class="ui-rail-btn" href="radios.html" title="Radios"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#radio"/></svg></a>
+    <a class="ui-rail-btn" href="#" title="Devices"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#router"/></svg></a>
+    <a class="ui-rail-btn is-active" href="#" title="Clients"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#users"/></svg></a>
+    <a class="ui-rail-btn" href="#" title="Insights"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#activity"/></svg></a>
+    <span class="ui-spacer"></span>
+    <a class="ui-rail-btn" href="settings.html" title="Settings"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#settings"/></svg></a>
+  </nav>
+
+  <aside class="ui-sidebar">
+    <div class="ui-collapse"><svg class="ui-icon sm"><use href="../vendor/lucide-sprite.svg#chevron-left"/></svg></div>
+    <div class="ui-sidebar-body">
+      <div class="ui-subtabs"><button class="is-active"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#sliders-horizontal"/></svg><span>Filters</span></button><button><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#columns-3"/></svg><span>Columns</span></button><button><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#history"/></svg><span>History</span></button></div>
+      <div class="ui-input-wrap ui-search" style="margin-bottom:6px"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#search"/></svg><input class="ui-input" placeholder="Search"></div>
+      <div class="ui-filter"><div class="ui-filter-title">CONNECTION <svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#chevron-up"/></svg></div>
+        <div class="ui-filter-list"><label class="ui-check"><input type="checkbox" checked> Wireless <span class="ui-count">21</span></label><label class="ui-check"><input type="checkbox" checked> Wired <span class="ui-count">14</span></label><label class="ui-check"><input type="checkbox"> VPN <span class="ui-count">2</span></label></div></div>
+      <div class="ui-filter"><div class="ui-filter-title">STATUS <svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#chevron-up"/></svg></div>
+        <div class="ui-filter-list two"><label class="ui-check"><input type="checkbox" checked> Online <span class="ui-count">31</span></label><label class="ui-check"><input type="checkbox" checked> Offline <span class="ui-count">6</span></label><label class="ui-check"><input type="checkbox"> Blocked <span class="ui-count">1</span></label><label class="ui-check"><input type="checkbox"> Guest <span class="ui-count">3</span></label></div></div>
+      <div class="ui-filter"><div class="ui-filter-title">NETWORK <svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#chevron-up"/></svg></div>
+        <div class="ui-selected"><span>All selected</span><a href="#">Clear</a></div>
+        <div class="ui-filter-list"><label class="ui-check"><input type="checkbox" checked> Default <span class="ui-count">18</span></label><label class="ui-check"><input type="checkbox" checked> IoT <span class="ui-count">9</span></label><label class="ui-check"><input type="checkbox" checked> Cameras <span class="ui-count">4</span></label><label class="ui-check"><input type="checkbox" checked> Guest <span class="ui-count">6</span></label></div></div>
+      <div class="ui-filter"><div class="ui-filter-title">ACCESS POINT <svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#chevron-up"/></svg></div>
+        <div class="ui-filter-list"><label class="ui-check"><input type="checkbox" checked> Loft AP <span class="ui-count">14</span></label><label class="ui-check"><input type="checkbox" checked> Studio AP <span class="ui-count">9</span></label><label class="ui-check"><input type="checkbox" checked> Hall AP <span class="ui-count">6</span></label><label class="ui-check"><input type="checkbox" checked> Garden AP <span class="ui-count">2</span></label></div></div>
+      <div class="ui-filter"><div class="ui-filter-title">BAND <svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#chevron-up"/></svg></div>
+        <div class="ui-filter-list two"><label class="ui-check"><input type="checkbox" checked> 2.4 GHz <span class="ui-count">8</span></label><label class="ui-check"><input type="checkbox" checked> 5 GHz <span class="ui-count">11</span></label><label class="ui-check"><input type="checkbox" checked> 6 GHz <span class="ui-count">2</span></label></div></div>
+      <div class="ui-filter"><div class="ui-filter-title">SIGNAL <svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#chevron-up"/></svg></div>
+        <div class="ui-slider"><div class="ui-slider-head">-90 to -30 dBm</div><input type="range" min="-90" max="-30" value="-30" style="--ui-fill:100%"><div class="ui-ticks"><span>-90</span><span>-70</span><span>-50</span><span>-30</span></div></div></div>
+      <div class="ui-filter"><div class="ui-filter-title is-collapsed">DEVICE TYPE <svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#chevron-down"/></svg></div></div>
+      <div class="ui-filter"><div class="ui-filter-title is-collapsed">EXPERIENCE <svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#chevron-down"/></svg></div></div>
+      <div class="ui-filter"><label class="ui-switch"><span class="ui-switch-label">SHOW OFFLINE</span><input type="checkbox" checked></label><label class="ui-switch"><span class="ui-switch-label">GROUP BY NETWORK</span><input type="checkbox"></label></div>
+    </div>
+    <div class="ui-sidebar-foot"><button class="ui-btn link">Clear Filters</button><button class="ui-btn link muted">Customize Columns</button><button class="ui-btn link">Add Client</button></div>
+  </aside>
+
+  <main class="ui-main">
+    <div class="ui-table-wrap"><table class="ui-table">
+      <thead><tr>
+        <th class="w-check"><label class="ui-check"><input type="checkbox"></label></th>
+        <th class="w-dot"></th>
+        <th class="is-sorted sortable">Name <svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#arrow-up"/></svg></th>
+        <th class="sortable">IP Address <span class="ui-th-filter"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#list-filter"/></svg></span></th>
+        <th class="sortable">Connection</th>
+        <th class="sortable">Network</th>
+        <th class="sortable">Experience</th>
+        <th class="right sortable">Signal</th>
+        <th class="right sortable">Down</th>
+        <th class="right sortable">Up</th>
+        <th class="right sortable">Uptime</th>
+      </tr></thead>
+      <tbody id="rows"></tbody>
+    </table></div>
+    <div class="ui-pager" style="padding:12px 10px"><span>Rows per page</span><select class="ui-select"><option>50</option><option>100</option></select><span id="count"></span><span class="ui-pager-nav"><button disabled><svg class="ui-icon sm"><use href="../vendor/lucide-sprite.svg#chevron-left"/></svg></button><button disabled><svg class="ui-icon sm"><use href="../vendor/lucide-sprite.svg#chevron-right"/></svg></button></span></div>
+  </main>
+
+  <aside class="ui-drawer">
+    <div class="ui-drawer-head"><button class="ui-btn icon left"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#maximize-2"/></svg></button>Studio Laptop<button class="ui-btn icon"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#x"/></svg></button></div>
+    <div class="ui-drawer-body">
+      <div class="ui-seg block"><button class="is-active"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#info"/></svg></button><button><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#activity"/></svg></button><button><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#settings"/></svg></button></div>
+      <div class="ui-card"><div class="ui-between"><span class="ui-row"><span class="ui-dot"></span> Connected</span><span class="ui-muted ui-sm">12h 6m</span></div>
+        <div class="ui-divider"></div>
+        <div class="ui-linkline"><svg class="ui-icon ui-muted"><use href="../vendor/lucide-sprite.svg#laptop"/></svg><div class="ui-bar"><i></i></div><svg class="ui-icon ui-muted"><use href="../vendor/lucide-sprite.svg#wifi"/></svg><span class="ui-sm">Studio AP</span></div></div>
+      <div class="ui-card"><div class="ui-card-title"><h3>Overview</h3></div>
+        <div class="ui-kv tight"><div><span>Manufacturer</span><span>Aspen Computing</span></div><div><span>Network</span><span>Default</span></div><div><span>IP Address</span><span>192.168.1.17</span></div><div><span>MAC Address</span><span class="ui-mono">5C:2E:8A:41:D0:9B</span></div><div><span>Signal</span><span class="ui-green">-48 dBm · Excellent</span></div><div><span>Channel</span><span>37 (160 MHz) · 6 GHz</span></div><div><span>TX / RX Rate</span><span>2402 / 2402 Mbps</span></div><div><span>Standard</span><span>WiFi 6E</span></div></div></div>
+      <div class="ui-card"><div class="ui-card-title"><h3>Traffic</h3><div class="ui-seg sm"><button class="is-active">1D</button><button>1W</button></div></div>
+        <div class="ui-inline-stats" style="margin-bottom:8px"><div>Download<b class="ui-down">6.4 GB</b></div><div>Upload<b class="ui-up">812 MB</b></div></div>
+        <svg class="ui-spark" viewBox="0 0 300 34" preserveAspectRatio="none"><path class="fill" d="M0 30 L20 26 40 28 60 18 80 22 100 12 120 16 140 8 160 14 180 6 200 12 220 10 240 16 260 9 280 14 300 12 V34 H0 Z"/><path class="stroke" d="M0 30 L20 26 40 28 60 18 80 22 100 12 120 16 140 8 160 14 180 6 200 12 220 10 240 16 260 9 280 14 300 12"/></svg><div class="ui-chart-foot"><span>00:00</span><span>12:00</span><span>now</span></div></div>
+      <div class="ui-card"><div class="ui-card-title"><h3>Connection health</h3></div><div class="ui-bars"><div><span class="ui-bar-label">Association</span><span class="ui-bar-val">100%</span></div><div><span class="ui-bar-label">Authentication</span><span class="ui-bar-val">100%</span></div><div><span class="ui-bar-label">DHCP</span><span class="ui-bar-val">100%</span></div></div></div>
+      <div class="ui-card"><div class="ui-card-title"><h3>Quick Actions</h3></div><div class="ui-actions"><button class="ui-action"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#radio"/></svg>Ping</button><button class="ui-action"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#route"/></svg>Trace</button><button class="ui-action"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#ban"/></svg>Block App</button><button class="ui-action"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#lock"/></svg>Lock IP</button></div></div>
+      <div class="ui-links stack"><a href="#" class="ui-red">Reconnect</a><a href="#" class="ui-red">Block</a><a href="#" class="ui-red">Remove</a></div>
+    </div>
+  </aside>
+</div>
+<script>
+// ponytail: static demo data rendered client-side; no filtering logic
+const I = n => `<svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#${n}"/></svg>`;
+const ap = (n, b) => `<a href="#">${n}</a> <span class="ui-muted">· ${b}</span>`;
+const rows = [
+ ['monitor','Kitchen Display','192.168.1.42',ap('Loft AP','5 GHz'),'Default','Excellent','-52','18.4 Mbps','2.1 Mbps','3d 4h'],
+ ['laptop','Studio Laptop <span class="ui-chip blue" style="margin-left:6px">you</span>','192.168.1.17',ap('Studio AP','6 GHz'),'Default','Excellent','-48','412 Mbps','31.7 Mbps','12h 6m','sel'],
+ ['camera','Garage Camera','192.168.0.103',ap('Garage Switch','Port 4'),'Cameras','Excellent','','0 bps','4.8 Mbps','21d 2h'],
+ ['camera','Driveway Camera','192.168.0.104',ap('Garage Switch','Port 5'),'Cameras','Excellent','','0 bps','5.1 Mbps','21d 2h'],
+ ['lightbulb','Hallway Bulb','192.168.0.71',ap('Hall AP','2.4 GHz'),'IoT','Fair','-71','0 bps','0 bps','9d 11h'],
+ ['lightbulb','Porch Light','192.168.0.72',ap('Garden AP','2.4 GHz'),'IoT','Good','-63','0 bps','0 bps','9d 11h'],
+ ['plug','Aquarium Plug','192.168.0.75',ap('Hall AP','2.4 GHz'),'IoT','Good','-66','0 bps','120 bps','14d 3h'],
+ ['thermometer','Loft Thermostat','192.168.0.80',ap('Loft AP','2.4 GHz'),'IoT','Excellent','-55','0 bps','2.4 kbps','30d 0h'],
+ ['printer','Office Printer','192.168.1.90',ap('Core Switch','Port 12'),'Default','Good','','2.2 kbps','640 bps','40d 1h'],
+ ['tv','Living Room TV','192.168.1.60',ap('Core Switch','Port 3'),'Default','Excellent','','24.6 Mbps','310 kbps','5d 9h'],
+ ['speaker','Kitchen Speaker','192.168.1.61',ap('Loft AP','5 GHz'),'Default','Excellent','-58','1.1 Mbps','48 kbps','5d 9h'],
+ ['gamepad-2','Games Console','192.168.1.63',ap('Core Switch','Port 7'),'Default','Excellent','','0 bps','0 bps','2d 18h'],
+ ['tablet','Hall Tablet','192.168.1.33',ap('Hall AP','5 GHz'),'Default','Good','-64','620 kbps','80 kbps','1d 2h'],
+ ['smartphone','Jamie Phone','192.168.1.21',ap('Studio AP','5 GHz'),'Default','Excellent','-50','3.9 Mbps','410 kbps','6h 12m'],
+ ['smartphone','Sam Phone','192.168.1.22',ap('Loft AP','5 GHz'),'Default','Excellent','-54','1.2 Mbps','96 kbps','4h 40m'],
+ ['watch','Sam Watch','192.168.1.23',ap('Loft AP','2.4 GHz'),'Default','Good','-62','12 kbps','8 kbps','4h 39m'],
+ ['server','Media Server','192.168.1.5',ap('Core Switch','Port 1'),'Default','Excellent','','88 Mbps','412 Mbps','61d 3h'],
+ ['hard-drive','Backup NAS','192.168.1.6',ap('Core Switch','Port 2'),'Default','Excellent','','410 Mbps','12 Mbps','61d 3h'],
+ ['cpu','Lab Pi','192.168.1.140',ap('Core Switch','Port 9'),'Default','Excellent','','8 kbps','6 kbps','12d 7h'],
+ ['bot','Vacuum','192.168.0.90',ap('Hall AP','2.4 GHz'),'IoT','Fair','-74','0 bps','0 bps','2d 1h'],
+ ['doorbell'.replace('doorbell','bell'),'Front Doorbell','192.168.0.105',ap('Garden AP','2.4 GHz'),'Cameras','Good','-68','0 bps','2.2 Mbps','19d 6h'],
+ ['smartphone','Guest Phone','192.168.1.208','—','Guest','—','','—','—','Offline','off'],
+ ['laptop','Guest Laptop','192.168.1.209','—','Guest','—','','—','—','Offline','off'],
+ ['printer','Old Printer','192.168.1.91','—','Default','—','','—','—','Offline','off'],
+];
+const exp = {Excellent:'ui-green', Good:'ui-yellow', Fair:'ui-orange', Poor:'ui-red'};
+document.getElementById('rows').innerHTML = rows.map(r => {
+  const off = r[10] === 'off', sel = r[10] === 'sel';
+  return `<tr class="${off ? 'is-muted' : ''}${sel ? 'is-selected' : ''}">
+    <td class="w-check"><label class="ui-check"><input type="checkbox"${sel ? ' checked' : ''}></label></td>
+    <td class="w-dot"><span class="ui-dot${off ? ' off' : ''}"></span></td>
+    <td><span class="ui-device">${I(r[0])} ${r[1]}</span></td>
+    <td>${r[2]}</td><td>${r[3]}</td><td>${r[4]}</td>
+    <td class="${off ? '' : exp[r[5]] || ''}">${r[5]}</td>
+    <td class="right">${r[6] ? r[6] + ' dBm' : '—'}</td>
+    <td class="right ${off ? '' : 'ui-down'}">${r[7]}</td>
+    <td class="right ${off ? '' : 'ui-up'}">${r[8]}</td>
+    <td class="right ui-muted">${r[9]}</td></tr>`;
+}).join('');
+document.getElementById('count').textContent = `1-${rows.length} of ${rows.length}`;
+</script>
+</body>
+</html>
