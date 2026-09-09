@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Radios · uiui example</title>
+<link rel="stylesheet" href="../../src/uiui.css">
+</head>
+<body class="ui">
+<div class="ui-app">
+  <header class="ui-topbar">
+    <div class="ui-topbar-tab is-active"><span class="ui-dot"></span> Home Office <svg class="ui-icon sm"><use href="../vendor/lucide-sprite.svg#chevron-down"/></svg></div>
+    <div class="ui-topbar-tab"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#globe"/></svg> Network</div>
+    <div class="ui-brand">console</div>
+    <div class="ui-topbar-actions">
+      <button class="ui-btn icon"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#search"/></svg></button>
+      <button class="ui-btn icon"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#bell"/></svg></button>
+      <button class="ui-btn icon"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#circle-help"/></svg></button>
+      <span class="ui-avatar round">JT</span>
+    </div>
+  </header>
+  <nav class="ui-rail">
+    <a class="ui-rail-btn" href="dashboard.html" title="Dashboard"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#layout-dashboard"/></svg></a><a class="ui-rail-btn" href="policies.html" title="Policies"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#shield"/></svg></a><a class="ui-rail-btn is-active" href="radios.html" title="Radios"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#radio"/></svg></a><a class="ui-rail-btn" href="devices.html" title="Devices"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#router"/></svg></a><a class="ui-rail-btn" href="clients.html" title="Clients"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#users"/></svg></a><a class="ui-rail-btn" href="insights.html" title="Insights"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#activity"/></svg></a>
+    <span class="ui-spacer"></span>
+    <a class="ui-rail-btn" href="settings.html" title="Settings"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#settings"/></svg></a>
+  </nav>
+  <main class="ui-main ui-page" style="grid-column: side / drawer">
+    <div class="ui-between" style="margin-bottom:12px">
+      <div class="ui-row" style="gap:14px"><span style="font-size:16px;font-weight:600" class="ui-bright">Radios</span><div class="ui-seg"><button>2.4 GHz</button><button class="is-active">5 GHz</button><button>6 GHz</button></div></div>
+      <div class="ui-row" style="gap:12px"><div class="ui-seg bare sm"><button class="is-active">Signal</button><button>Airtime</button><button>Retries</button></div><div class="ui-seg solid sm"><button>1h</button><button class="is-active">1D</button><button>1W</button></div></div>
+    </div>
+
+    <div class="ui-cards" style="grid-template-columns:repeat(3,1fr);margin-bottom:12px">
+      <div class="ui-card">
+        <div class="ui-card-title"><h3>Client signal</h3><span class="ui-muted ui-sm">38 clients</span></div>
+        <div class="ui-buckets"><div class="red"><b>1</b>-90</div><div class="red"><b>0</b>-85</div><div class="orange"><b>2</b>-80</div><div class="orange"><b>3</b>-75</div><div class="yellow"><b>4</b>-70</div><div class="yellow"><b>6</b>-65</div><div class="green"><b>9</b>-60</div><div class="green"><b>8</b>-55</div><div class="green"><b>4</b>-50</div><div class="green"><b>1</b>-45</div><div class="green"><b>0</b>-40</div></div>
+        <div class="ui-legend" style="margin-top:12px"><span><i style="--ui-c:var(--ui-red)"></i> Poor</span><span><i style="--ui-c:var(--ui-orange)"></i> Fair</span><span><i style="--ui-c:#839c21"></i> Good</span><span><i style="--ui-c:var(--ui-green-text)"></i> Excellent</span></div>
+      </div>
+      <div class="ui-card">
+        <div class="ui-card-title"><h3>TX retries</h3><span class="ui-green">Low</span></div>
+        <div class="ui-buckets muted"><div class="red"><b>0</b>35%+</div><div class="orange"><b>0</b>30%</div><div class="orange"><b>1</b>25%</div><div class="yellow"><b>2</b>20%</div><div class="yellow"><b>3</b>15%</div><div class="green"><b>7</b>10%</div><div class="green"><b>14</b>5%</div><div class="green"><b>11</b>0%</div></div>
+        <div class="ui-hint" style="margin-top:12px"><i class="ui-info"></i> Retries above 20% usually mean interference or a distant client.</div>
+      </div>
+      <div class="ui-card">
+        <div class="ui-card-title"><h3>Access point density</h3></div>
+        <div class="ui-scale"><span class="ui-mark" style="left:62%" title="Loft AP"></span><span class="ui-mark" style="left:71%" title="Studio AP"></span><span class="ui-mark" style="left:84%" title="Hall AP"></span><span class="ui-mark" style="left:38%;border-color:var(--ui-orange);background:#f6dcc0" title="Garden AP"></span><div class="ui-ticks"><span>-90</span><span>-80</span><span>-70</span><span>-60</span><span>-50</span><span>-40</span><span>-30</span></div></div>
+        <div class="ui-sm ui-muted">Signal each access point hears from its nearest neighbour. Closer to -30 means overlap.</div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start">
+      <div class="ui-card">
+        <div class="ui-card-title"><h3>Channel plan · 5 GHz</h3><div class="ui-seg sm"><button class="is-active">Auto</button><button>Manual</button></div></div>
+        <div class="ui-channels">
+          <div class="ui-ch-row"><span class="ui-ch-label"></span><div class="ui-ch-head"><span>36</span><span>40</span><span>44</span><span>48</span><span>52</span><span>56</span><span>60</span><span>64</span><span>100</span><span>104</span><span>108</span><span>112</span><span>116</span><span>120</span><span>124</span><span>128</span><span>132</span><span>136</span><span>140</span><span>144</span><span>149</span><span>153</span><span>157</span><span>161</span></div></div>
+          <div class="ui-ch-row"><span class="ui-ch-label">20 MHz</span><span class="ui-ch use"></span><span class="ui-ch"></span><span class="ui-ch"></span><span class="ui-ch"></span><span class="ui-ch dfs"></span><span class="ui-ch dfs"></span><span class="ui-ch dfs"></span><span class="ui-ch dfs"></span><span class="ui-ch dfs"></span><span class="ui-ch dfs"></span><span class="ui-ch dfs"></span><span class="ui-ch dfs"></span><span class="ui-ch dfs"></span><span class="ui-ch dfs"></span><span class="ui-ch dfs"></span><span class="ui-ch dfs"></span><span class="ui-ch dfs"></span><span class="ui-ch dfs"></span><span class="ui-ch dfs"></span><span class="ui-ch dfs"></span><span class="ui-ch use"></span><span class="ui-ch"></span><span class="ui-ch use"></span><span class="ui-ch"></span></div>
+          <div class="ui-ch-row"><span class="ui-ch-label">40 MHz</span><span class="ui-ch w2 use"></span><span class="ui-ch w2"></span><span class="ui-ch w2 dfs"></span><span class="ui-ch w2 dfs"></span><span class="ui-ch w2 dfs"></span><span class="ui-ch w2 dfs"></span><span class="ui-ch w2 dfs"></span><span class="ui-ch w2 dfs"></span><span class="ui-ch w2 dfs"></span><span class="ui-ch w2 dfs"></span><span class="ui-ch w2 use"></span><span class="ui-ch w2 use"></span></div>
+          <div class="ui-ch-row"><span class="ui-ch-label">80 MHz</span><span class="ui-ch w4 use"></span><span class="ui-ch w4 dfs"></span><span class="ui-ch w4 dfs"></span><span class="ui-ch w4 dfs"></span><span class="ui-ch w4 dfs"></span><span class="ui-ch w4 use"></span></div>
+          <div class="ui-ch-row"><span class="ui-ch-label">160 MHz</span><span class="ui-ch w8 dfs"></span><span class="ui-ch w8 dfs"></span><span class="ui-ch w8 na"></span></div>
+        </div>
+        <div class="ui-legend"><span><i style="--ui-c:var(--ui-green)"></i> In use</span><span><i></i> Available</span><span><i style="border:1px solid var(--ui-gray);background:none"></i> DFS</span><span><i style="--ui-c:#6b5a20"></i> Not allowed</span></div>
+        <div class="ui-divider"></div>
+        <table class="ui-table compact"><thead><tr><th>Access Point</th><th>Channel</th><th>Width</th><th>TX Power</th><th class="right">Clients</th><th class="right">Util.</th></tr></thead><tbody>
+          <tr><td><span class="ui-device"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#wifi"/></svg> Loft AP</span></td><td>36</td><td>80 MHz</td><td>Auto <span class="ui-muted">(20 dBm)</span></td><td class="right">14</td><td class="right ui-yellow">38%</td></tr>
+          <tr><td><span class="ui-device"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#wifi"/></svg> Studio AP</span></td><td>149</td><td>80 MHz</td><td>Auto <span class="ui-muted">(17 dBm)</span></td><td class="right">9</td><td class="right ui-green">12%</td></tr>
+          <tr><td><span class="ui-device"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#wifi"/></svg> Hall AP</span></td><td>157</td><td>40 MHz</td><td>Medium <span class="ui-muted">(14 dBm)</span></td><td class="right">6</td><td class="right ui-green">9%</td></tr>
+          <tr><td><span class="ui-device"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#wifi"/></svg> Garden AP</span></td><td>44</td><td>40 MHz</td><td>Low <span class="ui-muted">(8 dBm)</span></td><td class="right">2</td><td class="right ui-green">3%</td></tr>
+        </tbody></table>
+      </div>
+
+      <div>
+        <div class="ui-card">
+          <div class="ui-card-title"><h3>Airtime · Loft AP</h3><span class="ui-muted ui-sm">last hour</span></div>
+          <div class="ui-bar-head"><span>Channel 36 (80 MHz)</span><span>62%</span></div>
+          <div class="ui-bar thick"><i style="width:38%;--ui-c:var(--ui-accent)"></i><i style="width:24%;--ui-c:var(--ui-orange)"></i></div>
+          <div class="ui-legend"><span><i style="--ui-c:var(--ui-accent)"></i> Own traffic 38%</span><span><i style="--ui-c:var(--ui-orange)"></i> Interference 24%</span><span><i></i> Free 38%</span></div>
+          <div class="ui-bar-head" style="margin-top:14px"><span>Channel 149 (80 MHz)</span><span>18%</span></div>
+          <div class="ui-bar thick"><i style="width:12%;--ui-c:var(--ui-accent)"></i><i style="width:6%;--ui-c:var(--ui-orange)"></i></div>
+          <div class="ui-notice inline" style="margin-top:14px"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#lightbulb"/></svg><div><b>Suggestion.</b> Move Loft AP to channel 100 to cut interference by about 20%.</div><button class="ui-btn sm" style="margin-left:auto">Apply</button></div>
+        </div>
+        <div class="ui-card">
+          <div class="ui-card-title"><h3>Spectrum · Loft AP</h3><span class="ui-badge">Live</span></div>
+          <div class="ui-chart"><svg viewBox="0 0 640 140">
+            <g class="grid"><line x1="30" y1="20" x2="640" y2="20"/><line x1="30" y1="60" x2="640" y2="60"/><line x1="30" y1="100" x2="640" y2="100"/></g>
+            <g class="axis"><text x="0" y="24">-30</text><text x="0" y="64">-60</text><text x="0" y="104">-90</text><text x="60" y="118">36</text><text x="180" y="118">52</text><text x="300" y="118">100</text><text x="420" y="118">132</text><text x="540" y="118">149</text></g>
+            <path class="band blue" d="M40 100 L52 44 108 44 120 100 Z"/><path class="band yellow" d="M130 100 L142 70 198 70 210 100 Z"/><path class="band orange" d="M300 100 L306 84 340 84 346 100 Z"/><path class="band green" d="M520 100 L532 52 600 52 612 100 Z"/>
+          </svg></div>
+          <div class="ui-chart-legend" style="margin-top:8px"><span><i style="--ui-c:var(--ui-accent)"></i>This AP</span><span><i style="--ui-c:var(--ui-green)"></i>Other APs here</span><span><i style="--ui-c:var(--ui-yellow)"></i>Neighbours</span><span><i style="--ui-c:var(--ui-orange)"></i>Non-WiFi</span></div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

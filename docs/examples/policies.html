@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Policies · uiui example</title>
+<link rel="stylesheet" href="../../src/uiui.css">
+</head>
+<body class="ui">
+<div class="ui-app">
+  <header class="ui-topbar">
+    <div class="ui-topbar-tab is-active"><span class="ui-dot"></span> Home Office <svg class="ui-icon sm"><use href="../vendor/lucide-sprite.svg#chevron-down"/></svg></div>
+    <div class="ui-topbar-tab"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#globe"/></svg> Network</div>
+    <div class="ui-brand">console</div>
+    <div class="ui-topbar-actions">
+      <button class="ui-btn icon"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#search"/></svg></button>
+      <button class="ui-btn icon"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#bell"/></svg></button>
+      <button class="ui-btn icon"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#circle-help"/></svg></button>
+      <span class="ui-avatar round">JT</span>
+    </div>
+  </header>
+  <nav class="ui-rail">
+    <a class="ui-rail-btn" href="dashboard.html" title="Dashboard"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#layout-dashboard"/></svg></a><a class="ui-rail-btn is-active" href="policies.html" title="Policies"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#shield"/></svg></a><a class="ui-rail-btn" href="radios.html" title="Radios"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#radio"/></svg></a><a class="ui-rail-btn" href="devices.html" title="Devices"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#router"/></svg></a><a class="ui-rail-btn" href="clients.html" title="Clients"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#users"/></svg></a><a class="ui-rail-btn" href="insights.html" title="Insights"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#activity"/></svg></a>
+    <span class="ui-spacer"></span>
+    <a class="ui-rail-btn" href="settings.html" title="Settings"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#settings"/></svg></a>
+  </nav>
+  <div class="ui-settings" style="grid-column: side / drawer; grid-row: 2; min-height: 0; grid-template-columns: 170px 1fr">
+    <div class="ui-timeline" style="width:170px;border-right:1px solid var(--ui-border)">
+      <div class="ui-tl-head"><span>Time Machine</span><span class="ui-tl-zoom"><svg class="ui-icon sm"><use href="../vendor/lucide-sprite.svg#minus"/></svg><span class="ui-bar" style="width:36px"><i style="width:40%"></i></span><svg class="ui-icon sm"><use href="../vendor/lucide-sprite.svg#plus"/></svg></span></div>
+      <div class="ui-tl-axis"><div class="ui-tl-live" style="top:0"><span class="ui-chip">LIVE</span></div><div class="ui-tl-tick" style="top:12%">14:00</div><div class="ui-tl-tick" style="top:24%">13:00</div><div class="ui-tl-tick" style="top:36%">12:00</div><div class="ui-tl-tick" style="top:48%">11:00</div><div class="ui-tl-tick" style="top:60%">10:00</div><div class="ui-tl-tick" style="top:72%">09:00</div><div class="ui-tl-tick" style="top:84%">08:00</div><div class="ui-tl-tick" style="top:96%">07:00</div></div>
+    </div>
+    <div class="ui-settings-body">
+      <div class="ui-between" style="margin-bottom:12px">
+        <div class="ui-row" style="gap:14px"><span style="font-size:16px;font-weight:600" class="ui-bright">Zone Policies</span><div class="ui-seg"><button class="is-active"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#layout-grid"/></svg> Matrix</button><button><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#table"/></svg> List</button><button><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#waypoints"/></svg> Map</button></div></div>
+        <div class="ui-row"><button class="ui-btn sm"><svg class="ui-icon sm"><use href="../vendor/lucide-sprite.svg#plus"/></svg> Zone</button><button class="ui-btn primary sm"><svg class="ui-icon sm"><use href="../vendor/lucide-sprite.svg#plus"/></svg> Policy</button></div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 340px;gap:12px;align-items:start">
+        <div>
+          <div class="ui-matrix-wrap">
+            <div></div><div class="ui-matrix-dst">Destination</div>
+            <div class="ui-matrix-src">Source</div>
+            <table class="ui-matrix"><thead><tr><th></th><th>Internal</th><th>External</th><th>Guest</th><th>IoT</th><th>Cameras</th><th>VPN</th><th class="all">Gateway</th></tr></thead>
+            <tbody>
+              <tr><th>Internal</th><td class="allow">Allow</td><td class="allow">Allow<span class="ui-n">2</span></td><td class="allow">Allow</td><td class="allow">Allow</td><td class="allow">Allow</td><td class="allow">Allow</td><td class="allow">Allow</td></tr>
+              <tr><th>External</th><td class="return">Return</td><td class="none"></td><td class="return">Return</td><td class="return">Return</td><td class="return">Return</td><td class="block">Block</td><td class="block">Block<span class="ui-n">1</span></td></tr>
+              <tr><th>Guest</th><td class="block">Block</td><td class="allow">Allow</td><td class="block">Block</td><td class="block">Block</td><td class="block">Block</td><td class="block">Block</td><td class="return">Return</td></tr>
+              <tr><th>IoT</th><td class="block is-active">Block<span class="ui-n">3</span></td><td class="allow">Allow<span class="ui-n">1</span></td><td class="block">Block</td><td class="allow">Allow</td><td class="block">Block</td><td class="block">Block</td><td class="return">Return</td></tr>
+              <tr><th>Cameras</th><td class="block">Block</td><td class="block">Block<span class="ui-n">1</span></td><td class="block">Block</td><td class="block">Block</td><td class="allow">Allow</td><td class="block">Block</td><td class="return">Return</td></tr>
+              <tr><th>VPN</th><td class="allow">Allow</td><td class="allow">Allow</td><td class="block">Block</td><td class="allow">Allow</td><td class="allow">Allow</td><td class="allow">Allow</td><td class="allow">Allow</td></tr>
+            </tbody></table>
+          </div>
+          <div class="ui-legend" style="margin:10px 2px 16px"><span><i style="--ui-c:var(--ui-allow)"></i> Allow all</span><span><i style="--ui-c:var(--ui-block)"></i> Block all</span><span><i style="--ui-c:var(--ui-return)"></i> Allow return traffic</span><span><i style="--ui-c:var(--ui-accent)"></i> Policy count</span></div>
+
+          <div class="ui-card">
+            <div class="ui-card-title"><h3>IoT → Internal <span class="ui-chip red">Block</span></h3><span class="ui-muted ui-sm">3 policies</span></div>
+            <table class="ui-table compact card"><thead><tr><th class="w-check"><label class="ui-check"><input type="checkbox"></label></th><th>Policy</th><th>Action</th><th>Source</th><th>Destination</th><th>Hits (24h)</th><th></th></tr></thead><tbody>
+              <tr><td class="w-check"><label class="ui-check"><input type="checkbox"></label></td><td><span class="ui-row"><span class="ui-dot"></span> Allow printers to Media Server</span></td><td class="ui-green">Allow</td><td>192.168.0.71-90</td><td>192.168.1.5 · 9100</td><td><div class="ui-bar thin" style="width:80px"><i style="width:35%;--ui-c:var(--ui-green)"></i></div></td><td class="right"><a href="#">Edit</a></td></tr>
+              <tr><td class="w-check"><label class="ui-check"><input type="checkbox"></label></td><td><span class="ui-row"><span class="ui-dot"></span> Thermostat to hub</span></td><td class="ui-green">Allow</td><td>192.168.0.80</td><td>192.168.1.140 · 8123</td><td><div class="ui-bar thin" style="width:80px"><i style="width:60%;--ui-c:var(--ui-green)"></i></div></td><td class="right"><a href="#">Edit</a></td></tr>
+              <tr class="is-muted"><td class="w-check"><label class="ui-check"><input type="checkbox"></label></td><td><span class="ui-row"><span class="ui-dot off"></span> Legacy bridge (paused)</span></td><td>Allow</td><td>192.168.0.0/24</td><td>192.168.1.9</td><td>—</td><td class="right"><a href="#">Edit</a></td></tr>
+              <tr><td class="w-check"><label class="ui-check"><input type="checkbox"></label></td><td><span class="ui-row"><span class="ui-dot red"></span> Block everything else</span></td><td class="ui-red">Block</td><td>Any</td><td>Any</td><td><div class="ui-bar thin" style="width:80px"><i style="width:90%;--ui-c:var(--ui-red)"></i></div></td><td class="right ui-muted">Default</td></tr>
+            </tbody></table>
+          </div>
+        </div>
+
+        <div>
+          <div class="ui-card">
+            <div class="ui-card-title"><h3>Traffic flow</h3></div>
+            <div class="ui-diagram" style="flex-direction:column;align-items:stretch;gap:14px;padding-top:22px">
+              <div class="ui-group" style="justify-content:space-between"><span class="ui-group-label"><svg class="ui-icon sm"><use href="../vendor/lucide-sprite.svg#lightbulb"/></svg> IoT · 192.168.0.0/24</span><div class="ui-node"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#thermometer"/></svg>Thermostat</div><div class="ui-node"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#plug"/></svg>Plugs</div><div class="ui-node"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#bot"/></svg>Vacuum</div></div>
+              <div class="ui-edge" style="align-self:center">3 policies</div>
+              <div class="ui-node lg"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#router"/></svg>Gateway<span class="ui-node-sub">policy engine</span></div>
+              <div class="ui-edge dotted" style="align-self:center">2 allowed</div>
+              <div class="ui-group" style="justify-content:space-between;border-color:var(--ui-green);margin-top:12px"><span class="ui-group-label"><svg class="ui-icon sm"><use href="../vendor/lucide-sprite.svg#network"/></svg> Internal · 192.168.1.0/24</span><div class="ui-node"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#server"/></svg>Media Server</div><div class="ui-node"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#cpu"/></svg>Lab Pi</div></div>
+            </div>
+          </div>
+          <div class="ui-card">
+            <div class="ui-card-title"><h3>Recent blocks</h3><a href="#" class="ui-sm">View log</a></div>
+            <table class="ui-table compact"><tbody>
+              <tr><td class="w-dot"><span class="ui-dot red"></span></td><td class="ui-muted">14:02</td><td>Vacuum → 192.168.1.5 <span class="ui-meter" data-level="2"><i></i><i></i><i></i></span></td></tr>
+              <tr><td class="w-dot"><span class="ui-dot red"></span></td><td class="ui-muted">13:48</td><td>Porch Light → 192.168.1.140 <span class="ui-meter" data-level="1"><i></i><i></i><i></i></span></td></tr>
+              <tr><td class="w-dot"><span class="ui-dot red"></span></td><td class="ui-muted">13:11</td><td>Aquarium Plug → 192.168.1.17 <span class="ui-meter" data-level="3"><i></i><i></i><i></i></span></td></tr>
+              <tr><td class="w-dot"><span class="ui-dot red"></span></td><td class="ui-muted">12:40</td><td>Vacuum → 192.168.1.6 <span class="ui-meter" data-level="2"><i></i><i></i><i></i></span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="ui-tooltip arrow-bottom" style="margin-top:12px"><b>IoT → Internal</b><div class="ui-kv"><div><span>Default</span><span>Block</span></div><div><span>Exceptions</span><span>2</span></div><div><span>Blocked (24h)</span><span>1,284</span></div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
