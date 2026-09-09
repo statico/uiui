@@ -248,7 +248,7 @@
 
 <h2 id="form-rows">Form rows</h2>
 <p>Settings pages put the label on the left in a 240px column and the control on the right. Related controls nest in a stack under one label. Section titles in cards carry an icon on the left and a collapse chevron on the right.</p>
-<div class="dc-ex"><div class="demo block surface" style="max-width:720px">
+<div class="dc-ex"><div class="demo block surface">
   <div class="ui-card-title"><h3><svg class="ui-icon"><use href="vendor/lucide-sprite.svg#globe"/></svg> Internet</h3><svg class="ui-icon chev"><use href="vendor/lucide-sprite.svg#chevron-up"/></svg></div>
   <div class="ui-form-row"><div class="ui-form-label">Name</div><div><input class="ui-input" value="Primary (WAN1)" style="max-width:320px"></div></div>
   <div class="ui-form-row"><div class="ui-form-label">Connection <i class="ui-info"></i></div><div class="ui-sub"><div class="ui-seg"><button class="is-active">DHCP</button><button>PPPoE</button><button>Static</button></div><label class="ui-check"><input type="checkbox" checked> Use DNS from provider</label></div></div>
@@ -440,7 +440,7 @@
 
 <h2 id="charts">Charts &amp; bars</h2>
 <p>Charts are inline SVG in a <code>.ui-chart</code> wrapper: dotted grid, 10px grey axis text, 1.5px lines. Download is cyan or blue, upload is purple, thresholds are dotted yellow. Bars are 6px tracks. Distribution buckets run red → orange → yellow → green.</p>
-<div class="dc-ex"><div class="demo block surface" style="max-width:720px">
+<div class="dc-ex"><div class="demo block surface">
   <div class="ui-between" style="margin-bottom:8px"><div class="ui-chart-legend"><span><i style="--ui-c:var(--ui-cyan)"></i>Download</span><span><i style="--ui-c:var(--ui-purple)"></i>Upload</span><span><i class="dashed" style="--ui-c:var(--ui-yellow)"></i>Plan limit</span></div><div class="ui-seg solid sm"><button>1h</button><button class="is-active">1D</button><button>1W</button></div></div>
   <div class="ui-chart"><svg viewBox="0 0 640 160">
     <g class="grid"><line x1="40" y1="20" x2="640" y2="20"/><line x1="40" y1="60" x2="640" y2="60"/><line x1="40" y1="100" x2="640" y2="100"/><line x1="40" y1="140" x2="640" y2="140"/></g>
@@ -470,7 +470,7 @@
   <div class="ui-ch-row"><span class="ui-ch-label">160 MHz</span><span class="ui-ch w8 na"></span><span class="ui-ch w8 dfs"></span></div>
 </div><div class="ui-legend"><span><i style="--ui-c:var(--ui-green)"></i> In use</span><span><i></i> Available</span><span><i style="border:1px solid var(--ui-gray);background:none"></i> DFS</span><span><i style="--ui-c:#6b5a20"></i> Not allowed</span><span><i style="--ui-c:#7a3b3b"></i> Excluded</span></div></div></div>
 <h3>Spectrum bands</h3>
-<div class="dc-ex"><div class="demo block surface" style="max-width:720px"><div class="ui-chart"><svg viewBox="0 0 640 120">
+<div class="dc-ex"><div class="demo block surface"><div class="ui-chart"><svg viewBox="0 0 640 120">
   <g class="grid"><line x1="30" y1="20" x2="640" y2="20"/><line x1="30" y1="60" x2="640" y2="60"/><line x1="30" y1="100" x2="640" y2="100"/></g>
   <g class="axis"><text x="0" y="24">-30</text><text x="0" y="64">-60</text><text x="0" y="104">-90</text><text x="60" y="116">36</text><text x="180" y="116">52</text><text x="300" y="116">100</text><text x="420" y="116">132</text><text x="540" y="116">149</text></g>
   <path class="band blue" d="M40 100 L52 44 108 44 120 100 Z"/><path class="band yellow" d="M130 100 L142 70 198 70 210 100 Z"/><path class="band green" d="M520 100 L532 52 600 52 612 100 Z"/><path class="band orange" d="M300 100 L306 84 340 84 346 100 Z"/>
@@ -553,7 +553,7 @@
     <div class="ui-row" style="justify-content:flex-end;gap:8px;margin-top:8px"><button class="ui-btn">Cancel</button><button class="ui-btn primary">Apply Changes</button></div>
   </div>
 </div></div></div>
-<div class="dc-ex"><div class="demo block surface" style="max-width:520px">
+<div class="dc-ex"><div class="demo block surface">
   <div class="ui-toggle-row"><div class="ui-toggle-title">Smart queues</div><label class="ui-switch"><input type="checkbox" checked></label><div class="ui-toggle-desc">Prioritise interactive traffic when the link is saturated.</div></div>
   <div class="ui-toggle-row"><div class="ui-toggle-title">Device fingerprinting</div><label class="ui-switch"><input type="checkbox" checked></label><div class="ui-toggle-desc">Identify device types from their traffic patterns.</div></div>
   <div class="ui-toggle-row"><div class="ui-toggle-title">Ad blocking</div><label class="ui-switch"><input type="checkbox"></label><div class="ui-toggle-desc">Block known advertising domains at the DNS level.</div><div class="ui-toggle-extra"><div class="ui-chips"><button class="is-active">Default</button><button>IoT</button><button>Guest</button></div></div></div>

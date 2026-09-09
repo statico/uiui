@@ -345,7 +345,7 @@
 
 /* quick-action tiles (Ping Test / Block App) */
 .ui-actions { display: flex; gap: 8px; flex-wrap: wrap; }
-.ui-action { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; width: 78px; height: 56px; border-radius: var(--ui-radius); border: 1px solid var(--ui-border-2); background: var(--ui-surface); color: var(--ui-text); font-size: var(--ui-fs-xs); cursor: pointer; }
+.ui-action { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; flex: 1 1 0; min-width: 60px; height: 56px; border-radius: var(--ui-radius); border: 1px solid var(--ui-border-2); background: var(--ui-surface); color: var(--ui-text); font-size: var(--ui-fs-xs); cursor: pointer; }
 .ui-action:hover { border-color: var(--ui-text-2); }
 .ui-action .ui-icon { width: 18px; height: 18px; }
 
@@ -519,7 +519,7 @@
 .ui-port .ui-icon { position: absolute; top: 3px; right: 3px; width: 11px; height: 11px; stroke-width: 2; }
 .ui-port.sm { width: 18px; height: 18px; border-radius: 3px; padding: 0; font-size: 0; }
 .ui-port.sm .ui-icon { width: 9px; height: 9px; top: 1px; right: 1px; }
-.ui-port.sfp::after { content: "SFP"; position: absolute; top: 3px; right: 3px; font-size: 7px; opacity: .7; }
+.ui-port.sfp::after { content: "SFP"; position: absolute; bottom: 4px; right: 4px; font-size: 7px; opacity: .7; }
 .ui-legend { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: var(--ui-fs-xs); color: var(--ui-text-2); margin-top: 8px; }
 .ui-legend > span { display: inline-flex; align-items: center; gap: 5px; }
 .ui-legend i { display: inline-block; width: 8px; height: 8px; border-radius: 2px; background: var(--ui-c, var(--ui-gray)); }
@@ -632,7 +632,7 @@
 .ui-linkline .ui-bar > i { width: 100%; background: var(--ui-green-text); }
 
 /* ---------- 14. Timeline (vertical, "Time Machine") ---------- */
-.ui-timeline { position: relative; width: 140px; height: 100%; background: var(--ui-bg); border-right: 1px solid var(--ui-border); padding: 8px; font-size: 10px; color: var(--ui-text-2); }
+.ui-timeline { position: relative; width: 170px; height: 100%; background: var(--ui-bg); border-right: 1px solid var(--ui-border); padding: 8px; font-size: 10px; color: var(--ui-text-2); }
 .ui-timeline .ui-tl-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; color: var(--ui-text); }
 .ui-timeline .ui-tl-zoom { display: inline-flex; align-items: center; gap: 4px; }
 .ui-timeline .ui-tl-zoom .ui-bar { width: 50px; height: 4px; }
@@ -646,7 +646,7 @@
 
 /* ---------- 15. Settings navigation ---------- */
 .ui-nav { display: flex; flex-direction: column; gap: 2px; padding: 8px; }
-.ui-nav-item { display: flex; align-items: center; gap: 10px; height: 34px; padding: 0 10px; border-radius: var(--ui-radius); color: var(--ui-text); cursor: pointer; text-decoration: none; }
+.ui-nav-item, .ui a.ui-nav-item { display: flex; align-items: center; gap: 10px; height: 34px; padding: 0 10px; border-radius: var(--ui-radius); color: var(--ui-text); cursor: pointer; text-decoration: none; }
 .ui-nav-item:hover { background: var(--ui-raised); color: var(--ui-text); }
 .ui-nav-item.is-active { background: var(--ui-raised); color: var(--ui-accent); }
 .ui-nav-item .ui-icon { color: var(--ui-text-2); width: 18px; height: 18px; }

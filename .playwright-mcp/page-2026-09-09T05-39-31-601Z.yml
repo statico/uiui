@@ -1,0 +1,1724 @@
+- generic [ref=e2]:
+  - navigation [ref=e3]:
+    - heading "uiui" [level=1] [ref=e4]
+    - generic [ref=e5]: dark console design system · v0.1
+    - link "Getting started" [ref=e6] [cursor=pointer]:
+      - /url: "#start"
+    - link "Example pages" [ref=e7] [cursor=pointer]:
+      - /url: "#examples"
+    - generic [ref=e8]: Foundations
+    - link "Color" [ref=e9] [cursor=pointer]:
+      - /url: "#color"
+    - link "Typography" [ref=e10] [cursor=pointer]:
+      - /url: "#type"
+    - link "Icons" [ref=e11] [cursor=pointer]:
+      - /url: "#icons"
+    - link "App shell" [ref=e12] [cursor=pointer]:
+      - /url: "#shell"
+    - generic [ref=e13]: Controls
+    - link "Buttons & links" [ref=e14] [cursor=pointer]:
+      - /url: "#buttons"
+    - link "Inputs" [ref=e15] [cursor=pointer]:
+      - /url: "#inputs"
+    - link "Checkbox · Radio · Switch" [ref=e16] [cursor=pointer]:
+      - /url: "#choice"
+    - link "Segmented & chips" [ref=e17] [cursor=pointer]:
+      - /url: "#segmented"
+    - link "Sliders" [ref=e18] [cursor=pointer]:
+      - /url: "#slider"
+    - link "Form rows" [ref=e19] [cursor=pointer]:
+      - /url: "#form-rows"
+    - generic [ref=e20]: Display
+    - link "Badges · Dots · Meters" [ref=e21] [cursor=pointer]:
+      - /url: "#badges"
+    - link "Data table" [ref=e22] [cursor=pointer]:
+      - /url: "#table"
+    - link "Filter sidebar" [ref=e23] [cursor=pointer]:
+      - /url: "#filters"
+    - link "Cards & key-values" [ref=e24] [cursor=pointer]:
+      - /url: "#cards"
+    - link "Detail drawer" [ref=e25] [cursor=pointer]:
+      - /url: "#drawer"
+    - link "Icon tiles" [ref=e26] [cursor=pointer]:
+      - /url: "#tiles"
+    - link "Port grid" [ref=e27] [cursor=pointer]:
+      - /url: "#ports"
+    - link "Zone matrix" [ref=e28] [cursor=pointer]:
+      - /url: "#matrix"
+    - link "Charts & bars" [ref=e29] [cursor=pointer]:
+      - /url: "#charts"
+    - link "Timeline" [ref=e30] [cursor=pointer]:
+      - /url: "#timeline"
+    - link "Diagram nodes" [ref=e31] [cursor=pointer]:
+      - /url: "#diagram"
+    - generic [ref=e32]: Navigation & feedback
+    - link "Settings nav" [ref=e33] [cursor=pointer]:
+      - /url: "#settings-nav"
+    - link "Option cards" [ref=e34] [cursor=pointer]:
+      - /url: "#options"
+    - link "Notices · Tooltips · Toast" [ref=e35] [cursor=pointer]:
+      - /url: "#notices"
+    - link "Modal" [ref=e36] [cursor=pointer]:
+      - /url: "#modal"
+    - generic [ref=e37]: Guidance
+    - link "Principles" [ref=e38] [cursor=pointer]:
+      - /url: "#principles"
+    - link "For agents" [ref=e39] [cursor=pointer]:
+      - /url: "#agents"
+  - main [ref=e40]:
+    - heading "Getting started" [level=2] [ref=e41]
+    - paragraph [ref=e42]:
+      - text: "uiui is a plain-CSS design system for dense, dark operations consoles: network dashboards, device managers, admin panels, anything with many rows and a handful of colored numbers. One stylesheet, no build step, every class prefixed"
+      - code [ref=e43]: ui-
+      - text: .
+    - generic [ref=e44]:
+      - generic [ref=e45]: "<link rel=\"stylesheet\" href=\"uiui.css\"> <body class=\"ui\"> … </body> <!-- icons: lucide sprite, referenced by id --> <svg class=\"ui-icon\"><use href=\"lucide-sprite.svg#wifi\"/></svg>"
+      - group [ref=e47]:
+        - generic [ref=e48] [cursor=pointer]:
+          - text: HTML
+          - button "Copy" [ref=e49]
+    - paragraph [ref=e50]:
+      - text: Using shadcn/ui or Tailwind instead?
+      - code [ref=e51]: uiui.css
+      - text: also defines the shadcn variables (
+      - code [ref=e52]: "--background"
+      - text: ","
+      - code [ref=e53]: "--primary"
+      - text: ", …) and there is a theme in"
+      - code [ref=e54]: registry/uiui-theme.json
+      - text: . See
+      - link "skill.md" [ref=e55] [cursor=pointer]:
+        - /url: ../skill.md
+      - text: for the agent-facing summary.
+    - heading "Example pages" [level=2] [ref=e56]
+    - paragraph [ref=e57]: Full screens assembled from the widgets below. Open one, then copy the shell and swap in your own data.
+    - generic [ref=e58]:
+      - link "Dashboard Summary cards, throughput chart, latency pills, top-clients tiles, device strip." [ref=e59] [cursor=pointer]:
+        - /url: examples/dashboard.html
+        - generic [ref=e60]: Dashboard
+        - text: Summary cards, throughput chart, latency pills, top-clients tiles, device strip.
+      - link "Clients table Filter sidebar, sortable dense table, selected row, detail drawer with tabs." [ref=e61] [cursor=pointer]:
+        - /url: examples/clients.html
+        - generic [ref=e62]: Clients table
+        - text: Filter sidebar, sortable dense table, selected row, detail drawer with tabs.
+      - link "Settings Settings nav with tree, content cards, label-left forms, option cards with focus panel." [ref=e63] [cursor=pointer]:
+        - /url: examples/settings.html
+        - generic [ref=e64]: Settings
+        - text: Settings nav with tree, content cards, label-left forms, option cards with focus panel.
+      - link "Zone matrix & policies Allow / block matrix, policy table, diagram nodes, timeline rail." [ref=e65] [cursor=pointer]:
+        - /url: examples/policies.html
+        - generic [ref=e66]: Zone matrix & policies
+        - text: Allow / block matrix, policy table, diagram nodes, timeline rail.
+      - link "Radio analysis Signal buckets, gradient scale, channel plan, airtime bars, spectrum chart." [ref=e67] [cursor=pointer]:
+        - /url: examples/radios.html
+        - generic [ref=e68]: Radio analysis
+        - text: Signal buckets, gradient scale, channel plan, airtime bars, spectrum chart.
+    - heading "Color" [level=2] [ref=e69]
+    - paragraph [ref=e70]: "Four graphite surfaces, one blue, and a small set of semantic colors. Blue is for interaction: links, selection, primary buttons, the active tab. Green means healthy, and nearly everything else is text-2 grey."
+    - generic [ref=e71]:
+      - generic [ref=e73]:
+        - generic [ref=e76]:
+          - generic [ref=e77]: "--ui-bg"
+          - text: "#131416 page, sidebars"
+        - generic [ref=e80]:
+          - generic [ref=e81]: "--ui-surface"
+          - text: "#1c1e21 cards, selects"
+        - generic [ref=e84]:
+          - generic [ref=e85]: "--ui-input"
+          - text: "#25272a text inputs"
+        - generic [ref=e88]:
+          - generic [ref=e89]: "--ui-raised"
+          - text: "#282b2f top bar, chips, hover"
+        - generic [ref=e92]:
+          - generic [ref=e93]: "--ui-border"
+          - text: "#232526 hairlines"
+        - generic [ref=e96]:
+          - generic [ref=e97]: "--ui-border-2"
+          - text: "#34383d outlines"
+        - generic [ref=e100]:
+          - generic [ref=e101]: "--ui-selected"
+          - text: "#18212e selected row"
+        - generic [ref=e104]:
+          - generic [ref=e105]: "--ui-accent"
+          - text: "#4797ff links, primary, active"
+        - generic [ref=e108]:
+          - generic [ref=e109]: "--ui-accent-dim"
+          - text: "#386197 solid segmented tab"
+        - generic [ref=e112]:
+          - generic [ref=e113]: "--ui-accent-deep"
+          - text: "#05254d active rail, timeline"
+        - generic [ref=e116]:
+          - generic [ref=e117]: "--ui-text"
+          - text: "#dee0e3 body"
+        - generic [ref=e120]:
+          - generic [ref=e121]: "--ui-text-2"
+          - text: "#929497 secondary, values"
+        - generic [ref=e124]:
+          - generic [ref=e125]: "--ui-text-3"
+          - text: "#6b6e72 placeholders, offline"
+        - generic [ref=e128]:
+          - generic [ref=e129]: "--ui-green"
+          - text: "#37be60 healthy, GbE"
+        - generic [ref=e132]:
+          - generic [ref=e133]: "--ui-lime"
+          - text: "#b0d322 100 Mbps"
+        - generic [ref=e136]:
+          - generic [ref=e137]: "--ui-yellow"
+          - text: "#dfc116 warning, threshold"
+        - generic [ref=e140]:
+          - generic [ref=e141]: "--ui-orange"
+          - text: "#e79613 fair, busy"
+        - generic [ref=e144]:
+          - generic [ref=e145]: "--ui-red"
+          - text: "#ee6368 error, destructive"
+        - generic [ref=e148]:
+          - generic [ref=e149]: "--ui-purple"
+          - text: "#b47cde upload"
+        - generic [ref=e152]:
+          - generic [ref=e153]: "--ui-cyan"
+          - text: "#5aa9c9 chart line, 10 GbE"
+        - generic [ref=e156]:
+          - generic [ref=e157]: "--ui-gray"
+          - text: "#50565e disconnected port, switch off"
+        - generic [ref=e160]:
+          - generic [ref=e161]: "--ui-allow"
+          - text: "#42674f matrix allow"
+        - generic [ref=e164]:
+          - generic [ref=e165]: "--ui-block"
+          - text: "#755b5e matrix block"
+        - generic [ref=e168]:
+          - generic [ref=e169]: "--ui-return"
+          - text: "#2a4c5b matrix allow-return"
+      - group [ref=e170]:
+        - generic [ref=e171] [cursor=pointer]:
+          - text: HTML
+          - button "Copy" [ref=e172]
+    - heading "Text color utilities" [level=3] [ref=e173]
+    - generic [ref=e174]:
+      - generic [ref=e175]:
+        - generic [ref=e176]: default
+        - generic [ref=e177]: .ui-muted
+        - generic [ref=e178]: .ui-dim
+        - generic [ref=e179]: .ui-bright
+        - generic [ref=e180]: .ui-accent
+        - generic [ref=e181]: .ui-green
+        - generic [ref=e182]: .ui-lime
+        - generic [ref=e183]: .ui-yellow
+        - generic [ref=e184]: .ui-orange
+        - generic [ref=e185]: .ui-red
+        - generic [ref=e186]: .ui-purple
+        - generic [ref=e187]: ↓ 18.4 Mbps
+        - generic [ref=e188]: ↑ 2.1 Mbps
+      - group [ref=e189]:
+        - generic [ref=e190] [cursor=pointer]:
+          - text: HTML
+          - button "Copy" [ref=e191]
+    - heading "Typography" [level=2] [ref=e192]
+    - paragraph [ref=e193]: Inter (or the system sans), 13px body, 12px secondary, 11px bold section titles. Tabular figures and slashed zeros are on by default so columns of numbers line up and 0 never reads as O.
+    - generic [ref=e194]:
+      - generic [ref=e196]:
+        - generic [ref=e197]: 16px · 600 · page title
+        - generic [ref=e198]: Network overview
+        - generic [ref=e199]: 14px · 600 · card title
+        - generic [ref=e200]: Connection details
+        - generic [ref=e201]: 13px · 400 · body / table
+        - generic [ref=e202]: Kitchen Display connected to Loft Access Point on channel 44 at 780 Mbps
+        - generic [ref=e203]: 12px · 400 · secondary
+        - generic [ref=e204]: Last seen 2 minutes ago · 192.168.1.42
+        - generic [ref=e205]: 11px · 700 · section label
+        - generic [ref=e206]: CONNECTION TYPE
+        - generic [ref=e207]: 11px · 400 · helper
+        - generic [ref=e208]: Leave blank to assign automatically.
+        - generic [ref=e209]: tabular + slashed zero
+        - generic [ref=e210]: 0 10 100 1000 · 00:00 · 192.168.0.100
+        - generic [ref=e211]: mono
+        - generic [ref=e212]: 3A:F1:9C:0B:7E:21
+      - group [ref=e213]:
+        - generic [ref=e214] [cursor=pointer]:
+          - text: HTML
+          - button "Copy" [ref=e215]
+    - heading "Icons" [level=2] [ref=e216]
+    - paragraph [ref=e217]:
+      - text: Icons are
+      - link "lucide" [ref=e218] [cursor=pointer]:
+        - /url: https://lucide.dev
+      - text: (ISC license), vendored as one SVG sprite. Use 16px at 1.75 stroke in text, 20px at 1.5 stroke in the icon rail. Icons take
+      - code [ref=e219]: currentColor
+      - text: ", so color them with the text utilities."
+    - group [ref=e234]:
+      - generic [ref=e235] [cursor=pointer]:
+        - text: HTML
+        - button "Copy" [ref=e236]
+    - heading "Vocabulary used by the console metaphors" [level=3] [ref=e237]
+    - generic [ref=e238]:
+      - generic [ref=e240]:
+        - generic [ref=e241]: layout-dashboard
+        - generic [ref=e244]: router
+        - generic [ref=e247]: network
+        - generic [ref=e250]: wifi
+        - generic [ref=e253]: users
+        - generic [ref=e256]: activity
+        - generic [ref=e259]: shield
+        - generic [ref=e262]: settings
+        - generic [ref=e265]: search
+        - generic [ref=e268]: bell
+        - generic [ref=e271]: globe
+        - generic [ref=e274]: lock
+        - generic [ref=e277]: key-round
+        - generic [ref=e280]: radio
+        - generic [ref=e283]: route
+        - generic [ref=e286]: waypoints
+        - generic [ref=e289]: gauge
+        - generic [ref=e292]: zap
+        - generic [ref=e295]: monitor
+        - generic [ref=e298]: laptop
+        - generic [ref=e301]: smartphone
+        - generic [ref=e304]: tablet
+        - generic [ref=e307]: camera
+        - generic [ref=e310]: printer
+        - generic [ref=e313]: tv
+        - generic [ref=e316]: watch
+        - generic [ref=e319]: lightbulb
+        - generic [ref=e322]: plug
+        - generic [ref=e325]: gamepad-2
+        - generic [ref=e328]: video
+        - generic [ref=e331]: cloud
+        - generic [ref=e334]: database
+        - generic [ref=e337]: server
+        - generic [ref=e340]: hard-drive
+        - generic [ref=e343]: cpu
+        - generic [ref=e346]: cable
+        - generic [ref=e349]: ethernet-port
+        - generic [ref=e352]: map-pin
+        - generic [ref=e355]: history
+        - generic [ref=e357]: sliders-horizontal
+        - generic [ref=e360]: columns-3
+        - generic [ref=e363]: table
+        - generic [ref=e366]: layout-grid
+        - generic [ref=e369]: list-filter
+        - generic [ref=e372]: arrow-up
+        - generic [ref=e375]: arrow-down
+        - generic [ref=e378]: arrow-left-right
+        - generic [ref=e381]: chevron-up
+        - generic [ref=e384]: chevron-down
+        - generic [ref=e387]: chevron-left
+        - generic [ref=e390]: chevron-right
+        - generic [ref=e393]: x
+        - generic [ref=e396]: check
+        - generic [ref=e399]: plus
+        - generic [ref=e402]: minus
+        - generic [ref=e404]: info
+        - generic [ref=e407]: circle-alert
+        - generic [ref=e410]: triangle-alert
+        - generic [ref=e413]: circle-check
+        - generic [ref=e416]: circle-x
+        - generic [ref=e419]: shield-check
+        - generic [ref=e422]: ban
+        - generic [ref=e425]: refresh-cw
+        - generic [ref=e428]: eye
+        - generic [ref=e431]: eye-off
+        - generic [ref=e434]: pencil
+        - generic [ref=e437]: trash-2
+        - generic [ref=e439]: copy
+        - generic [ref=e442]: ellipsis
+        - generic [ref=e445]: external-link
+        - generic [ref=e448]: download
+        - generic [ref=e451]: upload
+        - generic [ref=e454]: split
+        - generic [ref=e457]: message-square
+      - group [ref=e460]:
+        - generic [ref=e461] [cursor=pointer]:
+          - text: HTML
+          - button "Copy" [ref=e462]
+    - heading "App shell" [level=2] [ref=e463]
+    - paragraph [ref=e464]: "The frame every screen sits in: a raised top bar with tabs, a 48px icon rail, an optional filter sidebar, the main area, and an optional right-hand detail drawer. Grid areas handle it; drop the sidebar or drawer element and the grid collapses."
+    - generic [ref=e465]:
+      - generic [ref=e467]:
+        - generic [ref=e468]:
+          - generic [ref=e469] [cursor=pointer]: Home Office
+          - generic [ref=e473] [cursor=pointer]: Network
+          - generic [ref=e476]: console
+          - generic [ref=e477]:
+            - button [ref=e478] [cursor=pointer]
+            - button [ref=e481] [cursor=pointer]
+            - button [ref=e484] [cursor=pointer]
+            - generic [ref=e487]: JT
+        - navigation [ref=e488]:
+          - button "Dashboard" [ref=e489] [cursor=pointer]
+          - button "Devices" [ref=e492] [cursor=pointer]
+          - button "Clients" [ref=e495] [cursor=pointer]
+          - button "Insights" [ref=e498] [cursor=pointer]
+          - button "Security" [ref=e501] [cursor=pointer]
+          - button "Settings" [ref=e504] [cursor=pointer]
+        - complementary [ref=e507]:
+          - generic [ref=e508]:
+            - generic [ref=e509] [cursor=pointer]: FILTERS
+            - generic [ref=e510]:
+              - generic [ref=e511] [cursor=pointer]:
+                - checkbox "Online (12)" [checked] [ref=e512]
+                - text: Online
+                - generic [ref=e513]: (12)
+              - generic [ref=e514] [cursor=pointer]:
+                - checkbox "Offline (3)" [ref=e515]
+                - text: Offline
+                - generic [ref=e516]: (3)
+          - button "Clear Filters" [ref=e518] [cursor=pointer]
+        - main [ref=e519]:
+          - generic [ref=e520]: Main content
+        - complementary [ref=e523]:
+          - generic [ref=e524]:
+            - text: Kitchen Display
+            - button [ref=e525] [cursor=pointer]
+          - generic [ref=e530]:
+            - generic [ref=e531]:
+              - generic [ref=e532]: IP
+              - generic [ref=e533]: 192.168.1.42
+            - generic [ref=e534]:
+              - generic [ref=e535]: Uptime
+              - generic [ref=e536]: 3d 4h
+      - group [ref=e537]:
+        - generic [ref=e538] [cursor=pointer]:
+          - text: HTML
+          - button "Copy" [ref=e539]
+    - generic [ref=e540]:
+      - generic [ref=e541]:
+        - generic [ref=e542]: Do
+        - list [ref=e543]:
+          - listitem [ref=e544]: Keep the top bar at 48px and the rail at 48px wide.
+          - listitem [ref=e545]: Center a muted product name in the top bar.
+          - listitem [ref=e546]: One active rail icon, filled with the deep-blue halo.
+      - generic [ref=e547]:
+        - generic [ref=e548]: Don't
+        - list [ref=e549]:
+          - listitem [ref=e550]: Put text labels in the rail; use tooltips.
+          - listitem [ref=e551]: Stack two sidebars. Filters live left, details live right.
+          - listitem [ref=e552]: Use a drawer wider than 360px.
+    - heading "Buttons & links" [level=2] [ref=e553]
+    - paragraph [ref=e554]: Primary blue for the one action that matters, raised grey for everything else. Destructive actions are red text links, never red fills. Actions in cards are plain links separated by a hairline.
+    - generic [ref=e555]:
+      - generic [ref=e556]:
+        - button "Apply Changes" [ref=e557] [cursor=pointer]
+        - button "Cancel" [ref=e558] [cursor=pointer]
+        - button "Run Speed Test" [ref=e559] [cursor=pointer]
+        - button "Customize" [ref=e562] [cursor=pointer]
+        - button "Remove" [ref=e563] [cursor=pointer]
+        - button [ref=e564] [cursor=pointer]
+        - button "Saving…" [disabled] [ref=e567]
+        - button "Small" [ref=e568] [cursor=pointer]
+        - button "Add" [ref=e569] [cursor=pointer]
+      - group [ref=e572]:
+        - generic [ref=e573] [cursor=pointer]:
+          - text: HTML
+          - button "Copy" [ref=e574]
+    - heading "Link rows" [level=3] [ref=e575]
+    - generic [ref=e576]:
+      - generic [ref=e577]:
+        - generic [ref=e578]:
+          - link "Create New" [ref=e579] [cursor=pointer]:
+            - /url: "#"
+          - link "Manage" [ref=e580] [cursor=pointer]:
+            - /url: "#"
+        - generic [ref=e581]:
+          - link "Add Client" [ref=e582] [cursor=pointer]:
+            - /url: "#"
+          - link "Customize Columns" [ref=e583] [cursor=pointer]:
+            - /url: "#"
+        - generic [ref=e584]:
+          - link "Reconnect" [ref=e585] [cursor=pointer]:
+            - /url: "#"
+          - link "Block" [ref=e586] [cursor=pointer]:
+            - /url: "#"
+          - link "Remove" [ref=e587] [cursor=pointer]:
+            - /url: "#"
+      - group [ref=e588]:
+        - generic [ref=e589] [cursor=pointer]:
+          - text: HTML
+          - button "Copy" [ref=e590]
+    - heading "Inputs" [level=2] [ref=e591]
+    - paragraph [ref=e592]: Inputs sit on a slightly lighter surface than the page, with no visible border until focus. Labels are 11px grey above the control. Search boxes use the raised surface and a leading icon.
+    - generic [ref=e593]:
+      - generic [ref=e594]:
+        - generic [ref=e595]:
+          - generic [ref=e596]: Name
+          - textbox [ref=e597]: Loft Access Point
+        - generic [ref=e598]:
+          - generic [ref=e599]:
+            - text: Password
+            - generic [ref=e600]: i
+          - generic [ref=e601]:
+            - textbox [ref=e602]: hunter22222
+            - button [ref=e604] [cursor=pointer]
+        - generic [ref=e607]:
+          - generic [ref=e608]: Search
+          - textbox "Search" [ref=e610]
+        - generic [ref=e611]:
+          - generic [ref=e612]: Zone
+          - combobox [ref=e613] [cursor=pointer]:
+            - option "Internal" [selected]
+            - option "External"
+            - option "Guest"
+        - generic [ref=e614]:
+          - generic [ref=e615]: Lease time
+          - generic [ref=e616]:
+            - spinbutton [ref=e617]: "86400"
+            - generic [ref=e618]: sec
+            - generic [ref=e619]:
+              - button [ref=e620] [cursor=pointer]
+              - button [ref=e623] [cursor=pointer]
+        - generic [ref=e626]:
+          - generic [ref=e627]: Notes
+          - textbox "Optional" [ref=e628]
+          - generic [ref=e629]: Shown only to administrators.
+        - generic [ref=e630]:
+          - generic [ref=e631]: Gateway
+          - textbox [disabled] [ref=e632]: 192.168.1.1
+          - generic [ref=e633]: Managed by the DHCP server.
+      - group [ref=e634]:
+        - generic [ref=e635] [cursor=pointer]:
+          - text: HTML
+          - button "Copy" [ref=e636]
+    - heading "Checkbox · Radio · Switch" [level=2] [ref=e637]
+    - paragraph [ref=e638]: "Checkboxes fill blue with a white tick. A count in parentheses after the label is the filter-sidebar convention. Switches are a 32×18 pill: blue on, gray off."
+    - generic [ref=e639]:
+      - generic [ref=e640]:
+        - generic [ref=e641]:
+          - generic [ref=e642] [cursor=pointer]:
+            - checkbox "Wireless (21)" [checked] [ref=e643]
+            - text: Wireless
+            - generic [ref=e644]: (21)
+          - generic [ref=e645] [cursor=pointer]:
+            - checkbox "Wired (14)" [ref=e646]
+            - text: Wired
+            - generic [ref=e647]: (14)
+          - generic [ref=e648] [cursor=pointer]:
+            - checkbox "Mixed" [checked=mixed] [ref=e649]
+            - text: Mixed
+          - generic [ref=e650]:
+            - checkbox "Disabled" [disabled] [ref=e651]
+            - text: Disabled
+        - generic [ref=e652]:
+          - generic [ref=e653] [cursor=pointer]:
+            - radio "Any" [checked] [ref=e654]
+            - text: Any
+          - generic [ref=e655] [cursor=pointer]:
+            - radio "2.4 GHz (8)" [ref=e656]
+            - text: 2.4 GHz
+            - generic [ref=e657]: (8)
+          - generic [ref=e658] [cursor=pointer]:
+            - radio "5 GHz (13)" [ref=e659]
+            - text: 5 GHz
+            - generic [ref=e660]: (13)
+          - generic [ref=e661]:
+            - radio "6 GHz" [disabled] [ref=e662]
+            - text: 6 GHz
+        - generic [ref=e663]:
+          - generic [ref=e664] [cursor=pointer]:
+            - checkbox "Enabled" [checked] [ref=e665]
+            - text: Enabled
+          - generic [ref=e666] [cursor=pointer]:
+            - checkbox "Disabled" [ref=e667]
+            - text: Disabled
+          - generic [ref=e668] [cursor=pointer]:
+            - checkbox "Locked" [disabled] [ref=e669]
+            - text: Locked
+        - generic [ref=e670] [cursor=pointer]:
+          - generic [ref=e671]: SHOW OFFLINE
+          - checkbox "SHOW OFFLINE" [checked] [ref=e672]
+      - group [ref=e673]:
+        - generic [ref=e674] [cursor=pointer]:
+          - text: HTML
+          - button "Copy" [ref=e675]
+    - heading "Segmented controls & chip groups" [level=2] [ref=e676]
+    - paragraph [ref=e677]:
+      - text: Segmented controls choose one of a few modes and never wrap. The default flavor shows the active tab as a raised pill with blue text. The
+      - code [ref=e678]: solid
+      - text: flavor fills it with dim blue, used for time ranges. Chip groups are multi-select toggles with an outlined active state.
+    - generic [ref=e679]:
+      - generic [ref=e680]:
+        - generic [ref=e681]:
+          - button "Auto" [ref=e682] [cursor=pointer]
+          - button "Manual" [ref=e683] [cursor=pointer]
+        - generic [ref=e684]:
+          - button "1h" [ref=e685] [cursor=pointer]
+          - button "1D" [ref=e686] [cursor=pointer]
+          - button "1W" [ref=e687] [cursor=pointer]
+          - button "1M" [ref=e688] [cursor=pointer]
+        - generic [ref=e689]:
+          - button "2.4 GHz" [ref=e690] [cursor=pointer]
+          - button "5 GHz" [ref=e691] [cursor=pointer]
+          - button "6 GHz" [ref=e692] [cursor=pointer]
+        - generic [ref=e693]:
+          - button "Rate" [ref=e694] [cursor=pointer]
+          - button "Signal" [ref=e695] [cursor=pointer]
+          - button "Airtime" [ref=e696] [cursor=pointer]
+        - generic [ref=e697]:
+          - button [ref=e698] [cursor=pointer]
+          - button [ref=e701] [cursor=pointer]
+          - button [ref=e704] [cursor=pointer]
+      - group [ref=e707]:
+        - generic [ref=e708] [cursor=pointer]:
+          - text: HTML
+          - button "Copy" [ref=e709]
+    - generic [ref=e710]:
+      - generic [ref=e711]:
+        - generic [ref=e712]:
+          - button "20" [ref=e713] [cursor=pointer]
+          - button "40" [ref=e714] [cursor=pointer]
+          - button "80" [ref=e715] [cursor=pointer]
+          - button "160" [ref=e716] [cursor=pointer]
+          - button "320" [disabled] [ref=e717]
+        - generic [ref=e718]:
+          - button "Auto" [ref=e719] [cursor=pointer]
+          - button "High" [ref=e720] [cursor=pointer]
+          - button "Medium" [ref=e721] [cursor=pointer]
+          - button "Low" [ref=e722] [cursor=pointer]
+      - group [ref=e723]:
+        - generic [ref=e724] [cursor=pointer]:
+          - text: HTML
+          - button "Copy" [ref=e725]
+    - heading "Sidebar sub-tabs (icon only until selected)" [level=3] [ref=e726]
+    - generic [ref=e727]:
+      - generic [ref=e729]:
+        - button "Filters" [ref=e730] [cursor=pointer]
+        - button [ref=e734] [cursor=pointer]
+        - button [ref=e737] [cursor=pointer]
+      - group [ref=e739]:
+        - generic [ref=e740] [cursor=pointer]:
+          - text: HTML
+          - button "Copy" [ref=e741]
+    - heading "Sliders" [level=2] [ref=e742]
+    - paragraph [ref=e743]: A thin track with a white thumb, tick labels underneath. Range filters in the sidebar use two thumbs and show the selected span above.
+    - generic [ref=e744]:
+      - generic [ref=e745]:
+        - generic [ref=e746]:
+          - generic [ref=e747]: "-60 dBm"
+          - slider [ref=e748] [cursor=pointer]: "-60"
+          - generic [ref=e749]:
+            - generic [ref=e750]: "-90"
+            - generic [ref=e751]: "-75"
+            - generic [ref=e752]: "-60"
+            - generic [ref=e753]: "-45"
+            - generic [ref=e754]: "-30"
+        - generic [ref=e755]:
+          - generic [ref=e756]: TX Power · 18 dBm
+          - slider [ref=e757] [cursor=pointer]: "18"
+          - generic [ref=e758]:
+            - generic [ref=e759]: Low
+            - generic [ref=e760]: Medium
+            - generic [ref=e761]: High
+      - group [ref=e762]:
+        - generic [ref=e763] [cursor=pointer]:
+          - text: HTML
+          - button "Copy" [ref=e764]
+    - heading "Form rows" [level=2] [ref=e765]
+    - paragraph [ref=e766]: Settings pages put the label on the left in a 240px column and the control on the right. Related controls nest in a stack under one label. Section titles in cards carry an icon on the left and a collapse chevron on the right.
+    - generic [ref=e767]:
+      - generic [ref=e768]:
+        - generic [ref=e769]:
+          - heading "Internet" [level=3] [ref=e770]
+          - img [ref=e773] [cursor=pointer]
+        - generic [ref=e775]:
+          - generic [ref=e776]: Name
+          - textbox [ref=e778]: Primary (WAN1)
+        - generic [ref=e779]:
+          - generic [ref=e780]:
+            - text: Connection
+            - generic [ref=e781]: i
+          - generic [ref=e782]:
+            - generic [ref=e783]:
+              - button "DHCP" [ref=e784] [cursor=pointer]
+              - button "PPPoE" [ref=e785] [cursor=pointer]
+              - button "Static" [ref=e786] [cursor=pointer]
+            - generic [ref=e787] [cursor=pointer]:
+              - checkbox "Use DNS from provider" [checked] [ref=e788]
+              - text: Use DNS from provider
+        - generic [ref=e789]:
+          - generic [ref=e790]: Speed
+          - generic [ref=e791]:
+            - generic [ref=e792]:
+              - generic [ref=e793]:
+                - spinbutton [ref=e794]: "1000"
+                - generic [ref=e795]: Mbps
+              - generic [ref=e796]: download
+              - generic [ref=e797]:
+                - spinbutton [ref=e798]: "40"
+                - generic [ref=e799]: Mbps
+              - generic [ref=e800]: upload
+            - generic [ref=e801]: Used to size smart queues.
+        - generic [ref=e802]:
+          - generic [ref=e803]: Advanced
+          - generic [ref=e805]:
+            - button "Auto" [ref=e806] [cursor=pointer]
+            - button "Manual" [ref=e807] [cursor=pointer]
+        - generic [ref=e808]:
+          - link "Create New" [ref=e809] [cursor=pointer]:
+            - /url: "#"
+          - link "Manage" [ref=e810] [cursor=pointer]:
+            - /url: "#"
+      - group [ref=e811]:
+        - generic [ref=e812] [cursor=pointer]:
+          - text: HTML
+          - button "Copy" [ref=e813]
+    - heading "Badges · Dots · Meters" [level=2] [ref=e814]
+    - paragraph [ref=e815]: Status is a 6px dot next to the name, never a colored row. Chips are grey by default; the blue chip marks "you" or an active filter. Risk and severity are three- or four-dash meters, colored by level.
+    - generic [ref=e816]:
+      - generic [ref=e817]:
+        - generic [ref=e823]: Home Office
+        - generic [ref=e824]: 5 GHz
+        - generic [ref=e825]: "+4"
+        - generic [ref=e826]: you
+        - generic [ref=e827]: Online
+        - generic [ref=e828]: Blocked
+        - generic [ref=e829]: Pending
+        - generic [ref=e830]:
+          - text: Guest
+          - generic [ref=e831] [cursor=pointer]: ×
+        - generic [ref=e832]: Live
+        - generic [ref=e833]: New
+      - group [ref=e834]:
+        - generic [ref=e835] [cursor=pointer]:
+          - text: HTML
+          - button "Copy" [ref=e836]
+    - generic [ref=e837]:
+      - generic [ref=e838]:
+        - generic [ref=e839]: Risk
+        - generic [ref=e844]: Risk
+        - generic [ref=e849]: Risk
+        - generic [ref=e854]: Severity
+        - generic [ref=e860] [cursor=pointer]
+        - generic [ref=e864] [cursor=pointer]
+        - generic [ref=e868]: KD
+        - generic [ref=e869]: GC
+        - generic [ref=e870]: LP
+        - generic [ref=e871]: HO
+        - generic [ref=e872]:
+          - text: Studio Laptop
+          - generic [ref=e875]: (2)
+      - group [ref=e876]:
+        - generic [ref=e877] [cursor=pointer]:
+          - text: HTML
+          - button "Copy" [ref=e878]
+    - heading "Count strips and pill stats" [level=3] [ref=e879]
+    - generic [ref=e880]:
+      - generic [ref=e881]:
+        - generic [ref=e882]:
+          - generic [ref=e883]: "1"
+          - generic [ref=e886]: "3"
+          - generic [ref=e889]: "4"
+          - generic [ref=e892]: "38"
+        - generic [ref=e895]:
+          - generic [ref=e896]: 15 ms
+          - generic [ref=e899]: 29 ms
+          - generic [ref=e902]: 7 ms
+        - generic [ref=e905]:
+          - generic [ref=e906]:
+            - text: Download
+            - generic [ref=e907]: 940 Mbps
+          - generic [ref=e908]:
+            - text: Upload
+            - generic [ref=e909]: 38 Mbps
+          - generic [ref=e910]:
+            - text: Latency
+            - generic [ref=e911]: 11 ms
+      - group [ref=e912]:
+        - generic [ref=e913] [cursor=pointer]:
+          - text: HTML
+          - button "Copy" [ref=e914]
+    - heading "Data table" [level=2] [ref=e915]
+    - paragraph [ref=e916]: 31px rows, 13px text, a hairline between rows and nothing else. Headers are bold white; the sorted column is blue with an arrow. Offline rows go text-3 grey. The selected row gets the navy fill and a 2px blue left edge. Numbers are right-aligned in tabular figures.
+    - generic [ref=e917]:
+      - generic [ref=e918]:
+        - table [ref=e920]:
+          - rowgroup [ref=e921]:
+            - row [ref=e922]:
+              - columnheader [ref=e923]:
+                - checkbox [ref=e925] [cursor=pointer]
+              - columnheader [ref=e926]
+              - columnheader "Name" [ref=e927] [cursor=pointer]
+              - columnheader [ref=e930]:
+                - text: IP Address
+                - generic [ref=e931] [cursor=pointer]
+              - columnheader "Connection" [ref=e934]
+              - columnheader "Network" [ref=e935]
+              - columnheader "Experience" [ref=e936]
+              - columnheader "Down" [ref=e937]
+              - columnheader "Up" [ref=e938]
+              - columnheader "Uptime" [ref=e939]
+          - rowgroup [ref=e940]:
+            - row [ref=e941]:
+              - cell [ref=e942]:
+                - checkbox [ref=e944] [cursor=pointer]
+              - cell [ref=e945]
+              - cell "Kitchen Display" [ref=e947]
+              - cell "192.168.1.42" [ref=e951]
+              - cell [ref=e952]:
+                - link "Loft AP" [ref=e953] [cursor=pointer]:
+                  - /url: "#"
+                - text: · 5 GHz
+              - cell "Default" [ref=e954]
+              - cell "Excellent" [ref=e955]
+              - cell "↓ 18.4 Mbps" [ref=e956]
+              - cell "↑ 2.1 Mbps" [ref=e957]
+              - cell "3d 4h" [ref=e958]
+            - row [ref=e959]:
+              - cell [ref=e960]:
+                - checkbox [checked] [ref=e962] [cursor=pointer]
+              - cell [ref=e963]
+              - cell "Studio Laptop you" [ref=e965]:
+                - generic [ref=e966]:
+                  - text: Studio Laptop
+                  - generic [ref=e969]: you
+              - cell "192.168.1.17" [ref=e970]
+              - cell [ref=e971]:
+                - link "Studio AP" [ref=e972] [cursor=pointer]:
+                  - /url: "#"
+                - text: · 6 GHz
+              - cell "Default" [ref=e973]
+              - cell "Excellent" [ref=e974]
+              - cell "↓ 412 Mbps" [ref=e975]
+              - cell "↑ 31.7 Mbps" [ref=e976]
+              - cell "12h 6m" [ref=e977]
+            - row [ref=e978]:
+              - cell [ref=e979]:
+                - checkbox [ref=e981] [cursor=pointer]
+              - cell [ref=e982]
+              - cell "Garage Camera" [ref=e984]
+              - cell "192.168.0.103" [ref=e988]
+              - cell [ref=e989]:
+                - link "Garage Switch" [ref=e990] [cursor=pointer]:
+                  - /url: "#"
+                - text: · Port 4
+              - cell "Cameras" [ref=e991]
+              - cell "Excellent" [ref=e992]
+              - cell "↓ 0 bps" [ref=e993]
+              - cell "↑ 4.8 Mbps" [ref=e994]
+              - cell "21d 2h" [ref=e995]
+            - row [ref=e996]:
+              - cell [ref=e997]:
+                - checkbox [ref=e999] [cursor=pointer]
+              - cell [ref=e1000]
+              - cell "Hallway Bulb" [ref=e1002]
+              - cell "192.168.0.71" [ref=e1006]
+              - cell [ref=e1007]:
+                - link "Hall AP" [ref=e1008] [cursor=pointer]:
+                  - /url: "#"
+                - text: · 2.4 GHz
+              - cell "IoT" [ref=e1009]
+              - cell "Fair" [ref=e1010]
+              - cell "↓ 0 bps" [ref=e1011]
+              - cell "↑ 0 bps" [ref=e1012]
+              - cell "9d 11h" [ref=e1013]
+            - row [ref=e1014]:
+              - cell [ref=e1015]:
+                - checkbox [ref=e1017] [cursor=pointer]
+              - cell [ref=e1018]
+              - cell "Office Printer" [ref=e1020]
+              - cell "192.168.1.90" [ref=e1024]
+              - cell [ref=e1025]:
+                - link "Core Switch" [ref=e1026] [cursor=pointer]:
+                  - /url: "#"
+                - text: · Port 12
+              - cell "Default" [ref=e1027]
+              - cell "Good" [ref=e1028]
+              - cell "↓ 2.2 kbps" [ref=e1029]
+              - cell "↑ 640 bps" [ref=e1030]
+              - cell "40d 1h" [ref=e1031]
+            - row [ref=e1032]:
+              - cell [ref=e1033]:
+                - checkbox [ref=e1035] [cursor=pointer]
+              - cell [ref=e1036]
+              - cell "Guest Phone" [ref=e1038]
+              - cell "192.168.1.208" [ref=e1042]
+              - cell "—" [ref=e1043]
+              - cell "Guest" [ref=e1044]
+              - cell "—" [ref=e1045]
+              - cell "—" [ref=e1046]
+              - cell "—" [ref=e1047]
+              - cell "Offline" [ref=e1048]
+        - generic [ref=e1049]:
+          - generic [ref=e1050]: Rows per page
+          - combobox [ref=e1051] [cursor=pointer]:
+            - option "50" [selected]
+            - option "100"
+          - generic [ref=e1052]: 1-6 of 6
+          - generic [ref=e1053]:
+            - button [disabled] [ref=e1054]
+            - button [disabled] [ref=e1057]
+      - group [ref=e1060]:
+        - generic [ref=e1061] [cursor=pointer]:
+          - text: HTML
+          - button "Copy" [ref=e1062]
+    - heading "Compact table inside a card, with tiny channel headers and heat cells" [level=3] [ref=e1063]
+    - generic [ref=e1064]:
+      - table [ref=e1066]:
+        - rowgroup [ref=e1067]:
+          - row [ref=e1068]:
+            - columnheader "Access Point" [ref=e1069]
+            - columnheader "36" [ref=e1070]
+            - columnheader "40" [ref=e1071]
+            - columnheader "44" [ref=e1072]
+            - columnheader "48" [ref=e1073]
+            - columnheader "149" [ref=e1074]
+            - columnheader "153" [ref=e1075]
+            - columnheader "Clients" [ref=e1076]
+        - rowgroup [ref=e1077]:
+          - row [ref=e1078]:
+            - cell "Loft AP" [ref=e1079]
+            - cell [ref=e1080]
+            - cell [ref=e1082]
+            - cell [ref=e1084]
+            - cell [ref=e1086]
+            - cell [ref=e1088]
+            - cell [ref=e1090]
+            - cell "9" [ref=e1092]
+          - row [ref=e1093]:
+            - cell "Studio AP" [ref=e1094]
+            - cell [ref=e1095]
+            - cell [ref=e1097]
+            - cell [ref=e1099]
+            - cell [ref=e1101]
+            - cell [ref=e1103]
+            - cell [ref=e1105]
+            - cell "6" [ref=e1107]
+      - group [ref=e1108]:
+        - generic [ref=e1109] [cursor=pointer]:
+          - text: HTML
+          - button "Copy" [ref=e1110]
+    - heading "Filter sidebar" [level=2] [ref=e1111]
+    - paragraph [ref=e1112]: A 260px column of collapsible sections. Each title is 11px bold caps with a chevron; options are checkboxes with counts. Sliders filter ranges, switches flip view options, and the footer holds Clear Filters plus page actions.
+    - generic [ref=e1113]:
+      - complementary [ref=e1115]:
+        - generic [ref=e1116]:
+          - generic [ref=e1117]:
+            - button "Filters" [ref=e1118] [cursor=pointer]
+            - button [ref=e1122] [cursor=pointer]
+          - textbox "Search" [ref=e1126]
+          - generic [ref=e1127]:
+            - generic [ref=e1128] [cursor=pointer]: CONNECTION
+            - generic [ref=e1131]:
+              - generic [ref=e1132] [cursor=pointer]:
+                - checkbox "Wireless (21)" [checked] [ref=e1133]
+                - text: Wireless
+                - generic [ref=e1134]: (21)
+              - generic [ref=e1135] [cursor=pointer]:
+                - checkbox "Wired (14)" [checked] [ref=e1136]
+                - text: Wired
+                - generic [ref=e1137]: (14)
+              - generic [ref=e1138] [cursor=pointer]:
+                - checkbox "VPN (2)" [ref=e1139]
+                - text: VPN
+                - generic [ref=e1140]: (2)
+          - generic [ref=e1141]:
+            - generic [ref=e1142] [cursor=pointer]: NETWORK
+            - generic [ref=e1145]:
+              - generic [ref=e1146]: 3 selected
+              - link "Clear" [ref=e1147] [cursor=pointer]:
+                - /url: "#"
+            - generic [ref=e1148]:
+              - generic [ref=e1149] [cursor=pointer]:
+                - checkbox "Default (18)" [checked] [ref=e1150]
+                - text: Default
+                - generic [ref=e1151]: (18)
+              - generic [ref=e1152] [cursor=pointer]:
+                - checkbox "IoT (9)" [checked] [ref=e1153]
+                - text: IoT
+                - generic [ref=e1154]: (9)
+              - generic [ref=e1155] [cursor=pointer]:
+                - checkbox "Cameras (4)" [checked] [ref=e1156]
+                - text: Cameras
+                - generic [ref=e1157]: (4)
+              - generic [ref=e1158] [cursor=pointer]:
+                - checkbox "Guest (6)" [ref=e1159]
+                - text: Guest
+                - generic [ref=e1160]: (6)
+          - generic [ref=e1161]:
+            - generic [ref=e1162] [cursor=pointer]: SIGNAL
+            - generic [ref=e1165]:
+              - generic [ref=e1166]: "-90 to -30 dBm"
+              - slider [ref=e1167] [cursor=pointer]: "-30"
+              - generic [ref=e1168]:
+                - generic [ref=e1169]: "-90"
+                - generic [ref=e1170]: "-60"
+                - generic [ref=e1171]: "-30"
+          - generic [ref=e1172]: DEVICE TYPE
+          - generic [ref=e1176]:
+            - generic [ref=e1177] [cursor=pointer]:
+              - generic [ref=e1178]: SHOW OFFLINE
+              - checkbox "SHOW OFFLINE" [checked] [ref=e1179]
+            - generic [ref=e1180] [cursor=pointer]:
+              - generic [ref=e1181]: GROUP BY NETWORK
+              - checkbox "GROUP BY NETWORK" [ref=e1182]
+        - generic [ref=e1183]:
+          - button "Clear Filters" [ref=e1184] [cursor=pointer]
+          - button "Customize Columns" [ref=e1185] [cursor=pointer]
+          - button "Add Client" [ref=e1186] [cursor=pointer]
+      - group [ref=e1187]:
+        - generic [ref=e1188] [cursor=pointer]:
+          - text: HTML
+          - button "Copy" [ref=e1189]
+    - heading "Cards & key-values" [level=2] [ref=e1190]
+    - paragraph [ref=e1191]: "Cards are the surface color with 8px corners and no border. Inside a drawer they hold a title row and a key-value list: key on the left in body text, value on the right in text-2. Stat cards are the same list with an icon in the key."
+    - generic [ref=e1192]:
+      - generic [ref=e1193]:
+        - generic [ref=e1194]:
+          - generic [ref=e1195]:
+            - heading "Overview" [level=3] [ref=e1196]
+            - img [ref=e1197] [cursor=pointer]
+          - generic [ref=e1199]:
+            - generic [ref=e1200]:
+              - generic [ref=e1201]: Connected
+              - generic [ref=e1202]: Loft AP · 5 GHz
+            - generic [ref=e1203]:
+              - generic [ref=e1204]: Channel
+              - generic [ref=e1205]: 44 (80 MHz)
+            - generic [ref=e1206]:
+              - generic [ref=e1207]: Signal
+              - generic [ref=e1208]: "-52 dBm · Excellent"
+            - generic [ref=e1209]:
+              - generic [ref=e1210]: IP Address
+              - generic [ref=e1211]: 192.168.1.42
+            - generic [ref=e1212]:
+              - generic [ref=e1213]: MAC
+              - generic [ref=e1214]: 3A:F1:9C:0B:7E:21
+            - generic [ref=e1215]:
+              - generic [ref=e1216]: Uptime
+              - generic [ref=e1217]: 3d 4h 12m
+        - generic [ref=e1218]:
+          - generic [ref=e1219]:
+            - heading "Devices" [level=3] [ref=e1220]
+            - link "View All" [ref=e1221] [cursor=pointer]:
+              - /url: "#"
+          - generic [ref=e1222]:
+            - generic [ref=e1223]: Gateway
+            - generic [ref=e1226]: "1"
+          - generic [ref=e1227]:
+            - generic [ref=e1228]: Switches
+            - generic [ref=e1231]: "3"
+          - generic [ref=e1232]:
+            - generic [ref=e1233]: Access Points
+            - generic [ref=e1236]: "4"
+          - generic [ref=e1237]:
+            - generic [ref=e1238]: Clients
+            - generic [ref=e1241]: "38"
+        - generic [ref=e1242]:
+          - heading "Threats" [level=3] [ref=e1244]
+          - generic [ref=e1245]: No threats detected in the last 24 hours.
+        - generic [ref=e1248]:
+          - heading "Speed Test" [level=3] [ref=e1250]
+          - generic [ref=e1251]:
+            - generic [ref=e1252]:
+              - text: Download
+              - generic [ref=e1253]: ↓ 940 Mbps
+            - generic [ref=e1254]:
+              - text: Upload
+              - generic [ref=e1255]: ↑ 38 Mbps
+          - button "Run Speed Test" [ref=e1256] [cursor=pointer]
+      - group [ref=e1257]:
+        - generic [ref=e1258] [cursor=pointer]:
+          - text: HTML
+          - button "Copy" [ref=e1259]
+    - heading "Device hero and link line" [level=3] [ref=e1260]
+    - generic [ref=e1261]:
+      - generic [ref=e1262]:
+        - generic [ref=e1265]:
+          - generic [ref=e1266]: Core Switch
+          - text: 24-port · 192.168.1.2
+        - generic [ref=e1267]: Fiber ISP
+      - group [ref=e1277]:
+        - generic [ref=e1278] [cursor=pointer]:
+          - text: HTML
+          - button "Copy" [ref=e1279]
+    - heading "Detail drawer" [level=2] [ref=e1280]
+    - paragraph [ref=e1281]: "A 360px right panel: centered title with a close button, a three-icon segmented control for Overview / Stats / Settings, then stacked cards. Destructive actions are red links at the bottom. Quick actions are small icon tiles."
+    - generic [ref=e1282]:
+      - complementary [ref=e1284]:
+        - generic [ref=e1285]:
+          - button [ref=e1286] [cursor=pointer]
+          - text: Kitchen Display
+          - button [ref=e1289] [cursor=pointer]
+        - generic [ref=e1292]:
+          - generic [ref=e1293]:
+            - button [ref=e1294] [cursor=pointer]
+            - button [ref=e1297] [cursor=pointer]
+            - button [ref=e1300] [cursor=pointer]
+          - generic [ref=e1304]:
+            - generic [ref=e1305]: Connected
+            - generic [ref=e1307]: 3d 4h
+          - generic [ref=e1308]:
+            - heading "Connection" [level=3] [ref=e1310]
+            - generic [ref=e1311]:
+              - generic [ref=e1312]:
+                - generic [ref=e1313]: Access Point
+                - link "Loft AP" [ref=e1314] [cursor=pointer]:
+                  - /url: "#"
+              - generic [ref=e1315]:
+                - generic [ref=e1316]: Band
+                - generic [ref=e1317]: 5 GHz · Ch 44
+              - generic [ref=e1318]:
+                - generic [ref=e1319]: Signal
+                - generic [ref=e1320]: Excellent
+              - generic [ref=e1321]:
+                - generic [ref=e1322]: TX / RX Rate
+                - generic [ref=e1323]: 780 / 866 Mbps
+          - generic [ref=e1324]:
+            - heading "Quick Actions" [level=3] [ref=e1326]
+            - generic [ref=e1327]:
+              - button "Ping" [ref=e1328] [cursor=pointer]
+              - button "Trace" [ref=e1331] [cursor=pointer]
+              - button "Block App" [ref=e1334] [cursor=pointer]
+              - button "Speed" [ref=e1337] [cursor=pointer]
+          - generic [ref=e1340]:
+            - generic [ref=e1341]:
+              - heading "Traffic" [level=3] [ref=e1342]
+              - generic [ref=e1343]:
+                - button "1D" [ref=e1344] [cursor=pointer]
+                - button "1W" [ref=e1345] [cursor=pointer]
+            - generic [ref=e1349]:
+              - generic [ref=e1350]: 00:00
+              - generic [ref=e1351]: 12:00
+              - generic [ref=e1352]: now
+          - generic [ref=e1353]:
+            - link "Reconnect" [ref=e1354] [cursor=pointer]:
+              - /url: "#"
+            - link "Block" [ref=e1355] [cursor=pointer]:
+              - /url: "#"
+            - link "Remove" [ref=e1356] [cursor=pointer]:
+              - /url: "#"
+      - group [ref=e1357]:
+        - generic [ref=e1358] [cursor=pointer]:
+          - text: HTML
+          - button "Copy" [ref=e1359]
+    - heading "Icon tiles" [level=2] [ref=e1360]
+    - paragraph [ref=e1361]: Rows of small outlined tiles with a count above and a label below. Used for Top Access Points, Top Clients and Top Apps. The selected tile gets a blue ring.
+    - generic [ref=e1362]:
+      - generic [ref=e1363]:
+        - generic [ref=e1364]:
+          - generic [ref=e1365]: Top Access Points
+          - generic [ref=e1366]:
+            - generic [ref=e1367] [cursor=pointer]:
+              - generic [ref=e1368]: "14"
+              - generic [ref=e1372]: Loft AP
+            - generic [ref=e1373] [cursor=pointer]:
+              - generic [ref=e1374]: "9"
+              - generic [ref=e1378]: Studio AP
+            - generic [ref=e1379] [cursor=pointer]:
+              - generic [ref=e1380]: "6"
+              - generic [ref=e1384]: Hall AP
+            - generic [ref=e1385] [cursor=pointer]:
+              - generic [ref=e1386]: "2"
+              - generic [ref=e1390]: Garden AP
+        - generic [ref=e1391]:
+          - generic [ref=e1392]: Top Apps
+          - generic [ref=e1393]:
+            - generic [ref=e1394] [cursor=pointer]: Streaming
+            - generic [ref=e1399] [cursor=pointer]: Backup
+            - generic [ref=e1404] [cursor=pointer]: Gaming
+            - generic [ref=e1409] [cursor=pointer]: Chat
+      - group [ref=e1414]:
+        - generic [ref=e1415] [cursor=pointer]:
+          - text: HTML
+          - button "Copy" [ref=e1416]
+    - heading "Port grid" [level=2] [ref=e1417]
+    - paragraph [ref=e1418]: Two rows of 38px squares, numbered bottom-left, colored by negotiated speed. A lightning glyph marks PoE; a small icon in the corner marks uplink or error. Grey means nothing is plugged in.
+    - generic [ref=e1419]:
+      - generic [ref=e1420]:
+        - generic [ref=e1421]:
+          - generic [ref=e1422] [cursor=pointer]: ⚡ 1
+          - generic [ref=e1423] [cursor=pointer]: "2"
+          - generic [ref=e1424] [cursor=pointer]: ⚡ 3
+          - generic [ref=e1425] [cursor=pointer]: "4"
+          - generic [ref=e1426] [cursor=pointer]: "5"
+          - generic [ref=e1427] [cursor=pointer]: "6"
+          - generic [ref=e1428] [cursor=pointer]: "7"
+          - generic [ref=e1429] [cursor=pointer]: "8"
+          - generic [ref=e1430] [cursor=pointer]: ⚡ 9
+          - generic [ref=e1431] [cursor=pointer]: ⚡ 10
+          - generic [ref=e1432] [cursor=pointer]: "11"
+          - generic [ref=e1433] [cursor=pointer]: "12"
+          - generic [ref=e1436] [cursor=pointer]: 13 SFP
+          - generic [ref=e1439] [cursor=pointer]: 14 SFP
+        - generic [ref=e1440]:
+          - generic [ref=e1441]: 1 GbE
+          - generic [ref=e1443]: 100 Mbps
+          - generic [ref=e1445]: 10 GbE
+          - generic [ref=e1447]: Disconnected
+          - generic [ref=e1449]: ⚡ PoE
+        - generic [ref=e1450]:
+          - generic [ref=e1451] [cursor=pointer]
+          - generic [ref=e1452] [cursor=pointer]
+          - generic [ref=e1453] [cursor=pointer]
+          - generic [ref=e1454] [cursor=pointer]
+          - generic [ref=e1455] [cursor=pointer]
+          - generic [ref=e1458]: mini variant for table cells
+      - group [ref=e1459]:
+        - generic [ref=e1460] [cursor=pointer]:
+          - text: HTML
+          - button "Copy" [ref=e1461]
+    - heading "Zone matrix" [level=2] [ref=e1462]
+    - paragraph [ref=e1463]: Source zones down the side, destination zones across the top. Each cell is a muted green (allow), maroon (block) or teal (allow return traffic) tile with a policy count in the corner. Click a cell to edit its policies.
+    - generic [ref=e1464]:
+      - generic [ref=e1466]:
+        - generic [ref=e1468]: Destination
+        - generic [ref=e1469]: Source
+        - table [ref=e1470]:
+          - rowgroup [ref=e1471]:
+            - row [ref=e1472]:
+              - columnheader [ref=e1473]
+              - columnheader "Internal" [ref=e1474]
+              - columnheader "External" [ref=e1475]
+              - columnheader "Guest" [ref=e1476]
+              - columnheader "IoT" [ref=e1477]
+              - columnheader "VPN" [ref=e1478]
+          - rowgroup [ref=e1479]:
+            - row [ref=e1480]:
+              - rowheader "Internal" [ref=e1481]
+              - cell "Allow" [ref=e1482] [cursor=pointer]
+              - cell "Allow 2" [ref=e1483] [cursor=pointer]:
+                - text: Allow
+                - generic [ref=e1484]: "2"
+              - cell "Allow" [ref=e1485] [cursor=pointer]
+              - cell "Allow" [ref=e1486] [cursor=pointer]
+              - cell "Allow" [ref=e1487] [cursor=pointer]
+            - row [ref=e1488]:
+              - rowheader "External" [ref=e1489]
+              - cell "Return" [ref=e1490] [cursor=pointer]
+              - cell [ref=e1491] [cursor=pointer]
+              - cell "Return" [ref=e1492] [cursor=pointer]
+              - cell "Return" [ref=e1493] [cursor=pointer]
+              - cell "Block" [ref=e1494] [cursor=pointer]
+            - row [ref=e1495]:
+              - rowheader "Guest" [ref=e1496]
+              - cell "Block 1" [ref=e1497] [cursor=pointer]:
+                - text: Block
+                - generic [ref=e1498]: "1"
+              - cell "Allow" [ref=e1499] [cursor=pointer]
+              - cell "Block" [ref=e1500] [cursor=pointer]
+              - cell "Block" [ref=e1501] [cursor=pointer]
+              - cell "Block" [ref=e1502] [cursor=pointer]
+            - row [ref=e1503]:
+              - rowheader "IoT" [ref=e1504]
+              - cell "Block 3" [ref=e1505] [cursor=pointer]:
+                - text: Block
+                - generic [ref=e1506]: "3"
+              - cell "Allow" [ref=e1507] [cursor=pointer]
+              - cell "Block" [ref=e1508] [cursor=pointer]
+              - cell "Allow" [ref=e1509] [cursor=pointer]
+              - cell "Block" [ref=e1510] [cursor=pointer]
+            - row [ref=e1511]:
+              - rowheader "VPN" [ref=e1512]
+              - cell "Allow" [ref=e1513] [cursor=pointer]
+              - cell "Allow" [ref=e1514] [cursor=pointer]
+              - cell "Block" [ref=e1515] [cursor=pointer]
+              - cell "Allow" [ref=e1516] [cursor=pointer]
+              - cell "Allow" [ref=e1517] [cursor=pointer]
+      - group [ref=e1518]:
+        - generic [ref=e1519] [cursor=pointer]:
+          - text: HTML
+          - button "Copy" [ref=e1520]
+    - heading "Charts & bars" [level=2] [ref=e1521]
+    - paragraph [ref=e1522]:
+      - text: Charts are inline SVG in a
+      - code [ref=e1523]: .ui-chart
+      - text: "wrapper: dotted grid, 10px grey axis text, 1.5px lines. Download is cyan or blue, upload is purple, thresholds are dotted yellow. Bars are 6px tracks. Distribution buckets run red → orange → yellow → green."
+    - generic [ref=e1524]:
+      - generic [ref=e1525]:
+        - generic [ref=e1526]:
+          - generic [ref=e1527]:
+            - generic [ref=e1528]: Download
+            - generic [ref=e1530]: Upload
+            - generic [ref=e1532]: Plan limit
+          - generic [ref=e1534]:
+            - button "1h" [ref=e1535] [cursor=pointer]
+            - button "1D" [ref=e1536] [cursor=pointer]
+            - button "1W" [ref=e1537] [cursor=pointer]
+        - img [ref=e1539]:
+          - generic [ref=e1541]:
+            - generic [ref=e1542]: "900"
+            - generic [ref=e1543]: "600"
+            - generic [ref=e1544]: "300"
+            - generic [ref=e1545]: "0"
+            - generic [ref=e1546]: 00:00
+            - generic [ref=e1547]: 06:00
+            - generic [ref=e1548]: 12:00
+            - generic [ref=e1549]: 18:00
+            - generic [ref=e1550]: now
+      - group [ref=e1553]:
+        - generic [ref=e1554] [cursor=pointer]:
+          - text: HTML
+          - button "Copy" [ref=e1555]
+    - generic [ref=e1556]:
+      - generic [ref=e1557]:
+        - generic [ref=e1558]:
+          - generic [ref=e1559]:
+            - generic [ref=e1560]: Airtime · 5 GHz
+            - generic [ref=e1561]: 62%
+          - generic [ref=e1565]:
+            - generic [ref=e1566]: Own traffic
+            - generic [ref=e1568]: Interference
+        - generic [ref=e1571]:
+          - generic [ref=e1572]: Storage
+          - generic [ref=e1573]: 41 / 128 GB
+        - generic [ref=e1576]:
+          - generic [ref=e1577]: Connection health
+          - generic [ref=e1579]:
+            - generic [ref=e1580]:
+              - generic [ref=e1581]: Association
+              - text: 100%
+            - generic [ref=e1582]:
+              - generic [ref=e1583]: Authentication
+              - text: 100%
+            - generic [ref=e1584]:
+              - generic [ref=e1585]: DHCP
+              - text: 100%
+      - group [ref=e1586]:
+        - generic [ref=e1587] [cursor=pointer]:
+          - text: HTML
+          - button "Copy" [ref=e1588]
+    - heading "Signal buckets and gradient scale" [level=3] [ref=e1589]
+    - generic [ref=e1590]:
+      - generic [ref=e1591]:
+        - generic [ref=e1592]:
+          - generic [ref=e1593]:
+            - generic [ref=e1594]: "1"
+            - text: "-90"
+          - generic [ref=e1595]:
+            - generic [ref=e1596]: "0"
+            - text: "-85"
+          - generic [ref=e1597]:
+            - generic [ref=e1598]: "2"
+            - text: "-80"
+          - generic [ref=e1599]:
+            - generic [ref=e1600]: "3"
+            - text: "-75"
+          - generic [ref=e1601]:
+            - generic [ref=e1602]: "4"
+            - text: "-70"
+          - generic [ref=e1603]:
+            - generic [ref=e1604]: "6"
+            - text: "-65"
+          - generic [ref=e1605]:
+            - generic [ref=e1606]: "9"
+            - text: "-60"
+          - generic [ref=e1607]:
+            - generic [ref=e1608]: "8"
+            - text: "-55"
+          - generic [ref=e1609]:
+            - generic [ref=e1610]: "4"
+            - text: "-50"
+          - generic [ref=e1611]:
+            - generic [ref=e1612]: "1"
+            - text: "-45"
+          - generic [ref=e1613]:
+            - generic [ref=e1614]: "0"
+            - text: "-40"
+          - generic [ref=e1615]:
+            - generic [ref=e1616]: "0"
+            - text: "-35"
+        - generic [ref=e1617]:
+          - generic [ref=e1618]:
+            - generic [ref=e1619]: "0"
+            - text: 35%+
+          - generic [ref=e1620]:
+            - generic [ref=e1621]: "0"
+            - text: 30%
+          - generic [ref=e1622]:
+            - generic [ref=e1623]: "1"
+            - text: 25%
+          - generic [ref=e1624]:
+            - generic [ref=e1625]: "2"
+            - text: 20%
+          - generic [ref=e1626]:
+            - generic [ref=e1627]: "3"
+            - text: 15%
+          - generic [ref=e1628]:
+            - generic [ref=e1629]: "7"
+            - text: 10%
+          - generic [ref=e1630]:
+            - generic [ref=e1631]: "14"
+            - text: 5%
+          - generic [ref=e1632]:
+            - generic [ref=e1633]: "11"
+            - text: 0%
+        - generic [ref=e1638]:
+          - generic [ref=e1639]: "-90"
+          - generic [ref=e1640]: "-80"
+          - generic [ref=e1641]: "-70"
+          - generic [ref=e1642]: "-60"
+          - generic [ref=e1643]: "-50"
+          - generic [ref=e1644]: "-40"
+          - generic [ref=e1645]: "-30"
+      - group [ref=e1646]:
+        - generic [ref=e1647] [cursor=pointer]:
+          - text: HTML
+          - button "Copy" [ref=e1648]
+    - heading "Channel plan" [level=3] [ref=e1649]
+    - generic [ref=e1650]:
+      - generic [ref=e1651]:
+        - generic [ref=e1652]:
+          - generic [ref=e1654]:
+            - generic [ref=e1655]: "36"
+            - generic [ref=e1656]: "40"
+            - generic [ref=e1657]: "44"
+            - generic [ref=e1658]: "48"
+            - generic [ref=e1659]: "52"
+            - generic [ref=e1660]: "56"
+            - generic [ref=e1661]: "60"
+            - generic [ref=e1662]: "64"
+            - generic [ref=e1663]: "100"
+            - generic [ref=e1664]: "104"
+            - generic [ref=e1665]: "108"
+            - generic [ref=e1666]: "112"
+            - generic [ref=e1667]: "149"
+            - generic [ref=e1668]: "153"
+            - generic [ref=e1669]: "157"
+            - generic [ref=e1670]: "161"
+          - generic [ref=e1671]: 20 MHz
+          - generic [ref=e1689]: 40 MHz
+          - generic [ref=e1699]: 80 MHz
+          - generic [ref=e1705]: 160 MHz
+        - generic [ref=e1709]:
+          - generic [ref=e1710]: In use
+          - generic [ref=e1712]: Available
+          - generic [ref=e1714]: DFS
+          - generic [ref=e1716]: Not allowed
+          - generic [ref=e1718]: Excluded
+      - group [ref=e1720]:
+        - generic [ref=e1721] [cursor=pointer]:
+          - text: HTML
+          - button "Copy" [ref=e1722]
+    - heading "Spectrum bands" [level=3] [ref=e1723]
+    - generic [ref=e1724]:
+      - img [ref=e1727]:
+        - generic [ref=e1729]:
+          - generic [ref=e1730]: "-30"
+          - generic [ref=e1731]: "-60"
+          - generic [ref=e1732]: "-90"
+          - generic [ref=e1733]: "36"
+          - generic [ref=e1734]: "52"
+          - generic [ref=e1735]: "100"
+          - generic [ref=e1736]: "132"
+          - generic [ref=e1737]: "149"
+      - group [ref=e1742]:
+        - generic [ref=e1743] [cursor=pointer]:
+          - text: HTML
+          - button "Copy" [ref=e1744]
+    - heading "Timeline" [level=2] [ref=e1745]
+    - paragraph [ref=e1746]: A narrow vertical rail for scrubbing history. Ticks on the left, a navy band for the loaded window, and a blue LIVE marker at the top.
+    - generic [ref=e1747]:
+      - generic [ref=e1748]:
+        - generic [ref=e1749]:
+          - generic [ref=e1750]: Time Machine
+          - generic [ref=e1758]:
+            - generic [ref=e1759]: LIVE
+            - generic [ref=e1761]: 14:00
+            - generic [ref=e1762]: 13:00
+            - generic [ref=e1763]: 12:00
+            - generic [ref=e1764]: 11:00
+            - generic [ref=e1765]: 10:00
+        - generic [ref=e1766]: Event log for the selected window goes here.
+      - group [ref=e1767]:
+        - generic [ref=e1768] [cursor=pointer]:
+          - text: HTML
+          - button "Copy" [ref=e1769]
+    - heading "Event rows" [level=3] [ref=e1770]
+    - generic [ref=e1771]:
+      - table [ref=e1773]:
+        - rowgroup [ref=e1774]:
+          - row [ref=e1775]:
+            - cell [ref=e1776]
+            - cell "14:02:11" [ref=e1778]
+            - cell "Guest Phone" [ref=e1779]
+            - cell [ref=e1783]:
+              - text: connected to
+              - link "Hall AP" [ref=e1784] [cursor=pointer]:
+                - /url: "#"
+              - text: on 2.4 GHz
+          - row [ref=e1785]:
+            - cell [ref=e1786]
+            - cell "13:48:30" [ref=e1788]
+            - cell "Loft AP" [ref=e1789]
+            - cell "changed channel 44 → 149 (interference)" [ref=e1793]
+          - row [ref=e1794]:
+            - cell [ref=e1795]
+            - cell "13:11:07" [ref=e1797]
+            - cell "Gateway" [ref=e1798]
+            - cell [ref=e1802]
+      - group [ref=e1807]:
+        - generic [ref=e1808] [cursor=pointer]:
+          - text: HTML
+          - button "Copy" [ref=e1809]
+    - heading "Diagram nodes" [level=2] [ref=e1810]
+    - paragraph [ref=e1811]: Topology and policy diagrams use solid navy nodes for devices, dashed blue outlines for groups, and thin blue edges with a small label. Routing choices are shown as wide cards.
+    - generic [ref=e1812]:
+      - generic [ref=e1814]:
+        - generic [ref=e1815]:
+          - text: Internet
+          - generic [ref=e1818]: Fiber ISP
+        - generic [ref=e1819]: WAN1
+        - generic [ref=e1820]:
+          - text: Gateway
+          - generic [ref=e1823]: 192.168.1.1
+        - generic [ref=e1824]: 10 GbE
+        - generic [ref=e1825]:
+          - generic [ref=e1826]: Switches
+          - generic [ref=e1829]: Core
+          - generic [ref=e1832]: Garage
+        - generic [ref=e1836]: Add device
+      - group [ref=e1839]:
+        - generic [ref=e1840] [cursor=pointer]:
+          - text: HTML
+          - button "Copy" [ref=e1841]
+    - generic [ref=e1842]:
+      - generic [ref=e1843]:
+        - generic [ref=e1844]:
+          - generic [ref=e1847]: Direct
+          - generic [ref=e1848]: Traffic leaves via the primary link.
+          - link "Manage" [ref=e1849] [cursor=pointer]:
+            - /url: "#"
+        - generic [ref=e1850]:
+          - generic [ref=e1853]: Through VPN
+          - generic [ref=e1854]: Route selected clients through a tunnel.
+          - link "Set up" [ref=e1855] [cursor=pointer]:
+            - /url: "#"
+        - generic [ref=e1856]:
+          - generic [ref=e1859]: Failover
+          - generic [ref=e1860]: Switch links when the primary drops.
+          - link "Set up" [ref=e1861] [cursor=pointer]:
+            - /url: "#"
+      - group [ref=e1862]:
+        - generic [ref=e1863] [cursor=pointer]:
+          - text: HTML
+          - button "Copy" [ref=e1864]
+    - heading "Settings navigation" [level=2] [ref=e1865]
+    - paragraph [ref=e1866]: "A 210px column: search on top, then icon rows for sub-sections, section labels, and a dotted connector between a parent and its child items. The active item is the raised surface with blue text."
+    - generic [ref=e1867]:
+      - generic [ref=e1869]:
+        - generic [ref=e1870]:
+          - textbox "Search settings" [ref=e1872]
+          - navigation [ref=e1873]:
+            - link "WiFi" [ref=e1874] [cursor=pointer]:
+              - /url: "#"
+            - link "Networks" [ref=e1877] [cursor=pointer]:
+              - /url: "#"
+            - link "Internet" [ref=e1880] [cursor=pointer]:
+              - /url: "#"
+            - link "VPN" [ref=e1883] [cursor=pointer]:
+              - /url: "#"
+            - generic [ref=e1886]: Policy Engine
+            - generic [ref=e1887]:
+              - button [ref=e1888] [cursor=pointer]
+              - button [ref=e1891] [cursor=pointer]
+              - button [ref=e1894] [cursor=pointer]
+              - button [ref=e1897] [cursor=pointer]
+            - generic [ref=e1901]:
+              - link "Security" [ref=e1902] [cursor=pointer]:
+                - /url: "#"
+              - link "Threats" [ref=e1905] [cursor=pointer]:
+                - /url: "#"
+              - link "Content Filter" [ref=e1906] [cursor=pointer]:
+                - /url: "#"
+            - generic [ref=e1907]: System
+            - link "General" [ref=e1908] [cursor=pointer]:
+              - /url: "#"
+            - link "Admins" [ref=e1911] [cursor=pointer]:
+              - /url: "#"
+          - generic [ref=e1914]:
+            - generic [ref=e1915]: Console 4.2.1
+            - link "Release notes" [ref=e1916] [cursor=pointer]:
+              - /url: "#"
+        - generic [ref=e1917]: Settings content
+      - group [ref=e1921]:
+        - generic [ref=e1922] [cursor=pointer]:
+          - text: HTML
+          - button "Copy" [ref=e1923]
+    - heading "Option cards & toggle rows" [level=2] [ref=e1924]
+    - paragraph [ref=e1925]: When a setting is one of a few big choices, list them as option cards in a surface column, and open the selected one in a panel with a blue outline. Feature toggles with descriptions are toggle rows.
+    - generic [ref=e1926]:
+      - generic [ref=e1928]:
+        - generic [ref=e1929]:
+          - generic [ref=e1930] [cursor=pointer]:
+            - heading "Server" [level=4] [ref=e1931]
+            - paragraph [ref=e1932]: Let remote devices connect into this network.
+            - generic [ref=e1933]:
+              - generic [ref=e1934]: Remote
+              - generic [ref=e1936]: Gateway
+              - generic [ref=e1938]: LAN
+          - generic [ref=e1939] [cursor=pointer]:
+            - heading "Client" [level=4] [ref=e1940]
+            - paragraph [ref=e1941]: Route this network's traffic through a remote server.
+            - generic [ref=e1942]:
+              - generic [ref=e1943]: LAN
+              - generic [ref=e1945]: Gateway
+              - generic [ref=e1947]: Remote
+          - generic [ref=e1948] [cursor=pointer]:
+            - heading "Site to Site" [level=4] [ref=e1949]
+            - paragraph [ref=e1950]: Join two networks as if they were one.
+        - generic [ref=e1951]:
+          - generic [ref=e1952]:
+            - heading "Server" [level=3] [ref=e1953]
+            - checkbox [checked] [ref=e1955] [cursor=pointer]
+          - generic [ref=e1956]:
+            - generic [ref=e1957]: Name
+            - textbox [ref=e1959]: Home VPN
+          - generic [ref=e1960]:
+            - generic [ref=e1961]: Protocol
+            - generic [ref=e1963]:
+              - button "WireGuard" [ref=e1964] [cursor=pointer]
+              - button "OpenVPN" [ref=e1965] [cursor=pointer]
+              - button "L2TP" [ref=e1966] [cursor=pointer]
+          - generic [ref=e1967]:
+            - generic [ref=e1968]: Port
+            - spinbutton [ref=e1971]: "51820"
+          - generic [ref=e1972]:
+            - generic [ref=e1973]: Clients
+            - generic [ref=e1974]:
+              - generic [ref=e1975] [cursor=pointer]:
+                - checkbox "Studio Laptop" [checked] [ref=e1976]
+                - text: Studio Laptop
+              - generic [ref=e1977] [cursor=pointer]:
+                - checkbox "Guest Phone" [ref=e1978]
+                - text: Guest Phone
+              - generic [ref=e1979]:
+                - link "Create New" [ref=e1980] [cursor=pointer]:
+                  - /url: "#"
+                - link "Manage" [ref=e1981] [cursor=pointer]:
+                  - /url: "#"
+          - generic [ref=e1982]:
+            - button "Cancel" [ref=e1983] [cursor=pointer]
+            - button "Apply Changes" [ref=e1984] [cursor=pointer]
+      - group [ref=e1985]:
+        - generic [ref=e1986] [cursor=pointer]:
+          - text: HTML
+          - button "Copy" [ref=e1987]
+    - generic [ref=e1988]:
+      - generic [ref=e1989]:
+        - generic [ref=e1990]:
+          - generic [ref=e1991]: Smart queues
+          - checkbox [checked] [ref=e1993] [cursor=pointer]
+          - generic [ref=e1994]: Prioritise interactive traffic when the link is saturated.
+        - generic [ref=e1995]:
+          - generic [ref=e1996]: Device fingerprinting
+          - checkbox [checked] [ref=e1998] [cursor=pointer]
+          - generic [ref=e1999]: Identify device types from their traffic patterns.
+        - generic [ref=e2000]:
+          - generic [ref=e2001]: Ad blocking
+          - checkbox [ref=e2003] [cursor=pointer]
+          - generic [ref=e2004]: Block known advertising domains at the DNS level.
+          - generic [ref=e2006]:
+            - button "Default" [ref=e2007] [cursor=pointer]
+            - button "IoT" [ref=e2008] [cursor=pointer]
+            - button "Guest" [ref=e2009] [cursor=pointer]
+      - group [ref=e2010]:
+        - generic [ref=e2011] [cursor=pointer]:
+          - text: HTML
+          - button "Copy" [ref=e2012]
+    - heading "Notices · Tooltips · Toast" [level=2] [ref=e2013]
+    - paragraph [ref=e2014]: Notices are quiet surface blocks with an icon, a bold first line, and an optional close. Tooltips are raised, shadowed, and may carry a title with a key-value list. Toasts confirm an action in the same words as the button that caused it.
+    - generic [ref=e2015]:
+      - generic [ref=e2016]:
+        - generic [ref=e2017]:
+          - generic [ref=e2020]:
+            - generic [ref=e2021]: Changes take effect on next reconnect
+            - text: Devices already connected keep their current settings until they roam or reconnect.
+          - button [ref=e2022] [cursor=pointer]
+        - generic [ref=e2028]:
+          - generic [ref=e2029]: 160 MHz needs DFS channels
+          - text: Radar detection may move this access point off its channel for up to a minute.
+        - generic [ref=e2030]: Link down.WAN2 has been unreachable for 4 minutes.
+        - generic [ref=e2034]:
+          - generic [ref=e2035]: i
+          - text: Leave empty to pick a channel automatically.
+      - group [ref=e2036]:
+        - generic [ref=e2037] [cursor=pointer]:
+          - text: HTML
+          - button "Copy" [ref=e2038]
+    - generic [ref=e2039]:
+      - generic [ref=e2040]:
+        - generic [ref=e2041]: Reconnect this client
+        - generic [ref=e2042]:
+          - generic [ref=e2043]: Loft AP · 5 GHz
+          - generic [ref=e2044]:
+            - generic [ref=e2045]:
+              - generic [ref=e2046]: Clients
+              - generic [ref=e2047]: "14"
+            - generic [ref=e2048]:
+              - generic [ref=e2049]: Channel
+              - generic [ref=e2050]: 44 (80)
+            - generic [ref=e2051]:
+              - generic [ref=e2052]: Utilization
+              - generic [ref=e2053]: 38%
+        - generic [ref=e2054]: Changes applied
+        - generic [ref=e2057]: Could not reach Garage Switch
+      - group [ref=e2060]:
+        - generic [ref=e2061] [cursor=pointer]:
+          - text: HTML
+          - button "Copy" [ref=e2062]
+    - heading "Modal" [level=2] [ref=e2063]
+    - paragraph [ref=e2064]: "A 400px raised dialog: title row with close, an optional search, content, and a footer with the secondary action on the left and Cancel + primary on the right."
+    - generic [ref=e2065]:
+      - generic [ref=e2067]:
+        - generic [ref=e2068]:
+          - text: Choose an icon
+          - button [ref=e2069] [cursor=pointer]
+        - generic [ref=e2072]:
+          - textbox "Search icons" [ref=e2074]
+          - generic [ref=e2075]:
+            - generic [ref=e2076] [cursor=pointer]: Display
+            - generic [ref=e2081] [cursor=pointer]: Laptop
+            - generic [ref=e2086] [cursor=pointer]: Phone
+            - generic [ref=e2091] [cursor=pointer]: Camera
+            - generic [ref=e2096] [cursor=pointer]: Bulb
+            - generic [ref=e2101] [cursor=pointer]: Printer
+            - generic [ref=e2106] [cursor=pointer]: TV
+            - generic [ref=e2111] [cursor=pointer]: Watch
+            - generic [ref=e2116] [cursor=pointer]: Plug
+        - generic [ref=e2121]:
+          - button "Restore Default" [ref=e2122] [cursor=pointer]
+          - button "Cancel" [ref=e2123] [cursor=pointer]
+          - button "Apply" [ref=e2124] [cursor=pointer]
+      - group [ref=e2125]:
+        - generic [ref=e2126] [cursor=pointer]:
+          - text: HTML
+          - button "Copy" [ref=e2127]
+    - heading "Principles" [level=2] [ref=e2128]
+    - paragraph [ref=e2129]: What makes a screen feel like this system rather than a generic dark dashboard.
+    - generic [ref=e2130]:
+      - generic [ref=e2131]:
+        - generic [ref=e2132]: Density is the point
+        - list [ref=e2133]:
+          - listitem [ref=e2134]: 31px rows, 13px text, hairlines only. No zebra striping, no card per row.
+          - listitem [ref=e2135]: Pack the sidebar with counts in parentheses; that is the scan aid.
+          - listitem [ref=e2136]: Values are text-2 grey; only the exception gets a color.
+      - generic [ref=e2137]:
+        - generic [ref=e2138]: Blue means "you can act here"
+        - list [ref=e2139]:
+          - listitem [ref=e2140]: Links, active tabs, checked boxes, primary buttons, the selected row edge, the sorted header.
+          - listitem [ref=e2141]: Never use blue as decoration or as a data color except for download.
+      - generic [ref=e2142]:
+        - generic [ref=e2143]: Status is small
+        - list [ref=e2144]:
+          - listitem [ref=e2145]: A 6px dot, a chip, or a colored word. Never a tinted row or a giant badge.
+          - listitem [ref=e2146]: Green good, yellow ok, orange fair, red bad, grey offline.
+      - generic [ref=e2147]:
+        - generic [ref=e2148]: Three surfaces, nothing else
+        - list [ref=e2149]:
+          - listitem [ref=e2150]: Page, surface, raised. Depth comes from the step between them, not from shadows or borders.
+          - listitem [ref=e2151]: Cards have no border. Inputs have no border until focused.
+      - generic [ref=e2152]:
+        - generic [ref=e2153]: Labels are quiet, numbers are tabular
+        - list [ref=e2154]:
+          - listitem [ref=e2155]: 11px grey labels, 11px bold section titles, slashed zeros everywhere.
+          - listitem [ref=e2156]: Right-align numeric columns and give them units.
+      - generic [ref=e2157]:
+        - generic [ref=e2158]: Destructive is a link
+        - list [ref=e2159]:
+          - listitem [ref=e2160]: Reconnect / Block / Remove are red text, stacked at the end of a drawer.
+          - listitem [ref=e2161]: Confirm in a modal; never in a toast.
+    - heading "For agents" [level=2] [ref=e2162]
+    - paragraph [ref=e2163]:
+      - text: If you are generating a page with this system, read
+      - link "skill.md" [ref=e2164] [cursor=pointer]:
+        - /url: ../skill.md
+      - text: ". The short version: wrap the page in"
+      - code [ref=e2165]: .ui
+      - text: ", compose from the classes above, use the lucide sprite for icons, invent device names and use 192.168.0.x / 192.168.1.x addresses, and pick one of the example pages as the starting shell."
