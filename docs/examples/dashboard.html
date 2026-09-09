@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard · uiui example</title>
+<link rel="stylesheet" href="../../src/uiui.css">
+</head>
+<body class="ui">
+<div class="ui-app">
+  <header class="ui-topbar">
+    <div class="ui-topbar-tab is-active"><span class="ui-dot"></span> Home Office <svg class="ui-icon sm"><use href="../vendor/lucide-sprite.svg#chevron-down"/></svg></div>
+    <div class="ui-topbar-tab"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#globe"/></svg> Network</div>
+    <div class="ui-brand">console</div>
+    <div class="ui-topbar-actions">
+      <button class="ui-btn icon"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#search"/></svg></button>
+      <button class="ui-btn icon"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#bell"/></svg></button>
+      <button class="ui-btn icon"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#circle-help"/></svg></button>
+      <span class="ui-avatar round">JT</span>
+    </div>
+  </header>
+  <nav class="ui-rail">
+    <a class="ui-rail-btn is-active" href="dashboard.html" title="Dashboard"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#layout-dashboard"/></svg></a><a class="ui-rail-btn" href="policies.html" title="Policies"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#shield"/></svg></a><a class="ui-rail-btn" href="radios.html" title="Radios"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#radio"/></svg></a><a class="ui-rail-btn" href="devices.html" title="Devices"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#router"/></svg></a><a class="ui-rail-btn" href="clients.html" title="Clients"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#users"/></svg></a><a class="ui-rail-btn" href="insights.html" title="Insights"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#activity"/></svg></a>
+    <span class="ui-spacer"></span>
+    <a class="ui-rail-btn" href="settings.html" title="Settings"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#settings"/></svg></a>
+  </nav>
+  <main class="ui-main ui-page" style="grid-column: side / drawer">
+    <div class="ui-between" style="margin-bottom:12px">
+      <div class="ui-row" style="gap:14px"><span style="font-size:16px;font-weight:600" class="ui-bright">Dashboard</span><div class="ui-seg solid sm"><button>1h</button><button class="is-active">1D</button><button>1W</button><button>1M</button></div></div>
+      <div class="ui-counts"><span><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#router"/></svg> 1</span><span><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#network"/></svg> 3</span><span><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#wifi"/></svg> 4</span><span><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#users"/></svg> 38</span></div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:2fr 1fr;gap:12px;align-items:start">
+      <div>
+        <div class="ui-card">
+          <div class="ui-card-title"><h3>Internet</h3><span class="ui-chip green">Online</span></div>
+          <div class="ui-linkline" style="margin-bottom:12px"><svg class="ui-icon ui-muted"><use href="../vendor/lucide-sprite.svg#globe"/></svg><div class="ui-bar"><i></i></div><svg class="ui-icon ui-muted"><use href="../vendor/lucide-sprite.svg#router"/></svg><span class="ui-sm">Fiber ISP · WAN1</span><svg class="ui-icon sm ui-muted"><use href="../vendor/lucide-sprite.svg#chevron-right"/></svg></div>
+          <div class="ui-pills"><span class="ui-pill"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#globe"/></svg> 11 ms</span><span class="ui-pill"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#gamepad-2"/></svg> 24 ms</span><span class="ui-pill"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#video"/></svg> 8 ms</span><span class="ui-pill"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#message-square"/></svg> 19 ms</span></div>
+          <div class="ui-divider"></div>
+          <div class="ui-between"><div class="ui-inline-stats"><div>Download<b class="ui-down">940 Mbps</b></div><div>Upload<b class="ui-up">38 Mbps</b></div><div>Tested<b>2 hours ago</b></div></div><button class="ui-btn outline sm">Run Speed Test</button></div>
+        </div>
+
+        <div class="ui-card">
+          <div class="ui-card-title"><h3>Throughput</h3><div class="ui-chart-legend"><span><i style="--ui-c:var(--ui-cyan)"></i>Download</span><span><i style="--ui-c:var(--ui-purple)"></i>Upload</span></div></div>
+          <div class="ui-chart"><svg viewBox="0 0 640 160">
+            <g class="grid"><line x1="40" y1="20" x2="640" y2="20"/><line x1="40" y1="60" x2="640" y2="60"/><line x1="40" y1="100" x2="640" y2="100"/><line x1="40" y1="140" x2="640" y2="140"/></g>
+            <g class="axis"><text x="0" y="24">900</text><text x="0" y="64">600</text><text x="0" y="104">300</text><text x="0" y="144">0</text><text x="40" y="158">00:00</text><text x="190" y="158">06:00</text><text x="340" y="158">12:00</text><text x="490" y="158">18:00</text><text x="612" y="158">now</text></g>
+            <path class="line cyan" d="M40 130 L70 128 100 132 130 120 160 124 190 118 220 100 250 106 280 70 310 80 340 52 370 66 400 40 430 58 460 46 490 72 520 50 550 76 580 60 610 68 640 62"/>
+            <path class="line purple" d="M40 136 L100 134 160 135 220 130 280 128 340 124 400 126 460 120 520 125 580 122 640 124"/>
+          </svg></div>
+        </div>
+
+        <div class="ui-card">
+          <div class="ui-card-title"><h3>Top Clients</h3><a href="clients.html" class="ui-sm">View All</a></div>
+          <table class="ui-table compact"><thead><tr><th>Name</th><th>Connection</th><th class="right">Down</th><th class="right">Up</th><th style="width:140px">Activity</th></tr></thead><tbody>
+            <tr><td><span class="ui-device"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#server"/></svg> Media Server</span></td><td><a href="#">Core Switch</a> <span class="ui-muted">· Port 1</span></td><td class="right ui-down">88 Mbps</td><td class="right ui-up">412 Mbps</td><td><div class="ui-bar thin"><i style="width:92%"></i></div></td></tr>
+            <tr><td><span class="ui-device"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#laptop"/></svg> Studio Laptop</span></td><td><a href="#">Studio AP</a> <span class="ui-muted">· 6 GHz</span></td><td class="right ui-down">412 Mbps</td><td class="right ui-up">31.7 Mbps</td><td><div class="ui-bar thin"><i style="width:70%"></i></div></td></tr>
+            <tr><td><span class="ui-device"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#hard-drive"/></svg> Backup NAS</span></td><td><a href="#">Core Switch</a> <span class="ui-muted">· Port 2</span></td><td class="right ui-down">410 Mbps</td><td class="right ui-up">12 Mbps</td><td><div class="ui-bar thin"><i style="width:64%"></i></div></td></tr>
+            <tr><td><span class="ui-device"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#tv"/></svg> Living Room TV</span></td><td><a href="#">Core Switch</a> <span class="ui-muted">· Port 3</span></td><td class="right ui-down">24.6 Mbps</td><td class="right ui-up">310 kbps</td><td><div class="ui-bar thin"><i style="width:12%"></i></div></td></tr>
+            <tr><td><span class="ui-device"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#monitor"/></svg> Kitchen Display</span></td><td><a href="#">Loft AP</a> <span class="ui-muted">· 5 GHz</span></td><td class="right ui-down">18.4 Mbps</td><td class="right ui-up">2.1 Mbps</td><td><div class="ui-bar thin"><i style="width:8%"></i></div></td></tr>
+          </tbody></table>
+        </div>
+      </div>
+
+      <div>
+        <div class="ui-card">
+          <div class="ui-card-title"><h3>Devices</h3><a href="#" class="ui-sm">View All</a></div>
+          <div class="ui-stat"><span><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#router"/></svg> Gateway</span><span class="ui-row"><span class="ui-dot"></span> 1</span></div>
+          <div class="ui-stat"><span><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#network"/></svg> Switches</span><span class="ui-row"><span class="ui-dot"></span> 3</span></div>
+          <div class="ui-stat"><span><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#wifi"/></svg> Access Points</span><span class="ui-row"><span class="ui-dot"></span> 4</span></div>
+          <div class="ui-stat"><span><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#users"/></svg> Clients</span><span>31 <span class="ui-muted">/ 38</span></span></div>
+        </div>
+        <div class="ui-card">
+          <div class="ui-card-title"><h3>Access Points</h3></div>
+          <div class="ui-tiles-title">Top by clients</div>
+          <div class="ui-tiles">
+            <div class="ui-tile is-active"><span class="ui-tile-box"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#wifi"/></svg><span class="ui-tile-count">14</span></span><span class="ui-tile-label">Loft AP</span></div>
+            <div class="ui-tile"><span class="ui-tile-box"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#wifi"/></svg><span class="ui-tile-count">9</span></span><span class="ui-tile-label">Studio AP</span></div>
+            <div class="ui-tile"><span class="ui-tile-box"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#wifi"/></svg><span class="ui-tile-count">6</span></span><span class="ui-tile-label">Hall AP</span></div>
+            <div class="ui-tile"><span class="ui-tile-box"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#wifi"/></svg><span class="ui-tile-count">2</span></span><span class="ui-tile-label">Garden AP</span></div>
+          </div>
+          <div class="ui-divider"></div>
+          <div class="ui-tiles-title">Top apps</div>
+          <div class="ui-tiles">
+            <div class="ui-tile round"><span class="ui-tile-box"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#video"/></svg></span><span class="ui-tile-label">Streaming</span></div>
+            <div class="ui-tile round"><span class="ui-tile-box"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#cloud"/></svg></span><span class="ui-tile-label">Backup</span></div>
+            <div class="ui-tile round"><span class="ui-tile-box"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#gamepad-2"/></svg></span><span class="ui-tile-label">Gaming</span></div>
+            <div class="ui-tile round"><span class="ui-tile-box"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#message-square"/></svg></span><span class="ui-tile-label">Chat</span></div>
+          </div>
+        </div>
+        <div class="ui-card">
+          <div class="ui-card-title"><h3>WiFi Experience</h3><span class="ui-green">Excellent</span></div>
+          <div class="ui-bar thick"><i style="width:84%;--ui-c:var(--ui-green)"></i><i style="width:11%;--ui-c:var(--ui-yellow)"></i><i style="width:5%;--ui-c:var(--ui-orange)"></i></div>
+          <div class="ui-legend"><span><i style="--ui-c:var(--ui-green)"></i> 84% excellent</span><span><i style="--ui-c:var(--ui-yellow)"></i> 11% good</span><span><i style="--ui-c:var(--ui-orange)"></i> 5% fair</span></div>
+        </div>
+        <div class="ui-card flat">
+          <div class="ui-card-title"><h3>Threats</h3><span class="ui-muted ui-sm">24h</span></div>
+          <div class="ui-empty"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#shield-check"/></svg>No threats detected.</div>
+        </div>
+        <div class="ui-notice"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#info"/></svg><div><b>Firmware update available</b>Core Switch can update to 7.2.4. Updates run at 03:00.</div><button class="ui-btn icon ui-close"><svg class="ui-icon sm"><use href="../vendor/lucide-sprite.svg#x"/></svg></button></div>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Settings · uiui example</title>
+<link rel="stylesheet" href="../../src/uiui.css">
+</head>
+<body class="ui">
+<div class="ui-app">
+  <header class="ui-topbar">
+    <div class="ui-topbar-tab is-active"><span class="ui-dot"></span> Home Office <svg class="ui-icon sm"><use href="../vendor/lucide-sprite.svg#chevron-down"/></svg></div>
+    <div class="ui-topbar-tab"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#globe"/></svg> Network</div>
+    <div class="ui-brand">console</div>
+    <div class="ui-topbar-actions">
+      <button class="ui-btn icon"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#search"/></svg></button>
+      <button class="ui-btn icon"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#bell"/></svg></button>
+      <button class="ui-btn icon"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#circle-help"/></svg></button>
+      <span class="ui-avatar round">JT</span>
+    </div>
+  </header>
+  <nav class="ui-rail">
+    <a class="ui-rail-btn" href="dashboard.html" title="Dashboard"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#layout-dashboard"/></svg></a><a class="ui-rail-btn" href="policies.html" title="Policies"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#shield"/></svg></a><a class="ui-rail-btn" href="radios.html" title="Radios"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#radio"/></svg></a><a class="ui-rail-btn" href="devices.html" title="Devices"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#router"/></svg></a><a class="ui-rail-btn" href="clients.html" title="Clients"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#users"/></svg></a><a class="ui-rail-btn" href="insights.html" title="Insights"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#activity"/></svg></a>
+    <span class="ui-spacer"></span>
+    <a class="ui-rail-btn is-active" href="settings.html" title="Settings"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#settings"/></svg></a>
+  </nav>
+  <div class="ui-settings" style="grid-column: side / drawer; grid-row: 2; min-height: 0">
+    <div class="ui-settings-nav">
+      <div class="ui-search ui-input-wrap" style="padding:6px 8px 4px"><svg class="ui-icon" style="left:16px"><use href="../vendor/lucide-sprite.svg#search"/></svg><input class="ui-input" placeholder="Search settings"></div>
+      <nav class="ui-nav">
+        <a class="ui-nav-item is-active" href="#"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#wifi"/></svg> WiFi</a>
+        <a class="ui-nav-item" href="#"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#network"/></svg> Networks</a>
+        <a class="ui-nav-item" href="#"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#globe"/></svg> Internet</a>
+        <a class="ui-nav-item" href="#"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#lock"/></svg> VPN</a>
+        <div class="ui-nav-label strong">Policy Engine</div>
+        <div class="ui-nav-icons"><a class="ui-btn icon is-active" href="policies.html"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#shield"/></svg></a><button class="ui-btn icon"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#route"/></svg></button><button class="ui-btn icon"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#gauge"/></svg></button><button class="ui-btn icon"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#waypoints"/></svg></button></div>
+        <div class="ui-nav-sep"></div>
+        <div class="ui-nav-tree">
+          <a class="ui-nav-item" href="#"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#shield-check"/></svg> Security</a>
+          <a class="ui-nav-item" href="#" style="padding-left:38px">Threats</a>
+          <a class="ui-nav-item" href="#" style="padding-left:38px">Content Filter</a>
+        </div>
+        <a class="ui-nav-item" href="#"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#route"/></svg> Routing</a>
+        <a class="ui-nav-item" href="#"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#radio"/></svg> Radios</a>
+        <div class="ui-nav-label">System</div>
+        <a class="ui-nav-item" href="#"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#settings"/></svg> General</a>
+        <a class="ui-nav-item" href="#"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#users"/></svg> Admins</a>
+        <a class="ui-nav-item" href="#"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#cloud"/></svg> Backups</a>
+      </nav>
+      <div class="ui-nav-foot"><span>Console 4.2.1</span><a href="#">Release notes</a></div>
+    </div>
+
+    <div class="ui-settings-body">
+      <div class="ui-between" style="margin-bottom:12px"><span style="font-size:16px;font-weight:600" class="ui-bright">WiFi</span><button class="ui-btn primary sm"><svg class="ui-icon sm"><use href="../vendor/lucide-sprite.svg#plus"/></svg> Create New</button></div>
+
+      <div class="ui-card">
+        <div class="ui-card-title"><h3><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#wifi"/></svg> Networks</h3><svg class="ui-icon chev"><use href="../vendor/lucide-sprite.svg#chevron-up"/></svg></div>
+        <table class="ui-table compact card"><thead><tr><th>Name</th><th>Band</th><th>Network</th><th>Security</th><th class="right">Clients</th><th></th></tr></thead><tbody>
+          <tr><td><span class="ui-row"><span class="ui-dot"></span> Birchwood</span></td><td><span class="ui-chip-row"><span class="ui-chip">2.4</span><span class="ui-chip">5</span><span class="ui-chip">6</span></span></td><td>Default</td><td>WPA3</td><td class="right">24</td><td class="right"><a href="#">Edit</a></td></tr>
+          <tr><td><span class="ui-row"><span class="ui-dot"></span> Birchwood IoT</span></td><td><span class="ui-chip-row"><span class="ui-chip">2.4</span></span></td><td>IoT</td><td>WPA2</td><td class="right">9</td><td class="right"><a href="#">Edit</a></td></tr>
+          <tr><td><span class="ui-row"><span class="ui-dot off"></span> Birchwood Guest</span></td><td><span class="ui-chip-row"><span class="ui-chip">2.4</span><span class="ui-chip">5</span></span></td><td>Guest</td><td>Open · Portal</td><td class="right">0</td><td class="right"><a href="#">Edit</a></td></tr>
+        </tbody></table>
+      </div>
+
+      <div class="ui-card">
+        <div class="ui-card-title"><h3><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#pencil"/></svg> Edit Birchwood</h3><svg class="ui-icon chev"><use href="../vendor/lucide-sprite.svg#chevron-up"/></svg></div>
+        <div class="ui-form-row"><div class="ui-form-label">Name</div><div><input class="ui-input" value="Birchwood" style="max-width:320px"></div></div>
+        <div class="ui-form-row"><div class="ui-form-label">Password</div><div><div class="ui-input-wrap" style="max-width:320px"><input class="ui-input" type="password" value="notarealpassword"><span class="ui-addon"><button class="ui-btn icon"><svg class="ui-icon sm"><use href="../vendor/lucide-sprite.svg#eye"/></svg></button></span></div></div></div>
+        <div class="ui-form-row"><div class="ui-form-label">Network</div><div><select class="ui-select" style="max-width:320px"><option>Default</option><option>IoT</option><option>Guest</option><option>Cameras</option></select></div></div>
+        <div class="ui-form-row"><div class="ui-form-label">Band <i class="ui-info"></i></div><div class="ui-sub"><div class="ui-chips"><button class="is-active">2.4 GHz</button><button class="is-active">5 GHz</button><button class="is-active">6 GHz</button></div><label class="ui-check"><input type="checkbox" checked> Band steering</label></div></div>
+        <div class="ui-form-row"><div class="ui-form-label">Access Points</div><div class="ui-sub"><div class="ui-seg"><button class="is-active">All</button><button>Specific</button></div><span class="ui-help">Broadcast from every access point on this site.</span></div></div>
+        <div class="ui-form-row"><div class="ui-form-label">Security</div><div class="ui-sub"><div class="ui-radio-group column"><label class="ui-radio"><input type="radio" name="sec"> WPA2</label><label class="ui-radio"><input type="radio" name="sec" checked> WPA3</label><label class="ui-radio"><input type="radio" name="sec"> WPA2 / WPA3 mixed</label></div></div></div>
+        <div class="ui-form-row"><div class="ui-form-label">Advanced</div><div><div class="ui-seg"><button class="is-active">Auto</button><button>Manual</button></div></div></div>
+        <div class="ui-notice warn" style="max-width:520px;margin:6px 0 10px"><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#triangle-alert"/></svg><div><b>Some devices can't join WPA3-only networks</b>Older printers and smart plugs may need the mixed mode.</div></div>
+        <div class="ui-row" style="justify-content:flex-end;gap:8px"><button class="ui-btn danger">Delete</button><span class="ui-grow"></span><button class="ui-btn">Cancel</button><button class="ui-btn primary">Apply Changes</button></div>
+      </div>
+
+      <div class="ui-card">
+        <div class="ui-card-title"><h3><svg class="ui-icon"><use href="../vendor/lucide-sprite.svg#sliders-horizontal"/></svg> Global Settings</h3><svg class="ui-icon chev"><use href="../vendor/lucide-sprite.svg#chevron-up"/></svg></div>
+        <div class="ui-toggle-row"><div class="ui-toggle-title">Fast roaming</div><label class="ui-switch"><input type="checkbox" checked></label><div class="ui-toggle-desc">Hand clients between access points before signal degrades.</div></div>
+        <div class="ui-toggle-row"><div class="ui-toggle-title">Client isolation on Guest</div><label class="ui-switch"><input type="checkbox" checked></label><div class="ui-toggle-desc">Guests can reach the internet but not each other.</div></div>
+        <div class="ui-toggle-row"><div class="ui-toggle-title">Scheduled radio off</div><label class="ui-switch"><input type="checkbox"></label><div class="ui-toggle-desc">Turn radios off overnight.</div><div class="ui-toggle-extra"><div class="ui-row"><div class="ui-stepper"><input type="number" value="1"><span class="ui-unit">:00</span></div><span class="ui-muted ui-sm">to</span><div class="ui-stepper"><input type="number" value="6"><span class="ui-unit">:00</span></div></div></div></div>
+        <div class="ui-form-row"><div class="ui-form-label">Minimum data rate <i class="ui-info"></i></div><div class="ui-sub" style="max-width:320px"><div class="ui-slider"><div class="ui-slider-head">12 Mbps</div><input type="range" min="0" max="5" value="2" style="--ui-fill:40%"><div class="ui-ticks marks"><span>1</span><span>6</span><span>12</span><span>24</span><span>36</span><span>54</span></div></div></div></div>
+        <div class="ui-links"><a href="#">Restore Defaults</a><a href="#">Export</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
