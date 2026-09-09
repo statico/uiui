@@ -1,0 +1,25 @@
+# uiui
+
+> uiui (YOO-ee-YOO-ee) is a dense console design system in one CSS file, inspired by the Unifi console: app shell, filter sidebar, detail drawer, data tables, port grids, charts, light and dark. Plain HTML, no build, made for agents to copy from.
+
+uiui is pronounced YOO-ee-YOO-ee. Source: https://github.com/statico/uiui (MIT).
+
+## Docs
+
+- [Agent guide](/skill.md): widget list, page recipes, composition rules. Read this first.
+- [Style guide as markdown](/index.md): the whole site in one markdown page.
+- [Style guide](/): every widget with copyable HTML, light and dark.
+- [The stylesheet](/src/uiui.css): the entire library, one file.
+
+## Examples
+
+- [Dashboard](/examples/dashboard.html)
+- [Clients table](/examples/clients.html)
+- [Settings](/examples/settings.html)
+- [Policies and zone matrix](/examples/policies.html)
+- [Radios and channels](/examples/radios.html)
+
+## Optional
+
+- [Sitemap](/sitemap.md)
+- [shadcn theme registry](/registry/uiui-theme.json)

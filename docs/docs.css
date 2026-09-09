@@ -66,3 +66,6 @@
 @container (max-width: 860px) { .dc-hero .ui-drawer { display: none; } }
 .dc-hero .ui-scroll-x { overflow-x: auto; }
 .dc-hero .ui-port { width: 32px; height: 32px; }
+.dc-gloss { display: grid; grid-template-columns: max-content 1fr; gap: 6px 18px; max-width: 70ch; }
+.dc-gloss dt { font-weight: 600; color: var(--ui-text-bright); }
+.dc-gloss dd { margin: 0; color: var(--ui-text-2); }

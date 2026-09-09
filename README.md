@@ -1,6 +1,8 @@
 # uiui
 
-A dense, dark, operations-console UI kit in plain HTML and one CSS file, inspired by the Unifi console.
+[![The uiui demo: a network console with filter sidebar, client table, throughput chart and detail drawer](docs/assets/demo.png)](https://uiui.statico.io)
+
+A dense, dark, operations-console UI kit in plain HTML and one CSS file, inspired by the Unifi console. Pronounced YOO-ee-YOO-ee. Live at [uiui.statico.io](https://uiui.statico.io).
 Like [smui.statico.io](https://smui.statico.io) or shadcn, but for network-console style interfaces: a style guide, a widget catalogue and full example pages that agents (and people) can copy from.
 
 - `src/uiui.css` — the whole library. Tokens, shell, widgets, dark and light themes. No build step, no JS.
@@ -8,6 +10,7 @@ Like [smui.statico.io](https://smui.statico.io) or shadcn, but for network-conso
 - `docs/examples/` — dashboard, clients, settings, policies, radios pages.
 - `skill.md` — instructions for agents: widget list, recipes, composition rules.
 - `registry/uiui-theme.json` — palette as a shadcn theme.
+- `docs/llms.txt`, `docs/index.md` — agent-readable entry points; `/AGENTS.md` on the site serves `skill.md`.
 
 ## Use
 

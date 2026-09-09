@@ -3,7 +3,7 @@
 Dense dark console UI as plain HTML + one CSS file. No build, no framework, no JS required.
 Read this file, then copy the closest page in `docs/examples/` and edit it. Do not invent new visual styles.
 
-## Setup
+## Install and setup
 
 ```html
 <link rel="stylesheet" href="src/uiui.css">
@@ -24,7 +24,7 @@ Icons are lucide (ISC), used via the sprite. Sizes: `.ui-icon` 16px, `.sm` 14, `
 - Sentence case everywhere except filter/nav section titles, which are small caps-style uppercase labels (`.ui-filter-title`, `.ui-nav-label`).
 - Do not mention the brand that inspired this library anywhere in generated UI.
 
-## Page recipes (start here)
+## Usage: page recipes (start here)
 
 | Want | Copy | Shell |
 |---|---|---|

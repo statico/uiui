@@ -4,6 +4,25 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>uiui — console design system</title>
+<meta name="description" content="uiui (YOO-ee-YOO-ee) is a dense console design system in one CSS file, inspired by the Unifi console: app shell, filter sidebar, detail drawer, data tables, port grids, charts, light and dark. Plain HTML, no build, made for agents to copy from.">
+<link rel="canonical" href="https://uiui.statico.io/">
+<link rel="alternate" type="text/markdown" href="https://uiui.statico.io/index.md">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="uiui">
+<meta property="og:title" content="uiui — console design system">
+<meta property="og:description" content="uiui (YOO-ee-YOO-ee) is a dense console design system in one CSS file, inspired by the Unifi console: app shell, filter sidebar, detail drawer, data tables, port grids, charts, light and dark. Plain HTML, no build, made for agents to copy from.">
+<meta property="og:url" content="https://uiui.statico.io/">
+<meta property="og:image" content="https://uiui.statico.io/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The uiui demo: a network console with filter sidebar, client table, throughput chart and detail drawer, in dark mode.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="uiui — console design system">
+<meta name="twitter:description" content="uiui (YOO-ee-YOO-ee) is a dense console design system in one CSS file, inspired by the Unifi console: app shell, filter sidebar, detail drawer, data tables, port grids, charts, light and dark. Plain HTML, no build, made for agents to copy from.">
+<meta name="twitter:image" content="https://uiui.statico.io/assets/og.png">
+<meta name="theme-color" content="#111214">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://uiui.statico.io/#site","url":"https://uiui.statico.io/","name":"uiui","description":"uiui (YOO-ee-YOO-ee) is a dense console design system in one CSS file, inspired by the Unifi console: app shell, filter sidebar, detail drawer, data tables, port grids, charts, light and dark. Plain HTML, no build, made for agents to copy from.","inLanguage":"en","dateModified":"2026-09-09"},{"@type":"SoftwareSourceCode","@id":"https://uiui.statico.io/#code","name":"uiui","url":"https://uiui.statico.io/","codeRepository":"https://github.com/statico/uiui","programmingLanguage":"CSS","license":"https://opensource.org/licenses/MIT","description":"uiui (YOO-ee-YOO-ee) is a dense console design system in one CSS file, inspired by the Unifi console: app shell, filter sidebar, detail drawer, data tables, port grids, charts, light and dark. Plain HTML, no build, made for agents to copy from.","dateModified":"2026-09-09"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"uiui","item":"https://uiui.statico.io/"}]}]}</script>
 <link rel="stylesheet" href="../src/uiui.css?v=3">
 <link rel="stylesheet" href="docs.css?v=3">
 </head>
@@ -45,6 +64,7 @@
   <a href="#notices">Notices · Tooltips · Toast</a>
   <a href="#modal">Modal</a>
   <div class="grp">Guidance</div>
+  <a href="#glossary">Glossary</a>
   <a href="#principles">Principles</a>
   <a href="#agents">For agents</a>
 </nav>
@@ -668,6 +688,21 @@
   </div>
 </div></div>
 
+<h2 id="glossary">Glossary</h2>
+<p>The words this site uses for its parts, so people and agents mean the same thing.</p>
+<dl class="dc-gloss">
+<dt>Shell</dt><dd>The fixed frame of a console page: topbar, rail, sidebar, main and drawer (<code>.ui-app</code>).</dd>
+<dt>Rail</dt><dd>The narrow icon-only column on the far left that switches between sections.</dd>
+<dt>Sidebar</dt><dd>The filter or navigation column between the rail and the main area.</dd>
+<dt>Drawer</dt><dd>The detail panel docked on the right that shows the selected item.</dd>
+<dt>Chip</dt><dd>A small rounded status label such as Online or Blocked (<code>.ui-chip</code>).</dd>
+<dt>Meter</dt><dd>Four short bars showing signal quality; level 1 is best, level 4 is worst (<code>.ui-meter</code>).</dd>
+<dt>Segmented control</dt><dd>A row of joined buttons where exactly one is active, used for time ranges and tabs (<code>.ui-seg</code>).</dd>
+<dt>Key-value list</dt><dd>Label on the left, value on the right, one row per fact (<code>.ui-kv</code>).</dd>
+<dt>Port grid</dt><dd>A switch faceplate of numbered squares coloured by link speed (<code>.ui-ports</code>).</dd>
+<dt>Zone matrix</dt><dd>A grid of allow, block and return cells showing traffic rules between zones (<code>.ui-matrix</code>).</dd>
+<dt>Bucket</dt><dd>A short row of coloured boxes, one per day or band, each holding a count (<code>.ui-buckets</code>).</dd>
+</dl>
 <h2 id="principles">Principles</h2>
 <p>What makes a screen feel like this system rather than a generic dark dashboard.</p>
 <div class="dc-do">
